@@ -9,7 +9,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/// <summary>
+/// Form De Début Contient le login pour passe a la form Principal de traitement de l'image
+/// Auteur : ASUS - Hnada Mohamed 
+/// </summary>
 namespace WindowsFormsApplication1
 {
     public partial class Form3 :MetroForm
@@ -21,8 +24,8 @@ namespace WindowsFormsApplication1
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            //Design Part
             this.StyleManager = metroStyleManager;
-            //metroStyleManager.Theme =  MetroThemeStyle.Dark ;
             metroStyleManager.Theme = MetroThemeStyle.Dark;
             this.FormBorderStyle = FormBorderStyle.None;
 
@@ -41,8 +44,7 @@ namespace WindowsFormsApplication1
 
         private void bunifuThinButton22_Click(object sender, EventArgs e)
         {
-            //Form4 f = new Form4("Done", Color.DarkOrange);
-            //f.Show();
+           
         }
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
@@ -54,11 +56,6 @@ namespace WindowsFormsApplication1
         {
 
             loginform.Visible = true;
-
-            //Form4 f = new Form4("Done", Color.DarkOrange);
-            //f.Show();
-            //Form1 f1 = new Form1();
-            //f1.Show();
 
         }
 

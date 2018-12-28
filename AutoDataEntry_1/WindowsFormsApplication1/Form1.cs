@@ -16,27 +16,38 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/// <summary>
+/// Form Principal de traitement de l'image 
+/// 
+/// Auteur : ASUS - Hnada Mohamed 
+/// </summary>
 namespace WindowsFormsApplication1
 {
+
     public partial class Form1 : MetroForm
     {
+        //Ces dossier sont creer pour le traitment des image 
+        String ProcessForlder = @"D:\hnada20\Process\";                 //Dossier pendant le Traitement    
+        String ScannerForlder = @"D:\hnada20\Scanner\";                 //Dossier a Scanner 
+        String ErrorForlder = @"D:\hnada20\Error\";                     //Dossier Pour les erreur
+        String DoneForlder = @"D:\hnada20\Done\";                       //Dossier des image bien traiter 
+
+        int H, M, S;                                                    //timer element 
+        Thread th7;                                                     //Thread Pour le traitement des image :pour que le traitement ne bloque pas UI
+
+
         public Form1()
         {
             InitializeComponent();
         }
-        int H, M, S;
-        Thread th7;
+        
 
-
-        /// *****************************************************************************************************************************
-        //*******************************************************************************************************************************
         private void Form1_Load(object sender, EventArgs e)
         {
-            //connection
+            //connection Mysql
             DatabaseManager.OpenConnection();
 
-            //theme
+            //Design
             this.StyleManager = metroStyleManager1;
             metroStyleManager1.Theme = MetroThemeStyle.Dark;
             this.FormBorderStyle = FormBorderStyle.None;
@@ -47,7 +58,7 @@ namespace WindowsFormsApplication1
             S = 0;
             timer1.Start();
 
-            //***********
+            //LiveChat -Test-
             chart1.Series["s1"].IsValueShownAsLabel = true;
             chart1.Series["s1"].Points.AddXY("Done", "10");
             chart1.Series["s1"].Points.AddXY("Errors", "10");
@@ -55,38 +66,30 @@ namespace WindowsFormsApplication1
 
 
 
-            //****process files 
-
+            // Start Thread de traitemnt La premiere fois
             th7 = new Thread(start);
             th7.SetApartmentState(ApartmentState.STA);
             th7.Start();
-
-
-
-
-
         }
+
         public void start()
         {
+            //Fonction Principal De traitement de l'image 
             StartOperation();
-            
-
         }
 
 
 
 
-        String ProcessForlder = @"D:\hnada20\Process\";
-        String ScannerForlder = @"D:\hnada20\Scanner\";
-        String ErrorForlder = @"D:\hnada20\Error\";
-        String DoneForlder = @"D:\hnada20\Done\";
+        //Usage du Timer pour Tester si il ya des image dans le dossier du Scanner lorsqu'on termine de traiter les image du dossier Du traitement
+    
         private void timer1_Tick(object sender, EventArgs e)
         {
             S++;
-            
 
             DirectoryInfo process = new DirectoryInfo(ProcessForlder);
             int p = 0;
+
             foreach (FileInfo fi in process.GetFiles())
             {
                 p++;
@@ -94,7 +97,7 @@ namespace WindowsFormsApplication1
             
             if (p==0 )
             {
-                if (!th7.IsAlive )
+                if (!th7.IsAlive )                                 
                 {
                     th7 = new Thread(start);
                     th7.SetApartmentState(ApartmentState.STA);
@@ -107,7 +110,7 @@ namespace WindowsFormsApplication1
 
 
 
-
+            // On prent le nbr des image dans chaque dossier pour aclualiser UI pour que Utilisateur suis le Traitement Complet 
             if (S > 10)
             {
                 DirectoryInfo donef = new DirectoryInfo(DoneForlder);
@@ -147,6 +150,7 @@ namespace WindowsFormsApplication1
             hours.Text = H.ToString();
         }
 
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -166,7 +170,7 @@ namespace WindowsFormsApplication1
         {
 
         }
-
+        //Button du Slider menu --En Test --
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
             if (menuslider.Width < 100)
@@ -198,32 +202,40 @@ namespace WindowsFormsApplication1
 
 
             List<String> paths = new List<String>();
-            String ProcessForlder = @"D:\hnada20\Process\";
-            String ScannerForlder = @"D:\hnada20\Scanner\";
-            String ErrorForlder = @"D:\hnada20\Error\";
-            String DoneForlder = @"D:\hnada20\Done\";
+           
+            //Creation des dossiers de traitement 
             Class2.CreateIfMissing(ProcessForlder);
             Class2.CreateIfMissing(ScannerForlder);
             Class2.CreateIfMissing(ErrorForlder);
             Class2.CreateIfMissing(DoneForlder);
+            //image virtuelle 
             Image im = null;
+
+            //remplire la list paths par les lien des image dans le dossier du scanner et le deplacer vers le dossier de traitement 
             paths = Class2.Directoryinfo(ScannerForlder, ProcessForlder);
+
+            //traitment image par image 
             foreach (String s in paths)
             {
-                String[] notes = new String[14];
-                String[] Qretudiant = new String[14];
+                String[] notes = new String[14];                //list pour stockage des note 
+                String[] Qretudiant = new String[14];           //list de stockage des valeur de Qrcode
+
                 try
                 {
-                    im = Class2.GetCopyImage(s);
-                    im = Class2.verifier_retation((Bitmap)im);
+
+                    im = Class2.GetCopyImage(s);                //travailler avec une copy de l'image reel
+                    im = Class2.verifier_retation((Bitmap)im);  //corection de orientation de l"image 
                     Bitmap p1 = (Bitmap)im;
-                    p1 = Class2.ProcessFile(p1);
-                    p1 = Class2.BlobDetectiontest(p1);
-                    //p1.Save(@"D:\hnada20\students\rect3.png");
+                    //p1 = Class2.ProcessFile(p1);
+                    p1 = Class2.BlobDetectiontest(p1);          //Detection du rectangle principal 
+                    
+                    //stocker la lest des rectangle de chaque etudiant 
                     List<Bitmap> list_rect_etudiant = Class2.splitImageorg(p1, 14, 1, @"D:\hnada20\students\");
 
+
+                    //Commencer le traitement de chaque etudiant 
                     if (list_rect_etudiant.Count != 0)
-                    {//start if 
+                    {
 
                         List<Bitmap> list_qrcode = new List<Bitmap>();
                         List<Bitmap> list_rect_etudiant_Note = new List<Bitmap>();
@@ -334,7 +346,7 @@ namespace WindowsFormsApplication1
                             Qretudiant[z] = decoder.Decode(new QRCodeBitmapImage(b1 as Bitmap));
                             z++;
                         }
-                        //Qrlist.Items.Clear();
+                        
                         MySqlCommand mysqlComm = new MySqlCommand();
                         for (int  i=0;i< Qretudiant.Length;i++)
                         {
@@ -349,35 +361,21 @@ namespace WindowsFormsApplication1
 
                         }
                       
-                    }//end if
+                    }
                 }
                 catch (Exception e8)
                 {
+                    //on cas de erreur dans le try on copier l'image dans le dossier "Erreur"
                     MessageBox.Show(" form 1 try catch "+e8.Message);
                     String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
                     im.Save(ErrorForlder + "\\IMG" + day + ".png");
                 }
 
-
-                //copy to other folder
+                // A la fin de traitment de chaque image en la copier dans le dossier "Done" et la supprimer du dossier du traitement 
                 FileInfo fi = new FileInfo(s);
                 fi.CopyTo(Path.Combine(DoneForlder, fi.Name), true);
                 fi.Delete();
-
-
-
             }
-
-
-
-
-
-
-
-
-
-
-
 
         }
     }

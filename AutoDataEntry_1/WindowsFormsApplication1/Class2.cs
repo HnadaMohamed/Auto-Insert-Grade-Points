@@ -16,112 +16,17 @@ using System.Drawing.Imaging;
 using AForge.Math.Geometry;
 using SkewCorrectionNS;
 using MessagingToolkit.QRCode.Codec.Data;
-
+/// <summary>
+/// Class qui contient tous les fonction de  traitement 
+/// Auteur : ASUS - Hnada Mohamed 
+/// </summary>
 namespace WindowsFormsApplication1
 {
     public class Class2
     {
+        
 
-        public static Bitmap verifier_retation(Bitmap bitmap)
-        {
-            //Bitmap bitmap = bmp;
-            int t = 0;
-            bitmap = AForge.Imaging.Image.Clone(bitmap, PixelFormat.Format32bppArgb);
-
-            //blackAndWhite
-            FiltersSequence seq = new FiltersSequence();
-            seq.Add(Grayscale.CommonAlgorithms.BT709);  //First add  GrayScaling filter
-            seq.Add(new OtsuThreshold()); //Then add binarization(thresholding) filter
-            bitmap = seq.Apply(bitmap); // Apply filters on source image
-                                        //blackAndWhite
-
-            bitmap = AForge.Imaging.Image.Clone(bitmap, PixelFormat.Format32bppArgb);
-            // lock image
-            BitmapData bitmapData = bitmap.LockBits(
-                new Rectangle(0, 0, bitmap.Width, bitmap.Height),
-                ImageLockMode.ReadWrite, bitmap.PixelFormat);
-
-            // step 1 - turn background to black
-            ColorFiltering colorFilter = new ColorFiltering();
-
-            colorFilter.Red = new IntRange(0, 64);
-            colorFilter.Green = new IntRange(0, 64);
-            colorFilter.Blue = new IntRange(0, 64);
-            colorFilter.FillOutsideRange = false;
-
-            colorFilter.ApplyInPlace(bitmapData);
-
-            // step 2 - locating objects
-            BlobCounter blobCounter = new BlobCounter();
-
-            blobCounter.FilterBlobs = true;
-            blobCounter.MinHeight = 20;
-            blobCounter.MinWidth = 20;
-
-            blobCounter.MaxHeight = 80;
-            blobCounter.MaxHeight = 80;
-
-            blobCounter.ProcessImage(bitmapData);
-            Blob[] blobs = blobCounter.GetObjectsInformation();
-            bitmap.UnlockBits(bitmapData);
-
-            int som_y = 0;
-
-            // step 3 - check objects' type and highlight
-            SimpleShapeChecker shapeChecker = new SimpleShapeChecker();
-
-            Graphics g = Graphics.FromImage(bitmap);
-
-            for (int i = 0, n = blobs.Length; i < n; i++)
-            {
-                List<IntPoint> edgePoints = blobCounter.GetBlobsEdgePoints(blobs[i]);
-
-                List<IntPoint> corners;
-
-                // is triangle 
-                if (shapeChecker.IsConvexPolygon(edgePoints, out corners))
-                {
-                    // get sub-type
-                    PolygonSubType subType = shapeChecker.CheckPolygonSubType(corners);
-
-                    if (subType != PolygonSubType.Unknown)
-                    {
-                        if (corners.Count == 3)
-                        {
-                            /* Bitmap chunkedImages = new Bitmap(blobs[i].Rectangle.Width, blobs[i].Rectangle.Height);
-
-                             Graphics g10 = Graphics.FromImage(chunkedImages);
-                             g10.DrawImage(bitmap, new Rectangle(0, 0, blobs[i].Rectangle.Width, blobs[i].Rectangle.Height), new Rectangle(blobs[i].Rectangle.X, blobs[i].Rectangle.Y, blobs[i].Rectangle.Width, blobs[i].Rectangle.Height), GraphicsUnit.Pixel);
-                             //g.DrawImage(img, new Rectangle(0, 0, b.Width-(4*b.Width/24), b.Height), new Rectangle(b.Width - (4 * b.Width / 24), b.Height, b.Width - (4 * b.Width / 24), b.Height), GraphicsUnit.Pixel);
-                             g10.Dispose();
-                             CreateIfMissing(@"D:\samran20\students\");
-
-                             chunkedImages.Save(@"D:\samran20\students\" + String.Format("{0}-{1}.bmp", blobs[i].Rectangle.X, blobs[i].Rectangle.Y));
-                             t++;*/
-                            // MessageBox.Show("bien1");
-
-                            for (int j = 0; j < 2; j++)
-                                som_y += corners[j].Y;
-
-                            // MessageBox.Show("bien2"+ som_y + " "+bitmap.Height);
-
-                        }
-
-                    }
-
-                }
-
-            }
-
-            if (som_y > bitmap.Height)
-            {
-                bitmap.RotateFlip(RotateFlipType.Rotate180FlipNone);
-                //MessageBox.Show("bien");
-            }
-
-            return bitmap;
-
-        }
+        //fontion de decoupage des image par ligne et colonne passe en paramettre
         public static Bitmap[,] splitImage(Bitmap b, int rows, int cols, String foldername)
         {
             if (rows == 46)
@@ -179,18 +84,8 @@ namespace WindowsFormsApplication1
                         {
                             a = 44;
                         }
-
                         xcord += chunkWidth / a;
-
                     }
-
-
-
-
-
-
-
-
                     // Rectangle rect = new Rectangle(xCoord, yCoord, chunkWidth, chunkHeight);
                     chunkedImages[x, y] = new Bitmap(chunkWidth, chunkHeight);
                     Graphics g = Graphics.FromImage(chunkedImages[x, y]);
@@ -208,7 +103,7 @@ namespace WindowsFormsApplication1
         }
 
 
-        //Create a file if it not created ****************************************************************************
+        //Creer le dossier s'il nexist pas 
         public static void CreateIfMissing(string path)
         {
             bool folderExists = Directory.Exists(path);
@@ -216,7 +111,7 @@ namespace WindowsFormsApplication1
                 Directory.CreateDirectory(path);
         }
 
-        //Extract the QrCode from the bitmap given **********************************************************************
+        //decouperle Qrcode d'etudiant 
         static int a = 0;
         public static Bitmap takebarcode(Bitmap b)
         {
@@ -233,7 +128,7 @@ namespace WindowsFormsApplication1
         }
 
 
-        //Extract the Note Zone from the bitmap given **********************************************************************
+        //decouper la partie des cercle cocher  
         public static Bitmap takenotes(Bitmap b)
         {
             System.Drawing.Image img = b;
@@ -248,8 +143,8 @@ namespace WindowsFormsApplication1
             return chunkedImages;
         }
 
-
-        //Extract the red edge from the bitmap given (Using in Detect function)
+        //*******Used in the old methode ****
+        //Extract the red edge from the bitmap given (Using in Detect function)  
         public static Bitmap takepart2(Bitmap b, int t, int width, int heigth, int x, int y)
         {
             System.Drawing.Image img = b;
@@ -267,7 +162,7 @@ namespace WindowsFormsApplication1
 
 
 
-        //Count the white and black pixels in the bitmap given ********************************************************************
+        //comptet les noire et blanc pixel --Test--
         public static String whiteper(Bitmap b)
         {
             int whiteColor = 0;
@@ -296,7 +191,7 @@ namespace WindowsFormsApplication1
         }
 
 
-        //Count the white pixels in the bitmap given ********************************************************************
+        //donner le nbr des pixel blanche  
         public static int whiteOnly(Bitmap b)
         {
             int whiteColor = 0;
@@ -323,7 +218,8 @@ namespace WindowsFormsApplication1
             return whiteColor;
 
         }
-        //The moste important filtre Used to detect the checked Number(Used for testing)*****************************************************
+        
+        //le filtre qui transforme la foto on noire et blanc 
         public static Bitmap filltre(String path)
         {
 
@@ -335,8 +231,7 @@ namespace WindowsFormsApplication1
 
         }
 
-        //Thresholding filtre ***********************************************************************************************
-
+        //Thresholding filtre  --Test--
         public static Bitmap thresholding(String path)
         {
             Image<Gray, byte> ImgInput = new Image<Gray, byte>(path);
@@ -347,10 +242,7 @@ namespace WindowsFormsApplication1
         }
 
 
-
-
-        //Get the bitmaps splited and return the same table with numbre of white pixels ************************************
-
+        //prend la table des cercle decouper et compter le nbr des pixel blanche  
         public static int[] giveMeTable(Bitmap[] bitmabs)
         {
             int[] table = new int[46];
@@ -362,7 +254,7 @@ namespace WindowsFormsApplication1
             return table;
         }
 
-        //Filtre for low black scanned images*******************************************************************************
+        //Fitre pour netoyer l'image --Test--
 
         public static void filltrelast(Bitmap b)
         {
@@ -394,7 +286,7 @@ namespace WindowsFormsApplication1
 
         }
 
-        //Aforge function Detect the Rectagles based on the Heigth**********************************************************
+        //Aforge function Detect the Rectagles based on the Heigth --Test--
         public static List<Bitmap> Detect(Bitmap b)
         {
             // Open your image
@@ -463,7 +355,7 @@ namespace WindowsFormsApplication1
         }
 
 
-        //Blob Detection
+        //Blob Detection fonction --Test--
         public static Bitmap BlobDetection(Bitmap _bitmapSourceImage)
         {
             Grayscale _grayscale = new Grayscale(0.2125, 0.7154, 0.0721);
@@ -560,7 +452,7 @@ namespace WindowsFormsApplication1
 
 
 
-        //Give Us the Index that contain the maximum white pixels**********************************************************
+        //return le indicedu maximum  
         public static int max(Bitmap[] b)
         {
             int[] table = Class2.giveMeTable(b);
@@ -578,6 +470,8 @@ namespace WindowsFormsApplication1
             }
             return imax;
         }
+
+        //retourn le indice du maximun avec des condition  --Test-- : on cas ou il ya deux case cocker --> OO OXOOOOXOOO OOOOOOOOOO OOOOOOOOOO OOOOOOOOOO 
         public static int maxnew(Bitmap[] b)
         {
             int[] table = Class2.giveMeTable(b);
@@ -609,7 +503,7 @@ namespace WindowsFormsApplication1
         }
 
 
-        //Fix the rotated scanned bitmap **********************************************************************************************
+        //Correction de image scanner  --Test--
         public static Bitmap ProcessFile(Bitmap b)
         {
             var img = b;
@@ -647,7 +541,7 @@ namespace WindowsFormsApplication1
 
 
 
-        //add more black to rectangels
+        //Addmore Black : Netoyage de image pour bien detecter les rectangle 
         public static Bitmap addblack(Bitmap bitm)
         {
             double contrast = Convert.ToDouble(1000);
@@ -718,7 +612,7 @@ namespace WindowsFormsApplication1
 
         }
 
-        //****splite with original color
+        //Decouper les image et retourne les ilage reel
         public static List<Bitmap> splitImageorg(Bitmap b, int rows, int cols, String foldername)
         {
             //System.Drawing.Image img = System.Drawing.Image.FromFile(filepath);
@@ -767,8 +661,7 @@ namespace WindowsFormsApplication1
         }
 
 
-
-
+        //Detecter le principal rectangle a traiter
         public static Bitmap BlobDetectiontest(Bitmap _bitmapSourceImage)
         {
 
@@ -873,12 +766,8 @@ namespace WindowsFormsApplication1
         }
 
 
-
-
-
-
-        //***************************directoryInfo
-
+        
+        //Directory info : traiter les fichier d un dossier 
         public static List<String> Directoryinfo(String dir, String dirdes)
         {
             List<String> paths = new List<String>();
@@ -915,7 +804,7 @@ namespace WindowsFormsApplication1
 
         }
 
-        //use just copy
+        //solution pour eviter l'utilisation du image reel par le system -- si on travaille par l'image original on ne peux pas la supprimer si application et ouvert alors on travaille avec une copie de l'image  
         public static System.Drawing.Image GetCopyImage(string path)
         {
             using (System.Drawing.Image im = System.Drawing.Image.FromFile(path))
@@ -926,9 +815,8 @@ namespace WindowsFormsApplication1
         }
 
 
-        //the hole process
 
-
+        //Copie de fonction d raitement Principal 
         public static void StartOperation()
         {
 
@@ -1097,9 +985,100 @@ namespace WindowsFormsApplication1
 
 
 
-        public static String Qretudiant;
-        //*******************************************
-        public static void qrcode_principale(Bitmap bitmap)
+        //Triagle Detection
+         public static Bitmap BlobDetection1(Bitmap _bitmapSourceImage)
+        {
+            Grayscale _grayscale = new Grayscale(0.2125, 0.7154, 0.0721);
+            Bitmap _bitmapGreyImage = _grayscale.Apply(_bitmapSourceImage);
+
+            //create a edge detector instance
+            DifferenceEdgeDetector _differeceEdgeDetector = new DifferenceEdgeDetector();
+            Bitmap _bitmapEdgeImage = _differeceEdgeDetector.Apply(_bitmapGreyImage);
+
+            Threshold _threshold = new Threshold(40);
+            Bitmap _bitmapBinaryImage = _threshold.Apply(_bitmapEdgeImage);
+
+            //Create a instance of blob counter algorithm
+            BlobCounter _blobCounter = new BlobCounter();
+            //Configure Filter
+            _blobCounter.MinWidth = 5;
+            _blobCounter.MinHeight = 5;
+            _blobCounter.FilterBlobs = true;
+
+            _blobCounter.ProcessImage(_bitmapBinaryImage);
+            Blob[] _blobPoints = _blobCounter.GetObjectsInformation();
+
+            Graphics _g = Graphics.FromImage(_bitmapSourceImage);
+
+            SimpleShapeChecker _shapeChecker = new SimpleShapeChecker();
+            for (int i = 0; i < _blobPoints.Length; i++)
+            {
+                List<IntPoint> _edgePoint = _blobCounter.GetBlobsEdgePoints(_blobPoints[i]);
+                List<IntPoint> _corners = null;
+                AForge.Point _center;
+                float _radius;
+                int z = 1;
+                if (_shapeChecker.IsCircle(_edgePoint, out _center, out _radius)&& z==0)
+                {
+                    string _shapeString = "" + _shapeChecker.CheckShapeType(_edgePoint);
+                    System.Drawing.Font _font = new System.Drawing.Font("Segoe UI", 16);
+                    System.Drawing.SolidBrush _brush = new System.Drawing.SolidBrush(System.Drawing.Color.Chocolate);
+                    Pen _pen = new Pen(Color.GreenYellow);
+                    int x = (int)_center.X;
+                    int y = (int)_center.Y;
+                    _g.DrawString(_shapeString, _font, _brush, x, y);
+                    _g.DrawEllipse(_pen, (float)(_center.X - _radius),
+                                         (float)(_center.Y - _radius),
+                                         (float)(_radius * 2),
+                                         (float)(_radius * 2));
+                }
+                if (_shapeChecker.IsTriangle(_edgePoint, out _corners))
+                {
+                    string _shapeString = "" + _shapeChecker.CheckShapeType(_edgePoint);
+                    System.Drawing.Font _font = new System.Drawing.Font("Segoe UI", 16);
+                    System.Drawing.SolidBrush _brush = new System.Drawing.SolidBrush(System.Drawing.Color.Brown);
+                    Pen _pen = new Pen(Color.GreenYellow);
+                    int x = (int)_center.X;
+                    int y = (int)_center.Y;
+                    _g.DrawString(_shapeString, _font, _brush, x, y);
+                    _g.DrawPolygon(_pen, ToPointsArray(_corners));
+
+                    if (_corners[0].Y < _bitmapSourceImage.Height / 3)
+                    {
+                        MessageBox.Show("true");
+                    }
+                    else
+                    {
+                        MessageBox.Show("false");
+                    }
+                }
+
+            }
+            return _bitmapSourceImage;
+        }
+
+
+
+
+
+        //****************************************************************************************************************Test En Cours****************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //--Test En cours -- 
+        public static String qrcode_principale(Bitmap bitmap)
         {
 
             Bitmap bitmap1 = bitmap;
@@ -1117,7 +1096,7 @@ namespace WindowsFormsApplication1
 
             //Bitmap bitmap = bmp;
             int t = 0;
-
+            String Qretudiant=null;
             // lock image
             BitmapData bitmapData = bitmap.LockBits(
                 new Rectangle(0, 0, bitmap.Width, bitmap.Height),
@@ -1171,15 +1150,13 @@ namespace WindowsFormsApplication1
                             g10.DrawImage(bitmap, new Rectangle(0, 0, blobs[i].Rectangle.Width, blobs[i].Rectangle.Height), new Rectangle(blobs[i].Rectangle.X, blobs[i].Rectangle.Y, blobs[i].Rectangle.Width, blobs[i].Rectangle.Height), GraphicsUnit.Pixel);
                             //g.DrawImage(img, new Rectangle(0, 0, b.Width-(4*b.Width/24), b.Height), new Rectangle(b.Width - (4 * b.Width / 24), b.Height, b.Width - (4 * b.Width / 24), b.Height), GraphicsUnit.Pixel);
                             g10.Dispose();
-                            CreateIfMissing(@"D:\samran20\students\");
+                            CreateIfMissing(@"D:\hnada20\");
 
                             MessagingToolkit.QRCode.Codec.QRCodeDecoder decoder = new MessagingToolkit.QRCode.Codec.QRCodeDecoder();
                             Qretudiant = decoder.Decode(new QRCodeBitmapImage(chunkedImages as Bitmap));
-
-                            //Qretudiant=Qretudiant.Replace(';','_');
-
-                            chunkedImages.Save(@"D:\samran20\students\" + String.Format("{0}.bmp", Qretudiant));
+                            chunkedImages.Save(@"D:\hnada20\" + String.Format("{0}.bmp", Qretudiant));
                             t++;
+                           
                         }
 
                     }
@@ -1187,10 +1164,97 @@ namespace WindowsFormsApplication1
 
             }
 
+            return Qretudiant;
+
         }
+
+
+
+        //Verifier l'orientation de l'image --Test En cours -- 
+        public static Bitmap verifier_retation(Bitmap b)
+        {
+            
+            Bitmap bitmap = addblack(b);
+
+            // step 2 - locating objects
+            BlobCounter blobCounter = new BlobCounter();
+
+            blobCounter.FilterBlobs = true;
+            blobCounter.MinHeight = 20;
+            blobCounter.MinWidth = 20;
+
+            blobCounter.MaxHeight = 80;
+            blobCounter.MaxHeight = 80;
+
+            blobCounter.ProcessImage(bitmap);
+            Blob[] blobs = blobCounter.GetObjectsInformation();
+            
+
+            int som_y = 0;
+
+            // step 3 - check objects' type and highlight
+            SimpleShapeChecker shapeChecker = new SimpleShapeChecker();
+
+            Graphics g = Graphics.FromImage(bitmap);
+
+            for (int i = 0, n = blobs.Length; i < n; i++)
+            {
+                List<IntPoint> edgePoints = blobCounter.GetBlobsEdgePoints(blobs[i]);
+
+                List<IntPoint> corners;
+
+                // is triangle 
+                if (shapeChecker.IsConvexPolygon(edgePoints, out corners))
+                {
+                    // get sub-type
+                    PolygonSubType subType = shapeChecker.CheckPolygonSubType(corners);
+
+                    if (subType != PolygonSubType.Unknown)
+                    {
+                        if (corners.Count == 3)
+                        {
+                            /* Bitmap chunkedImages = new Bitmap(blobs[i].Rectangle.Width, blobs[i].Rectangle.Height);
+
+                             Graphics g10 = Graphics.FromImage(chunkedImages);
+                             g10.DrawImage(bitmap, new Rectangle(0, 0, blobs[i].Rectangle.Width, blobs[i].Rectangle.Height), new Rectangle(blobs[i].Rectangle.X, blobs[i].Rectangle.Y, blobs[i].Rectangle.Width, blobs[i].Rectangle.Height), GraphicsUnit.Pixel);
+                             //g.DrawImage(img, new Rectangle(0, 0, b.Width-(4*b.Width/24), b.Height), new Rectangle(b.Width - (4 * b.Width / 24), b.Height, b.Width - (4 * b.Width / 24), b.Height), GraphicsUnit.Pixel);
+                             g10.Dispose();
+                             CreateIfMissing(@"D:\samran20\students\");
+
+                             chunkedImages.Save(@"D:\samran20\students\" + String.Format("{0}-{1}.bmp", blobs[i].Rectangle.X, blobs[i].Rectangle.Y));
+                             t++;*/
+                            // MessageBox.Show("bien1");
+
+                            for (int j = 0; j < 2; j++)
+                                som_y += corners[j].Y;
+
+                            // MessageBox.Show("bien2"+ som_y + " "+bitmap.Height);
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            if (som_y > bitmap.Height)
+            {
+                bitmap.RotateFlip(RotateFlipType.Rotate180FlipNone);
+                //MessageBox.Show("bien");
+            }
+
+            bitmap.Save(@"D:\hnada20\students\rectQr.png");
+            return bitmap;
+
+        }
+
+
+
+
     }
 
-    //************************************orientation
+    
 
     
 

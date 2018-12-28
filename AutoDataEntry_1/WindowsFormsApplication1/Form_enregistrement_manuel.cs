@@ -8,11 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-
+using MetroFramework.Forms;
+using MetroFramework;
 
 namespace WindowsFormsApplication1
 {
-    public partial class Form_enregistrement_manuel : Form
+    public partial class Form_enregistrement_manuel : MetroForm
     {
         public Form_enregistrement_manuel()
         {
@@ -29,19 +30,24 @@ namespace WindowsFormsApplication1
         {
             if (radioButton_Absent.Checked)
             {
-                label2.Visible = false;
+                label_etudiantnote.Visible = false;
                 textBox_Note_Etud.Visible = false;
             }
 
             if (radioButton_Present.Checked) {
-            
-                label2.Visible = true;
+
+                label_etudiantnote.Visible = true;
                 textBox_Note_Etud.Visible = true;
             }
         }
 
         private void Form_enregistrement_manuel_Load(object sender, EventArgs e)
         {
+            //Design Part 
+            this.StyleManager = metroStyleManager1;
+            metroStyleManager1.Theme = MetroThemeStyle.Dark;
+
+
             DatabaseManager.OpenConnection();
 
             Bitmap b = new Bitmap(@"D:\hnada20\Error\a.png");
@@ -55,18 +61,7 @@ namespace WindowsFormsApplication1
 
         private void button_enregitrer_Click(object sender, EventArgs e)
         {
-            if (checkBox_Message.Checked)
-                if (MessageBox.Show("voulez-vous vraiment Insérer ?", "insertion", MessageBoxButtons.YesNo) == DialogResult.No)
-                    return;                
-
-
-            if( ((textBox_NumEtud.Text == "" || textBox_Note_Etud.Text == "" ) && radioButton_Present.Checked ) || (textBox_NumEtud.Text == "" && radioButton_Absent.Checked))
-            {
-                MessageBox.Show("Merci de saisir les champs");
-                return;
-            }
-
-            insert_note();
+           
         }
 
         private void insert_note()
@@ -134,6 +129,22 @@ namespace WindowsFormsApplication1
                 MessageBox.Show(e1.ToString());
             }
             
+        }
+
+        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        {
+            if (checkBox_Message.Checked)
+                if (MessageBox.Show("voulez-vous vraiment Insérer ?", "insertion", MessageBoxButtons.YesNo) == DialogResult.No)
+                    return;
+
+
+            if (((textBox_NumEtud.Text == "" || textBox_Note_Etud.Text == "") && checkBox_Message.Checked) || (textBox_NumEtud.Text == "" && checkBox_Message.Checked))
+            {
+                MessageBox.Show("Merci de saisir les champs");
+                return;
+            }
+
+            insert_note();
         }
 
         private void find_examen_id()

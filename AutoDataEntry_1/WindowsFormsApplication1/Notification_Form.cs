@@ -1,96 +1,77 @@
-﻿using Emgu.CV;
-using Emgu.CV.Structure;
-using MessagingToolkit.QRCode.Codec.Data;
+﻿using MessagingToolkit.QRCode.Codec.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using Emgu.CV;
+using Emgu.CV.Structure;
+
 using MetroFramework.Forms;
 using MetroFramework.Components;
 using System.Globalization;
 using MetroFramework;
-using System.IO;
+
 using System.Threading;
-/// <summary>
-/// Form Pour tester les nouvelle ligne de code
-/// le resultat du traitement sera afficher dans deux list box 
-/// Auteur : ASUS - Hnada Mohamed 
-/// </summary>
+
 namespace WindowsFormsApplication1
 {
-    public partial class Form2 : MetroForm
+    public partial class Form4 : Form
     {
-        
-        public Form2()
+        List<String> paths = new List<string>();
+
+        public Form4( String Message,Color color,List<String> paths)
         {
             InitializeComponent();
+            this.BackColor = color;
+            message.Text = Message;
+            this.paths = paths;
+            
         }
-
-        private void Form2_Load(object sender, EventArgs e)
+        
+        String[] notes = new String[15];
+        String[] Qretudiant = new String[15];
+        private void Form4_Load(object sender, EventArgs e)
         {
-            //Design Part 
-            this.StyleManager = metroStyleManager1;
-            metroStyleManager1.Theme = MetroThemeStyle.Dark;
-        }
-
-        private void Proccess_Click(object sender, EventArgs e)
-        {
-
+           this.Top = 30;
+           this.Left = Screen.PrimaryScreen.Bounds.Width - this.Width-30;
 
             StartOperation();
-           
+
+            this.Close();
+
+
 
 
 
 
         }
 
-    
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            
-            
-        }
 
-       
-        
-
-
-        
 
 
         public void StartOperation()
         {
-            
-            
+            int progress = 0;
 
-            List<String> paths = new List<String>();
-            String ProcessForlder= @"D:\hnada20\Process\";
-            String ScannerForlder = @"D:\hnada20\Scanner\";
-            String ErrorForlder=@"D:\hnada20\Error\";
-            String DoneForlder= @"D:\hnada20\Done\";
-            Class2.CreateIfMissing(ProcessForlder);
-            Class2.CreateIfMissing(ScannerForlder);
-            Class2.CreateIfMissing(ErrorForlder);
-            Class2.CreateIfMissing(DoneForlder);
-            Image im=null;
-            paths = Class2.Directoryinfo(ScannerForlder, ProcessForlder);
+            //List<String> paths = new List<String>();
+            //paths = Class2.Directoryinfo(@"D:\hnada20\dirtest", @"D:\hnada20\dirtest_final");
+            message.Text = progress + "/" + paths.Count();
             foreach (String s in paths)
             {
-                String[] notes = new String[14];
-                String[] Qretudiant = new String[14];
-                
-                    im = Class2.GetCopyImage(s);
-                    Bitmap p1 = (Bitmap)im;
-                    p1 = Class2.ProcessFile(p1);
-                    p1 = Class2.BlobDetectiontest(p1);
-                    //p1.Save(@"D:\hnada20\students\rect3.png");
-                    List<Bitmap> list_rect_etudiant = Class2.splitImageorg(p1, 14, 1, @"D:\hnada20\students\");
-                
+                progress++;
+                Bitmap p1 = new Bitmap(s);
+                p1 = Class2.ProcessFile(p1);
+                p1 = Class2.BlobDetectiontest(p1);
+                //p1.Save(@"D:\hnada20\students\rect3.png");
+                List<Bitmap> list_rect_etudiant = Class2.splitImageorg(p1, 14, 1, @"D:\hnada20\students\");
+                try
+                {
                     if (list_rect_etudiant.Count != 0)
                     {//start if 
 
@@ -98,23 +79,14 @@ namespace WindowsFormsApplication1
                         List<Bitmap> list_rect_etudiant_Note = new List<Bitmap>();
                         foreach (Bitmap b in list_rect_etudiant)
                         {
-                            Bitmap b_B_W;
-
-                            Image<Gray, byte> ImgInput = new Image<Gray, byte>(b);                           
-                            Image<Gray, byte> _imgCanny = new Image<Gray, byte>(ImgInput.Width, ImgInput.Height, new Gray(0));
-                            b_B_W = ImgInput.Canny(100, 500).Bitmap;
-                            
-                            if (Class2.whiteOnly(b_B_W) > 1000)
-                            {
-                                list_rect_etudiant_Note.Add(Class2.takenotes(b));
-                                list_qrcode.Add(Class2.takebarcode(b));
-                            }    
+                            list_rect_etudiant_Note.Add(Class2.takenotes(b));
+                            list_qrcode.Add(Class2.takebarcode(b));
                         }
                         int z = 0;
                         foreach (Bitmap b in list_rect_etudiant_Note)
                         {
                             //b.Save(@"D:\hnada20\students\" + z + ".png");
-                            Bitmap[,] chunkedImages = Class2.splitImage(b, 1, 46, @"D:\hnada20\" + "note" + z + "\\");
+                            Bitmap[,] chunkedImages = Class2.splitImage(b, 1, Convert.ToInt32(46), @"D:\hnada20\" + "note" + z + "\\");
                             Bitmap[] Ad = new Bitmap[2];
                             Bitmap[] N3 = new Bitmap[10];
                             Bitmap[] N1 = new Bitmap[10];
@@ -169,9 +141,7 @@ namespace WindowsFormsApplication1
                             }
                             else
                             {
-                                String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
-                                list_rect_etudiant[z].Save(ErrorForlder+"\\IMG"+ z+day +".png");
-                                continue;
+                                note += "*  ";
                             }
                             note += Class2.max(N1).ToString();
                             note += Class2.max(N2).ToString();
@@ -189,33 +159,22 @@ namespace WindowsFormsApplication1
                             Qretudiant[z] = decoder.Decode(new QRCodeBitmapImage(b1 as Bitmap));
                             z++;
                         }
-                        //Qrlist.Items.Clear();
-                        foreach (String i in Qretudiant)
-                        {
-                            if (i != null)
-                            {
-
-                                Qrlist.Items.Add(i);
-                            }
-
-                        }
-                        //listNote.Items.Clear();
-                        foreach (String i in notes)
-                        {
-                            if (i != null)
-                            {
-                                listNote.Items.Add(i);
-                            }
-                        }
+                        //write result to database
+                        //***********************************
+                        
+                        
                     }//end if
-                
-                
+                }
+                catch (Exception e8)
+                {
+                    MessageBox.Show(e8.Message);
+                }
 
-
+                message.Text = progress + "/" + paths.Count();
                 //copy to other folder
                 FileInfo fi = new FileInfo(s);
-                fi.CopyTo(Path.Combine(DoneForlder, fi.Name), true);
-                fi.Delete();
+                fi.CopyTo(Path.Combine(@"D:\hnada20\dirtest1", fi.Name), true);
+
 
 
 
@@ -223,13 +182,12 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-            Image b = Class2.GetCopyImage(@"D:\hnada20\y1.jpg");
-            Bitmap b1 = Class2.BlobDetection1((Bitmap)b);
-            b.Save(@"D:\hnada20\students\ytyt.png");
-            //Class2.verifier_retation((Bitmap)b);
-        }
+
+
+
+
+
+
+
     }
 }
