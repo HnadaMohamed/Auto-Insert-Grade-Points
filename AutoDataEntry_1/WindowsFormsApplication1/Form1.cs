@@ -224,7 +224,7 @@ namespace WindowsFormsApplication1
                 {
 
                     im = Class2.GetCopyImage(s);                //travailler avec une copy de l'image reel
-                    im = Class2.verifier_retation((Bitmap)im);  //corection de orientation de l"image 
+                    //im = Class2.verifier_retation((Bitmap)im);  //corection de orientation de l"image 
                     Bitmap p1 = (Bitmap)im;
                     //p1 = Class2.ProcessFile(p1);
                     p1 = Class2.BlobDetectiontest(p1);          //Detection du rectangle principal 

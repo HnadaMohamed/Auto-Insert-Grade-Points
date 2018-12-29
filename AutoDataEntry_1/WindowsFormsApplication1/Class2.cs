@@ -131,6 +131,11 @@ namespace WindowsFormsApplication1
         //decouper la partie des cercle cocher  
         public static Bitmap takenotes(Bitmap b)
         {
+            Bitmap br = new Bitmap(2317, 168);
+            Graphics gr = Graphics.FromImage(br);
+            gr.DrawImage(b, 0, 0, 2317, 168);
+            gr.Dispose();
+            b = br;
             System.Drawing.Image img = b;
             Bitmap chunkedImages = new Bitmap(349 * (img.Width / 350), 3 * img.Height / 10);
 
@@ -139,7 +144,7 @@ namespace WindowsFormsApplication1
             //g.DrawImage(img, new Rectangle(0, 0, b.Width-(4*b.Width/24), b.Height), new Rectangle(b.Width - (4 * b.Width / 24), b.Height, b.Width - (4 * b.Width / 24), b.Height), GraphicsUnit.Pixel);
             g.Dispose();
             CreateIfMissing(@"D:\hnada20\students\");
-            //chunkedImages.Save(@"D:\hnada20\students\" + String.Format("{0}.bmp", "Note"));
+            chunkedImages.Save(@"D:\hnada20\students\" + String.Format("{0}.bmp", "Note"));
             return chunkedImages;
         }
 

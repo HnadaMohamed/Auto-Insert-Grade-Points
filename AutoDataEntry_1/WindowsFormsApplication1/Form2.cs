@@ -227,10 +227,11 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
            
-            Image b = Class2.GetCopyImage(@"D:\hnada20\y1.jpg");
-            Bitmap b1 = Class2.BlobDetection1((Bitmap)b);
-            b.Save(@"D:\hnada20\students\ytyt.png");
-            //Class2.verifier_retation((Bitmap)b);
+            Image b = Class2.GetCopyImage(@"D:\hnada20\g1.png");
+            //Bitmap b1 = Class2.BlobDetection1((Bitmap)b);
+          
+            Bitmap b1=Class2.verifier_retation((Bitmap)b);
+            b1.Save(@"D:\hnada20\students\g2.png");
         }
     }
 }
