@@ -1078,55 +1078,19 @@ namespace WindowsFormsApplication1
 
 
         //--Test En cours -- 
-        public static String qrcode_principale(Bitmap bitmap)
+        static string Qretudiant = "";
+        public static void qrcode_principale(Bitmap bitmap)
         {
 
             Bitmap bitmap1 = bitmap;
-
-            bitmap = AForge.Imaging.Image.Clone(bitmap, PixelFormat.Format32bppArgb);
-
-            //blackAndWhite
-            FiltersSequence seq = new FiltersSequence();
-            seq.Add(Grayscale.CommonAlgorithms.BT709);  //First add  GrayScaling filter
-            seq.Add(new OtsuThreshold()); //Then add binarization(thresholding) filter
-            bitmap = seq.Apply(bitmap); // Apply filters on source image
-            //blackAndWhite
-
-            bitmap = AForge.Imaging.Image.Clone(bitmap, PixelFormat.Format32bppArgb);
-
-            //Bitmap bitmap = bmp;
             int t = 0;
-            String Qretudiant=null;
-            // lock image
-            BitmapData bitmapData = bitmap.LockBits(
-                new Rectangle(0, 0, bitmap.Width, bitmap.Height),
-                ImageLockMode.ReadWrite, bitmap.PixelFormat);
 
-            // step 1 - turn background to black
-            ColorFiltering colorFilter = new ColorFiltering();
+            BlobCounter blobCounter = fct_for_retation_qrcode(bitmap, 0);
 
-            colorFilter.Red = new IntRange(0, 64);
-            colorFilter.Green = new IntRange(0, 64);
-            colorFilter.Blue = new IntRange(0, 64);
-            colorFilter.FillOutsideRange = false;
-
-            colorFilter.ApplyInPlace(bitmapData);
-
-            // step 2 - locating objects
-            BlobCounter blobCounter = new BlobCounter();
-
-            blobCounter.FilterBlobs = true;
-            blobCounter.MinHeight = 30;
-            blobCounter.MinHeight = 30;
-
-            blobCounter.ProcessImage(bitmapData);
             Blob[] blobs = blobCounter.GetObjectsInformation();
-            bitmap.UnlockBits(bitmapData);
 
             // step 3 - check objects' type and highlight
             SimpleShapeChecker shapeChecker = new SimpleShapeChecker();
-
-            Graphics g = Graphics.FromImage(bitmap);
 
             for (int i = 0, n = blobs.Length; i < n; i++)
             {
@@ -1150,13 +1114,15 @@ namespace WindowsFormsApplication1
                             g10.DrawImage(bitmap, new Rectangle(0, 0, blobs[i].Rectangle.Width, blobs[i].Rectangle.Height), new Rectangle(blobs[i].Rectangle.X, blobs[i].Rectangle.Y, blobs[i].Rectangle.Width, blobs[i].Rectangle.Height), GraphicsUnit.Pixel);
                             //g.DrawImage(img, new Rectangle(0, 0, b.Width-(4*b.Width/24), b.Height), new Rectangle(b.Width - (4 * b.Width / 24), b.Height, b.Width - (4 * b.Width / 24), b.Height), GraphicsUnit.Pixel);
                             g10.Dispose();
-                            CreateIfMissing(@"D:\hnada20\");
+                            CreateIfMissing(@"D:\samran20\students\");
 
                             MessagingToolkit.QRCode.Codec.QRCodeDecoder decoder = new MessagingToolkit.QRCode.Codec.QRCodeDecoder();
                             Qretudiant = decoder.Decode(new QRCodeBitmapImage(chunkedImages as Bitmap));
-                            chunkedImages.Save(@"D:\hnada20\" + String.Format("{0}.bmp", Qretudiant));
+
+                            //Qretudiant=Qretudiant.Replace(';','_');
+
+                            chunkedImages.Save(@"D:\samran20\students\" + String.Format("{0}.bmp", Qretudiant));
                             t++;
-                           
                         }
 
                     }
@@ -1164,31 +1130,73 @@ namespace WindowsFormsApplication1
 
             }
 
-            return Qretudiant;
-
         }
 
-
-
-        //Verifier l'orientation de l'image --Test En cours -- 
-        public static Bitmap verifier_retation(Bitmap b)
+        public static BlobCounter fct_for_retation_qrcode(Bitmap bitmap, int x)
         {
-            
-            Bitmap bitmap = addblack(b);
+            bitmap = AForge.Imaging.Image.Clone(bitmap, PixelFormat.Format32bppArgb);
+
+            if (x == 1)
+            {
+                //blackAndWhite
+                FiltersSequence seq = new FiltersSequence();
+                seq.Add(Grayscale.CommonAlgorithms.BT709);  //First add  GrayScaling filter
+                seq.Add(new OtsuThreshold()); //Then add binarization(thresholding) filter
+                bitmap = seq.Apply(bitmap); // Apply filters on source image
+                                            //blackAndWhite
+
+                bitmap = AForge.Imaging.Image.Clone(bitmap, PixelFormat.Format32bppArgb);
+            }
+
+            // lock image
+            BitmapData bitmapData = bitmap.LockBits(
+                new Rectangle(0, 0, bitmap.Width, bitmap.Height),
+                ImageLockMode.ReadWrite, bitmap.PixelFormat);
+
+            // step 1 - turn background to black
+            ColorFiltering colorFilter = new ColorFiltering();
+
+            colorFilter.Red = new IntRange(0, 64);
+            colorFilter.Green = new IntRange(0, 64);
+            colorFilter.Blue = new IntRange(0, 64);
+            colorFilter.FillOutsideRange = false;
+
+            colorFilter.ApplyInPlace(bitmapData);
 
             // step 2 - locating objects
             BlobCounter blobCounter = new BlobCounter();
 
             blobCounter.FilterBlobs = true;
-            blobCounter.MinHeight = 20;
-            blobCounter.MinWidth = 20;
+            if (x == 0)
+            {
+                blobCounter.MinHeight = 50;
+                blobCounter.MinHeight = 50;
 
-            blobCounter.MaxHeight = 80;
-            blobCounter.MaxHeight = 80;
+            }
+            else if (x == 1)
+            {
+                blobCounter.MinHeight = 20;
+                blobCounter.MinHeight = 20;
 
-            blobCounter.ProcessImage(bitmap);
+                blobCounter.MaxHeight = 80;
+                blobCounter.MaxWidth = 80;
+            }
+
+
+            blobCounter.ProcessImage(bitmapData);
+
+            bitmap.UnlockBits(bitmapData);
+
+
+            return blobCounter;
+        }
+
+        public static Bitmap verifier_retation(Bitmap bitmap)
+        {
+            //Bitmap bitmap = bmp;
+            BlobCounter blobCounter = fct_for_retation_qrcode(bitmap, 1);
+
             Blob[] blobs = blobCounter.GetObjectsInformation();
-            
 
             int som_y = 0;
 
@@ -1228,6 +1236,8 @@ namespace WindowsFormsApplication1
                             for (int j = 0; j < 2; j++)
                                 som_y += corners[j].Y;
 
+
+
                             // MessageBox.Show("bien2"+ som_y + " "+bitmap.Height);
 
                         }
@@ -1238,13 +1248,12 @@ namespace WindowsFormsApplication1
 
             }
 
+
             if (som_y > bitmap.Height)
             {
                 bitmap.RotateFlip(RotateFlipType.Rotate180FlipNone);
-                //MessageBox.Show("bien");
             }
 
-            bitmap.Save(@"D:\hnada20\students\rectQr.png");
             return bitmap;
 
         }
