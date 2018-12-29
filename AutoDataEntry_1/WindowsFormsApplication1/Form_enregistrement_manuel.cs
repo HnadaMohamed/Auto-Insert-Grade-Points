@@ -50,7 +50,7 @@ namespace WindowsFormsApplication1
 
             DatabaseManager.OpenConnection();
 
-            Bitmap b = new Bitmap(@"D:\hnada20\Error\a.png");
+            Bitmap b = new Bitmap(@"D:\hnada20\Error\a.BMP");
             pictureBox1.Image = b;
 
             textBox_NumEtud.Text = "F172186329";
@@ -145,6 +145,11 @@ namespace WindowsFormsApplication1
             }
 
             insert_note();
+        }
+
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void find_examen_id()
