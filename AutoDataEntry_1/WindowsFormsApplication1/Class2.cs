@@ -165,8 +165,6 @@ namespace WindowsFormsApplication1
             return chunkedImages;
         }
 
-
-
         //comptet les noire et blanc pixel --Test--
         public static String whiteper(Bitmap b)
         {
@@ -194,7 +192,6 @@ namespace WindowsFormsApplication1
             return "Black :" + blackColor + "    White : " + whiteColor;
 
         }
-
 
         //donner le nbr des pixel blanche  
         public static int whiteOnly(Bitmap b)
@@ -245,7 +242,6 @@ namespace WindowsFormsApplication1
             return ImgBinary.Bitmap;
 
         }
-
 
         //prend la table des cercle decouper et compter le nbr des pixel blanche  
         public static int[] giveMeTable(Bitmap[] bitmabs)
@@ -359,7 +355,6 @@ namespace WindowsFormsApplication1
             return list_rect_etudiant;
         }
 
-
         //Blob Detection fonction --Test--
         public static Bitmap BlobDetection(Bitmap _bitmapSourceImage)
         {
@@ -451,12 +446,6 @@ namespace WindowsFormsApplication1
             return array;
         }
 
-
-
-
-
-
-
         //return le indicedu maximum  
         public static int max(Bitmap[] b)
         {
@@ -507,7 +496,6 @@ namespace WindowsFormsApplication1
             return imax;
         }
 
-
         //Correction de image scanner  --Test--
         public static Bitmap ProcessFile(Bitmap b)
         {
@@ -541,10 +529,6 @@ namespace WindowsFormsApplication1
                 for (int i = 0; i < 1000; i += 30)
                     e.Graphics.DrawLine(pen, 0, i, 1000, i);
         }
-
-
-
-
 
         //Addmore Black : Netoyage de image pour bien detecter les rectangle 
         public static Bitmap addblack(Bitmap bitm)
@@ -656,7 +640,7 @@ namespace WindowsFormsApplication1
                     g.DrawImage(img, new Rectangle(0, 0, chunkWidth, chunkHeight), new Rectangle(y * chunkWidth + xcord, x * chunkHeight + h, chunkWidth, chunkHeight), GraphicsUnit.Pixel);
                     //g.DrawImage(img, new Rectangle(0, 0, chunkWidth, chunkHeight), new Rectangle(y * chunkWidth, x * chunkHeight, chunkWidth, chunkHeight), GraphicsUnit.Pixel);
                     g.Dispose();
-                    chunkedImages[x].Save(foldername + "0" + z + ".bmp");
+                    chunkedImages[x].Save(foldername + Qretudiant_principale + ";0" + z + ".bmp");
                     z++;
                     //xCoord += chunkWidth+(chunkWidth/10) * z;
                 }
@@ -665,12 +649,9 @@ namespace WindowsFormsApplication1
             return chunkedImages;
         }
 
-
         //Detecter le principal rectangle a traiter
         public static Bitmap BlobDetectiontest(Bitmap _bitmapSourceImage)
         {
-
-
 
 
             Bitmap bg = _bitmapSourceImage;
@@ -770,8 +751,6 @@ namespace WindowsFormsApplication1
             return b;
         }
 
-
-        
         //Directory info : traiter les fichier d un dossier 
         public static List<String> Directoryinfo(String dir, String dirdes)
         {
@@ -818,8 +797,6 @@ namespace WindowsFormsApplication1
                 return bm;
             }
         }
-
-
 
         //Copie de fonction d raitement Principal 
         public static void StartOperation()
@@ -988,8 +965,6 @@ namespace WindowsFormsApplication1
 
         }
 
-
-
         //Triagle Detection
          public static Bitmap BlobDetection1(Bitmap _bitmapSourceImage)
         {
@@ -1062,10 +1037,6 @@ namespace WindowsFormsApplication1
             return _bitmapSourceImage;
         }
 
-
-
-
-
         //****************************************************************************************************************Test En Cours****************
 
 
@@ -1083,59 +1054,26 @@ namespace WindowsFormsApplication1
 
 
         //--Test En cours -- 
-        static string Qretudiant = "";
-        public static void qrcode_principale(Bitmap bitmap)
+        static string Qretudiant_principale = "";
+       
+        public static void qrcode_principal(Bitmap bitmap)
         {
+            Bitmap b = new Bitmap(bitmap.Width / 2, bitmap.Height / 5);
+            Graphics g10 = Graphics.FromImage(b);
+            g10.DrawImage(bitmap, new Rectangle(0, 0, bitmap.Width/2, bitmap.Height/5), new Rectangle(bitmap.Width / 2, 0, bitmap.Width / 2, bitmap.Height / 5), GraphicsUnit.Pixel);
+            //g.DrawImage(img, new Rectangle(0, 0, b.Width-(4*b.Width/24), b.Height), new Rectangle(b.Width - (4 * b.Width / 24), b.Height, b.Width - (4 * b.Width / 24), b.Height), GraphicsUnit.Pixel);
+            g10.Dispose();
+            CreateIfMissing(@"D:\hnada20\students\");
 
-            Bitmap bitmap1 = bitmap;
-            int t = 0;
+            MessagingToolkit.QRCode.Codec.QRCodeDecoder decoder = new MessagingToolkit.QRCode.Codec.QRCodeDecoder();
+            Qretudiant_principale = decoder.Decode(new QRCodeBitmapImage(b as Bitmap));
 
-            BlobCounter blobCounter = fct_for_retation_qrcode(bitmap, 0);
+            //Qretudiant=Qretudiant.Replace(';','_');
 
-            Blob[] blobs = blobCounter.GetObjectsInformation();
-
-            // step 3 - check objects' type and highlight
-            SimpleShapeChecker shapeChecker = new SimpleShapeChecker();
-
-            for (int i = 0, n = blobs.Length; i < n; i++)
-            {
-                List<IntPoint> edgePoints = blobCounter.GetBlobsEdgePoints(blobs[i]);
-
-                List<IntPoint> corners;
-
-                // is triangle 
-                if (shapeChecker.IsConvexPolygon(edgePoints, out corners))
-                {
-                    // get sub-type
-                    PolygonSubType subType = shapeChecker.CheckPolygonSubType(corners);
-
-                    if (subType != PolygonSubType.Unknown && corners.Count == 4)
-                    {
-                        if (blobs[i].Rectangle.Width < 0.1210 * bitmap1.Width && blobs[i].Rectangle.Width > 0.1028 * bitmap1.Width)
-                        {
-                            Bitmap chunkedImages = new Bitmap(blobs[i].Rectangle.Width, blobs[i].Rectangle.Height);
-
-                            Graphics g10 = Graphics.FromImage(chunkedImages);
-                            g10.DrawImage(bitmap, new Rectangle(0, 0, blobs[i].Rectangle.Width, blobs[i].Rectangle.Height), new Rectangle(blobs[i].Rectangle.X, blobs[i].Rectangle.Y, blobs[i].Rectangle.Width, blobs[i].Rectangle.Height), GraphicsUnit.Pixel);
-                            //g.DrawImage(img, new Rectangle(0, 0, b.Width-(4*b.Width/24), b.Height), new Rectangle(b.Width - (4 * b.Width / 24), b.Height, b.Width - (4 * b.Width / 24), b.Height), GraphicsUnit.Pixel);
-                            g10.Dispose();
-                            CreateIfMissing(@"D:\samran20\students\");
-
-                            MessagingToolkit.QRCode.Codec.QRCodeDecoder decoder = new MessagingToolkit.QRCode.Codec.QRCodeDecoder();
-                            Qretudiant = decoder.Decode(new QRCodeBitmapImage(chunkedImages as Bitmap));
-
-                            //Qretudiant=Qretudiant.Replace(';','_');
-
-                            chunkedImages.Save(@"D:\samran20\students\" + String.Format("{0}.bmp", Qretudiant));
-                            t++;
-                        }
-
-                    }
-                }
-
-            }
+            b.Save(@"D:\hnada20\students\" + String.Format("{0}.bmp", Qretudiant_principale));
 
         }
+
 
         public static BlobCounter fct_for_retation_qrcode(Bitmap bitmap, int x)
         {

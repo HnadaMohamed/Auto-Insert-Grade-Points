@@ -224,6 +224,9 @@ namespace WindowsFormsApplication1
                 {
 
                     im = Class2.GetCopyImage(s);                //travailler avec une copy de l'image reel
+
+                    Class2.qrcode_principal((Bitmap)im);
+                    //MessageBox.Show("sssssss");
                     //im = Class2.verifier_retation((Bitmap)im);  //corection de orientation de l"image 
                     Bitmap p1 = (Bitmap)im;
                     //p1 = Class2.ProcessFile(p1);
