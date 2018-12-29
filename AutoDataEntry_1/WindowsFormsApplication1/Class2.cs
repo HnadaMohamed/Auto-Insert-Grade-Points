@@ -638,7 +638,7 @@ namespace WindowsFormsApplication1
             //xCoord and yCoord are the pixel positions of the image chunks
             //int yCoord = 0;
             int z = 1;
-            int a = 5;
+            //int a = 5;
             int xcord = (chunkWidth / 46) / 15;
             int h = 0;
             for (int x = 0; x < rows; x++)
@@ -802,7 +802,7 @@ namespace WindowsFormsApplication1
             }
             catch (Exception e)
             {
-               // MessageBox.Show("Directory Empty!!!!");
+               MessageBox.Show("Directory Empty!!!!"+ e.Message);
             }
 
             return paths;
@@ -971,7 +971,7 @@ namespace WindowsFormsApplication1
                 }
                 catch (Exception e8)
                 {
-                    MessageBox.Show(" form 1 try catch");
+                    MessageBox.Show(" form 1 try catch"+e8.Message);
                     String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
                     im.Save(ErrorForlder + "\\IMG" + day + ".png");
                 }
