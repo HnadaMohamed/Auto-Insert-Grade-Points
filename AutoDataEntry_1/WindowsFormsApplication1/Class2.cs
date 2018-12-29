@@ -971,7 +971,7 @@ namespace WindowsFormsApplication1
                 }
                 catch (Exception e8)
                 {
-                    MessageBox.Show(" form 1 try catch"+e8.Message+"test");
+                    MessageBox.Show(" form 1 try catch"+e8.Message);
                     String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
                     im.Save(ErrorForlder + "\\IMG" + day + ".png");
                 }
