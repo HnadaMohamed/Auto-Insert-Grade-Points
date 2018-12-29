@@ -87,6 +87,7 @@ namespace WindowsFormsApplication1
                     im = Class2.GetCopyImage(s);
                     Bitmap p1 = (Bitmap)im;
                     p1 = Class2.ProcessFile(p1);
+
                     p1 = Class2.BlobDetectiontest(p1);
                     //p1.Save(@"D:\hnada20\students\rect3.png");
                     List<Bitmap> list_rect_etudiant = Class2.splitImageorg(p1, 14, 1, @"D:\hnada20\students\");

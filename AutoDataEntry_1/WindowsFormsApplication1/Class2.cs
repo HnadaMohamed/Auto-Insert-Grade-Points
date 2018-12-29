@@ -1134,6 +1134,8 @@ namespace WindowsFormsApplication1
 
         public static BlobCounter fct_for_retation_qrcode(Bitmap bitmap, int x)
         {
+
+
             bitmap = AForge.Imaging.Image.Clone(bitmap, PixelFormat.Format32bppArgb);
 
             if (x == 1)
@@ -1193,6 +1195,9 @@ namespace WindowsFormsApplication1
 
         public static Bitmap verifier_retation(Bitmap bitmap)
         {
+
+            Bitmap bitmap1 = bitmap;
+
             //Bitmap bitmap = bmp;
             BlobCounter blobCounter = fct_for_retation_qrcode(bitmap, 1);
 
@@ -1251,10 +1256,10 @@ namespace WindowsFormsApplication1
 
             if (som_y > bitmap.Height)
             {
-                bitmap.RotateFlip(RotateFlipType.Rotate180FlipNone);
+                bitmap1.RotateFlip(RotateFlipType.Rotate180FlipNone);
             }
 
-            return bitmap;
+            return bitmap1;
 
         }
 
