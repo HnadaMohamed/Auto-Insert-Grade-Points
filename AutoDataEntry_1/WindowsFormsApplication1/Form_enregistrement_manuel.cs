@@ -155,8 +155,8 @@ namespace WindowsFormsApplication1
 
             try
             {
-                //sql = "SELECT * FROM `examen` where Personnel_id = " + id_champs[0] + " and UniteMatiere_id =" + id_champs[1] + " and type_id = " + id_champs[2] + " and periode_id = " + id_champs[3] + " and annee_scolaire_id = " + id_champs[4] + "";
-                sql = "SELECT * FROM `examen` where Personnel_id = 206 and UniteMatiere_id = 804 and type_id = 528 and periode_id = 526 and annee_scolaire_id = 256";
+                //sql = "SELECT * FROM `examen` where Personnel_id = " + id_champs[0] + " and UniteMatiere_id =" + id_champs[1] + " and type_id = " + id_champs[2] + " and periode_id = " + id_champs[3];
+                sql = "SELECT * FROM `examen` where Personnel_id = 206 and UniteMatiere_id = 804 and type_id = 528 and periode_id = 526";
                 mysqlComm = new MySqlCommand(sql, DatabaseManager.cnx);
                 dr = mysqlComm.ExecuteReader();
 
@@ -198,8 +198,8 @@ namespace WindowsFormsApplication1
             try
             {
 
-                //sql = "INSERT INTO examen (Personnel_id, UniteMatiere_id,type_id,periode_id, annee_scolaire_id) VALUES (" + id_champs[0] + ", " + id_champs[1] + ", " + id_champs[2] + ", " + id_champs[3] + "," + id_champs[4] + ")";
-                sql = "INSERT INTO examen (Personnel_id, UniteMatiere_id,type_id,periode_id, annee_scolaire_id) VALUES (206, 804, 528, 526,256)";
+                //sql = "INSERT INTO examen (Personnel_id, UniteMatiere_id,type_id,periode_id) VALUES (" + id_champs[0] + ", " + id_champs[1] + ", " + id_champs[2] + ", " + id_champs[3] + ")";
+                sql = "INSERT INTO examen (Personnel_id, UniteMatiere_id,type_id,periode_id) VALUES (206, 804, 528, 526)";
                 mysqlComm = new MySqlCommand(sql, DatabaseManager.cnx);
                 mysqlComm.ExecuteNonQuery();
             }
