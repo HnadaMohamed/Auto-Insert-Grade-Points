@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MetroFramework.Forms;
 using MetroFramework;
+using System.Threading;
+using System.IO;
 
 namespace WindowsFormsApplication1
 {
@@ -23,8 +25,11 @@ namespace WindowsFormsApplication1
         MySqlCommand mysqlComm;
         MySqlDataReader dr;
         string sql, inscription_id = "", moyenne = "0", examen_id = "null";
-        int IdAnneeScolaire;
+        int cp_pictures = 0;
         string[] id_champs;
+        List<String> paths = new List<String>();
+        List<String> paths_delete = new List<String>();
+
 
         private void radioButton_Absent_Present_CheckedChanged(object sender, EventArgs e)
         {
@@ -47,23 +52,157 @@ namespace WindowsFormsApplication1
             this.StyleManager = metroStyleManager1;
             metroStyleManager1.Theme = MetroThemeStyle.Dark;
 
-
             DatabaseManager.OpenConnection();
 
-            Bitmap b = new Bitmap(@"D:\hnada20\Error\a.BMP");
-            pictureBox1.Image = b;
+            get_pictures();
+
+            if (paths.Count != 0)
+            {
+                pictureBox1.Image = Image.FromFile(paths[0]);
+
+                //MessageBox.Show(paths[0]);
+            }
+            else
+            {
+                panel2.Visible = false;
+            }
+          
 
             textBox_NumEtud.Text = "F172186329";
 
             radioButton_Absent.Checked = true;
             checkBox_Message.Checked = true;
         }
+        public void get_pictures()
+        {
+
+            DirectoryInfo di = new DirectoryInfo(@"D:\hnada20\Error\");
+            try
+            {
+                if (di.Exists)
+                {
+                    Class2.CreateIfMissing(@"D:\hnada20\Error_seconde\");
+                    // MessageBox.Show("Dossier est Exists !");
+
+                    foreach (FileInfo fi in di.GetFiles())
+                    {
+                        fi.CopyTo(Path.Combine(@"D:\hnada20\Error_seconde\", fi.Name), true);
+                        paths.Add(@"D:\hnada20\Error_seconde\" + fi.Name);
+                        paths_delete.Add(@"D:\hnada20\Error\" + fi.Name);
+                        // MessageBox.Show(paths[0]);
+
+                    }
+
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Dossier est vide !" + e.Message);
+            }
+
+
+        }
+
+        Thread thread;                                                     
+        public void open_thread()
+        {
+            thread = new Thread(start);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+
+
+        }
+
+
+        
+
+        public void start()
+        {
+
+            DirectoryInfo di = new DirectoryInfo(@"D:\hnada20\Error\");
+            try
+            {
+                if (di.Exists)
+                {
+                    MessageBox.Show("Dossier est Exists !");
+
+                    foreach (FileInfo fi in di.GetFiles())
+                    {
+                        paths.Add(@"D:\hnada20\Error\"+fi.Name);
+                        MessageBox.Show(paths[0]);
+
+                    }
+
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Dossier est vide !" + e.Message);
+            }
+
+        }
+
+      
 
         private void button_enregitrer_Click(object sender, EventArgs e)
         {
            
         }
 
+       
+
+       
+
+        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        {
+             if (checkBox_Message.Checked)
+                 if (MessageBox.Show("voulez-vous vraiment Insérer ?", "insertion", MessageBoxButtons.YesNo) == DialogResult.No)
+                     return;
+
+
+             if (((textBox_NumEtud.Text == "" || textBox_Note_Etud.Text == "") && radioButton_Present.Checked) || (textBox_NumEtud.Text == "" && radioButton_Absent.Checked))
+             {
+                 MessageBox.Show("Merci de saisir les champs");
+                 return;
+             }
+
+            insert_note();
+
+            if (paths.Count != 0)
+            {
+
+                //MessageBox.Show(paths[0] + "s/1");
+
+                paths.RemoveAt(0);
+                FileInfo fi = new FileInfo(paths_delete[0]);
+                fi.Delete();
+                paths_delete.RemoveAt(0);
+
+
+                if (paths.Count != 0)
+                {
+                    //MessageBox.Show(paths[0] + "s/2");
+                    pictureBox1.Image = Image.FromFile(paths[0]);
+                }
+
+             }
+
+            initialise();
+
+        }
+
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        public void initialise()
+        {
+            textBox_NumEtud.Text = "";
+            textBox_Note_Etud.Text = "";
+            textBox_NumEtud.Focus();
+        }
         private void insert_note()
         {
             try
@@ -91,7 +230,7 @@ namespace WindowsFormsApplication1
 
 
 
-                sql = "INSERT INTO examen_inscription_note (inscription_id, examen_id,moyenne,remarque) VALUES (" + inscription_id + ","+ examen_id + "," + moyenne + ",'passable')";
+                sql = "INSERT INTO examen_inscription_note (inscription_id, examen_id,moyenne,remarque) VALUES (" + inscription_id + "," + examen_id + "," + moyenne + ",'passable')";
                 mysqlComm = new MySqlCommand(sql, DatabaseManager.cnx);
                 mysqlComm.ExecuteNonQuery();
             }
@@ -99,9 +238,8 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show(e1.ToString());
             }
-            
-        }
 
+        }
         private void find_inscription_id()
         {
             try
@@ -128,30 +266,27 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show(e1.ToString());
             }
-            
+
         }
 
-        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        private void Form_enregistrement_manuel_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (checkBox_Message.Checked)
-                if (MessageBox.Show("voulez-vous vraiment Insérer ?", "insertion", MessageBoxButtons.YesNo) == DialogResult.No)
-                    return;
-
-
-            if (((textBox_NumEtud.Text == "" || textBox_Note_Etud.Text == "") && checkBox_Message.Checked) || (textBox_NumEtud.Text == "" && checkBox_Message.Checked))
+           /* foreach (var path in paths_delete)
             {
-                MessageBox.Show("Merci de saisir les champs");
-                return;
-            }
+                FileInfo fi = new FileInfo(path);
+                fi.Delete();
+            }*/
 
-            insert_note();
-        }
-
-        private void bunifuImageButton1_Click(object sender, EventArgs e)
-        {
 
         }
 
+
+
+        //foreach (var path in paths_delete)
+        //    {
+        //         FileInfo fi = new FileInfo(path);
+        //fi.Delete();
+        //    }
         private void find_examen_id()
         {
             string name_image = "119;195;555;528;526;12/02/2018";
@@ -185,9 +320,7 @@ namespace WindowsFormsApplication1
 
                     insert_examen(id_champs);
                     //find_examen_id();
-                }
-
-                
+                }                
 
             }
             catch (Exception e1)

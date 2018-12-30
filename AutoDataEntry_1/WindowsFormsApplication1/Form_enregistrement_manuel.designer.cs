@@ -48,11 +48,13 @@
             this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -90,14 +92,14 @@
             this.insertion.IconVisible = true;
             this.insertion.IconZoom = 90D;
             this.insertion.IsTab = false;
-            this.insertion.Location = new System.Drawing.Point(545, 278);
+            this.insertion.Location = new System.Drawing.Point(489, 119);
             this.insertion.Name = "insertion";
             this.insertion.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.insertion.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.insertion.OnHoverTextColor = System.Drawing.Color.White;
             this.insertion.selected = false;
             this.insertion.Size = new System.Drawing.Size(96, 27);
-            this.insertion.TabIndex = 9;
+            this.insertion.TabIndex = 3;
             this.insertion.Text = "Insert";
             this.insertion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.insertion.Textcolor = System.Drawing.Color.White;
@@ -111,7 +113,7 @@
             this.checkBox_Message.Checked = true;
             this.checkBox_Message.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
             this.checkBox_Message.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Message.Location = new System.Drawing.Point(492, 242);
+            this.checkBox_Message.Location = new System.Drawing.Point(438, 69);
             this.checkBox_Message.Name = "checkBox_Message";
             this.checkBox_Message.Size = new System.Drawing.Size(20, 20);
             this.checkBox_Message.TabIndex = 11;
@@ -121,7 +123,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(518, 240);
+            this.label3.Location = new System.Drawing.Point(464, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(177, 19);
             this.label3.TabIndex = 12;
@@ -137,11 +139,11 @@
             this.textBox_NumEtud.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.textBox_NumEtud.ForeColor = System.Drawing.Color.Black;
             this.textBox_NumEtud.isPassword = false;
-            this.textBox_NumEtud.Location = new System.Drawing.Point(212, 182);
+            this.textBox_NumEtud.Location = new System.Drawing.Point(158, 9);
             this.textBox_NumEtud.Margin = new System.Windows.Forms.Padding(0);
             this.textBox_NumEtud.Name = "textBox_NumEtud";
             this.textBox_NumEtud.Size = new System.Drawing.Size(204, 38);
-            this.textBox_NumEtud.TabIndex = 13;
+            this.textBox_NumEtud.TabIndex = 0;
             this.textBox_NumEtud.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // label_num
@@ -149,7 +151,7 @@
             this.label_num.AutoSize = true;
             this.label_num.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_num.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_num.Location = new System.Drawing.Point(72, 190);
+            this.label_num.Location = new System.Drawing.Point(18, 17);
             this.label_num.Name = "label_num";
             this.label_num.Size = new System.Drawing.Size(117, 16);
             this.label_num.TabIndex = 14;
@@ -160,10 +162,10 @@
             this.radioButton_Present.AutoSize = true;
             this.radioButton_Present.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton_Present.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radioButton_Present.Location = new System.Drawing.Point(621, 187);
+            this.radioButton_Present.Location = new System.Drawing.Point(567, 14);
             this.radioButton_Present.Name = "radioButton_Present";
             this.radioButton_Present.Size = new System.Drawing.Size(74, 22);
-            this.radioButton_Present.TabIndex = 3;
+            this.radioButton_Present.TabIndex = 1;
             this.radioButton_Present.TabStop = true;
             this.radioButton_Present.Text = "Présent";
             this.radioButton_Present.UseVisualStyleBackColor = true;
@@ -174,10 +176,10 @@
             this.radioButton_Absent.AutoSize = true;
             this.radioButton_Absent.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton_Absent.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radioButton_Absent.Location = new System.Drawing.Point(499, 187);
+            this.radioButton_Absent.Location = new System.Drawing.Point(445, 14);
             this.radioButton_Absent.Name = "radioButton_Absent";
             this.radioButton_Absent.Size = new System.Drawing.Size(70, 22);
-            this.radioButton_Absent.TabIndex = 2;
+            this.radioButton_Absent.TabIndex = 22;
             this.radioButton_Absent.TabStop = true;
             this.radioButton_Absent.Text = "Absent";
             this.radioButton_Absent.UseVisualStyleBackColor = true;
@@ -193,11 +195,11 @@
             this.textBox_Note_Etud.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.textBox_Note_Etud.ForeColor = System.Drawing.Color.Black;
             this.textBox_Note_Etud.isPassword = false;
-            this.textBox_Note_Etud.Location = new System.Drawing.Point(212, 240);
+            this.textBox_Note_Etud.Location = new System.Drawing.Point(158, 67);
             this.textBox_Note_Etud.Margin = new System.Windows.Forms.Padding(0);
             this.textBox_Note_Etud.Name = "textBox_Note_Etud";
             this.textBox_Note_Etud.Size = new System.Drawing.Size(204, 33);
-            this.textBox_Note_Etud.TabIndex = 15;
+            this.textBox_Note_Etud.TabIndex = 2;
             this.textBox_Note_Etud.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // label_etudiantnote
@@ -205,7 +207,7 @@
             this.label_etudiantnote.AutoSize = true;
             this.label_etudiantnote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_etudiantnote.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_etudiantnote.Location = new System.Drawing.Point(72, 248);
+            this.label_etudiantnote.Location = new System.Drawing.Point(18, 75);
             this.label_etudiantnote.Name = "label_etudiantnote";
             this.label_etudiantnote.Size = new System.Drawing.Size(116, 16);
             this.label_etudiantnote.TabIndex = 16;
@@ -279,34 +281,45 @@
             this.bunifuElipse2.ElipseRadius = 5;
             this.bunifuElipse2.TargetControl = this.insertion;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.insertion);
+            this.panel2.Controls.Add(this.label_etudiantnote);
+            this.panel2.Controls.Add(this.textBox_Note_Etud);
+            this.panel2.Controls.Add(this.label_num);
+            this.panel2.Controls.Add(this.textBox_NumEtud);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.checkBox_Message);
+            this.panel2.Controls.Add(this.radioButton_Present);
+            this.panel2.Controls.Add(this.radioButton_Absent);
+            this.panel2.Location = new System.Drawing.Point(54, 173);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(707, 172);
+            this.panel2.TabIndex = 23;
+            // 
             // Form_enregistrement_manuel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 352);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.bunifuImageButton2);
             this.Controls.Add(this.bunifuImageButton1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label_etudiantnote);
-            this.Controls.Add(this.textBox_Note_Etud);
-            this.Controls.Add(this.label_num);
-            this.Controls.Add(this.textBox_NumEtud);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.checkBox_Message);
-            this.Controls.Add(this.insertion);
             this.Controls.Add(this.textBox_verifer_num_etu);
             this.Controls.Add(this.button_verifier_num_etud);
-            this.Controls.Add(this.radioButton_Present);
-            this.Controls.Add(this.radioButton_Absent);
             this.Name = "Form_enregistrement_manuel";
             this.Text = "Correction Des Erreur";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_enregistrement_manuel_FormClosing);
             this.Load += new System.EventHandler(this.Form_enregistrement_manuel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -332,5 +345,6 @@
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton2;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
+        private System.Windows.Forms.Panel panel2;
     }
 }
