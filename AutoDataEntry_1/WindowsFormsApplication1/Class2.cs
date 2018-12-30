@@ -16,6 +16,10 @@ using System.Drawing.Imaging;
 using AForge.Math.Geometry;
 using SkewCorrectionNS;
 using MessagingToolkit.QRCode.Codec.Data;
+using ZXing;
+using ZXing.Common;
+using ZXing.QrCode;
+
 /// <summary>
 /// Class qui contient tous les fonction de  traitement 
 /// Auteur : ASUS - Hnada Mohamed 
@@ -244,9 +248,9 @@ namespace WindowsFormsApplication1
         }
 
         //prend la table des cercle decouper et compter le nbr des pixel blanche  
-        public static int[] giveMeTable(Bitmap[] bitmabs)
+        public static int[] giveMeTable(Bitmap[] bitmabs, int n)
         {
-            int[] table = new int[46];
+            int[] table = new int[n];
 
             for (int x = 0; x < bitmabs.Length; x++)
             {
@@ -447,9 +451,9 @@ namespace WindowsFormsApplication1
         }
 
         //return le indicedu maximum  
-        public static int max(Bitmap[] b)
+        public static int max(Bitmap[] b,int n)
         {
-            int[] table = Class2.giveMeTable(b);
+            int[] table = Class2.giveMeTable(b,n);
             // Finding max
             int max, imax = 0;
             max = table[0];
@@ -465,36 +469,94 @@ namespace WindowsFormsApplication1
             return imax;
         }
 
-        //retourn le indice du maximun avec des condition  --Test-- : on cas ou il ya deux case cocker --> OO OXOOOOXOOO OOOOOOOOOO OOOOOOOOOO OOOOOOOOOO 
-        public static int maxnew(Bitmap[] b)
+        //retourn le indice du maximun pour les A D
+        public static int maxnew(Bitmap[] b, int n)
         {
-            int[] table = Class2.giveMeTable(b);
-            // Finding max
-            int max, imax = 0;
-            max = table[0];
-            for (int i = 0; i < table.Length; i++)
+            int imax = 0;
+            int[] table = Class2.giveMeTable(b, n);
+            int a = table[0];
+            int d = table[1];
+            if (Math.Abs(a - d) < 50)
             {
-
-                if (max < table[i])
-                {
-                    imax = i;
-                    max = table[i];
-
-                }
-            }
-
-            for (int i = 0; i < table.Length; i++)
-            {
-
-                if (Math.Abs(max - table[i]) < 50 && max != table[i])
+                if (a < 270 || d < 270)
                 {
                     imax = -1;
                 }
+                else if (a > 330 || d > 330)
+                {
+                    imax = -2;
+                }
             }
-
+            else
+            {
+                if (a > d)
+                {
+                    imax = 0;
+                }
+                else
+                {
+                    imax = 1;
+                }
+            }
 
             return imax;
         }
+        //pour les note
+        public static int maxnew1(Bitmap[] b, int n)
+        {
+            int[] table = Class2.giveMeTable(b, n);
+            // Finding max
+            int max, min, imax = 0 ;
+            max = table[0];
+            min = table[0];
+            for (int i = 0; i < table.Length; i++)
+            {
+
+                if (max < table[i])
+                {
+                    imax = i;
+                    max = table[i];
+
+                }
+                if (min > table[i])
+                {
+
+                    min = table[i];
+
+                }
+
+            }
+            //MessageBox.Show(max + "-" + min + "=" + Math.Abs(max - min));
+            for (int i = 0; i < table.Length; i++)
+            {
+                if (Math.Abs(max - table[i]) < 50 && max != table[i])
+                {
+
+                    if (Math.Abs(max - table[i]) < 30)
+                    {
+                        MessageBox.Show(max + "-" + min + "=" + Math.Abs(max - min));
+                        if (Math.Abs(max - min) > 50)
+                        {
+                            //les deux cocher
+                            imax = -2;
+                        }
+                        else
+                        {
+                            //aucun case est cocher
+                            imax = -1;
+                        }
+                    }
+                }
+                else
+                {
+                    //  une seul est cocher
+                }
+            }
+            return imax;
+        }
+
+
+
 
         //Correction de image scanner  --Test--
         public static Bitmap ProcessFile(Bitmap b)
@@ -601,7 +663,7 @@ namespace WindowsFormsApplication1
 
         }
 
-        //Decouper les image et retourne les ilage reel
+        //Decouper les image et retourne les images reel
         public static List<Bitmap> splitImageorg(Bitmap b, int rows, int cols, String foldername)
         {
             //System.Drawing.Image img = System.Drawing.Image.FromFile(filepath);
@@ -640,7 +702,7 @@ namespace WindowsFormsApplication1
                     g.DrawImage(img, new Rectangle(0, 0, chunkWidth, chunkHeight), new Rectangle(y * chunkWidth + xcord, x * chunkHeight + h, chunkWidth, chunkHeight), GraphicsUnit.Pixel);
                     //g.DrawImage(img, new Rectangle(0, 0, chunkWidth, chunkHeight), new Rectangle(y * chunkWidth, x * chunkHeight, chunkWidth, chunkHeight), GraphicsUnit.Pixel);
                     g.Dispose();
-                    chunkedImages[x].Save(foldername + Qretudiant_principale + ";0" + z + ".bmp");
+                    chunkedImages[x].Save(foldername + QrCode_principale + ";0" + z + ".bmp");
                     z++;
                     //xCoord += chunkWidth+(chunkWidth/10) * z;
                 }
@@ -893,9 +955,9 @@ namespace WindowsFormsApplication1
                                 }
                             }
                             String note = "";
-                            if (Class2.maxnew(Ad) != -1)
+                            if (Class2.maxnew(Ad,2) != -1)
                             {
-                                if (Class2.maxnew(Ad) == 0)
+                                if (Class2.maxnew(Ad,2) == 0)
                                 {
                                     note += "A  ";
                                 }
@@ -910,11 +972,11 @@ namespace WindowsFormsApplication1
                                 list_rect_etudiant[z].Save(ErrorForlder + "\\IMG" + z + day + ".png");
                                 continue;
                             }
-                            note += Class2.max(N1).ToString();
-                            note += Class2.max(N2).ToString();
+                            note += Class2.max(N1,10).ToString();
+                            note += Class2.max(N2,10).ToString();
                             note += ",";
-                            note += Class2.max(N3).ToString();
-                            note += Class2.max(N4).ToString();
+                            note += Class2.max(N3,10).ToString();
+                            note += Class2.max(N4,10).ToString();
 
                             notes[z] = note;
                             z++;
@@ -922,8 +984,9 @@ namespace WindowsFormsApplication1
                         z = 0;
                         foreach (Bitmap b1 in list_qrcode)
                         {
-                            MessagingToolkit.QRCode.Codec.QRCodeDecoder decoder = new MessagingToolkit.QRCode.Codec.QRCodeDecoder();
-                            Qretudiant[z] = decoder.Decode(new QRCodeBitmapImage(b1 as Bitmap));
+
+                            
+                            Qretudiant[z] = QReader(b1);
                             z++;
                         }
                         //Qrlist.Items.Clear();
@@ -965,8 +1028,19 @@ namespace WindowsFormsApplication1
 
         }
 
-        //Triagle Detection
-         public static Bitmap BlobDetection1(Bitmap _bitmapSourceImage)
+
+        //QrCode Decodage
+        static MessagingToolkit.QRCode.Codec.QRCodeDecoder decoder = new MessagingToolkit.QRCode.Codec.QRCodeDecoder();
+        public static string QReader(Bitmap bitmap)
+        {
+                    
+                    var Qrcode = decoder.Decode(new QRCodeBitmapImage(bitmap));
+                    return Qrcode;
+        }
+
+
+        //Triagle Detection  --Test--
+        public static Bitmap BlobDetection1(Bitmap _bitmapSourceImage)
         {
             Grayscale _grayscale = new Grayscale(0.2125, 0.7154, 0.0721);
             Bitmap _bitmapGreyImage = _grayscale.Apply(_bitmapSourceImage);
@@ -1038,40 +1112,25 @@ namespace WindowsFormsApplication1
         }
 
         //****************************************************************************************************************Test En Cours****************
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         //--Test En cours -- 
-        static string Qretudiant_principale = "";
+        public static string QrCode_principale = "";
        
-        public static void qrcode_principal(Bitmap bitmap)
+        public static String qrcode_principal(Bitmap bitmap)
         {
             Bitmap b = new Bitmap(bitmap.Width / 2, bitmap.Height / 5);
             Graphics g10 = Graphics.FromImage(b);
             g10.DrawImage(bitmap, new Rectangle(0, 0, bitmap.Width/2, bitmap.Height/5), new Rectangle(bitmap.Width / 2, 0, bitmap.Width / 2, bitmap.Height / 5), GraphicsUnit.Pixel);
             //g.DrawImage(img, new Rectangle(0, 0, b.Width-(4*b.Width/24), b.Height), new Rectangle(b.Width - (4 * b.Width / 24), b.Height, b.Width - (4 * b.Width / 24), b.Height), GraphicsUnit.Pixel);
             g10.Dispose();
-            CreateIfMissing(@"D:\hnada20\students\");
+            //CreateIfMissing(@"D:\hnada20\students\");
 
-            MessagingToolkit.QRCode.Codec.QRCodeDecoder decoder = new MessagingToolkit.QRCode.Codec.QRCodeDecoder();
-            Qretudiant_principale = decoder.Decode(new QRCodeBitmapImage(b as Bitmap));
+
+            QrCode_principale= QReader(b);
 
             //Qretudiant=Qretudiant.Replace(';','_');
 
-            b.Save(@"D:\hnada20\students\" + String.Format("{0}.bmp", Qretudiant_principale));
-
+            //b.Save(@"D:\hnada20\students\" + String.Format("{0}.bmp", Qretudiant_principale));
+            return QrCode_principale;
         }
 
 

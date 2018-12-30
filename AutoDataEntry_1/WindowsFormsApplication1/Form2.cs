@@ -66,7 +66,7 @@ namespace WindowsFormsApplication1
         public void StartOperation()
         {
             
-            
+           /* 
 
             List<String> paths = new List<String>();
             String ProcessForlder= @"D:\hnada20\Process\";
@@ -221,9 +221,10 @@ namespace WindowsFormsApplication1
 
 
             }
-
+*/
         }
 
+        
         private void button1_Click(object sender, EventArgs e)
         {
            

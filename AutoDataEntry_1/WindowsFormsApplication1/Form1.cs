@@ -190,6 +190,13 @@ namespace WindowsFormsApplication1
 
         }
 
+        private void btn_correction_Click(object sender, EventArgs e)
+        {
+
+            Form_enregistrement_manuel f = new Form_enregistrement_manuel();
+            f.ShowDialog();
+        }
+
         private void bunifuImageButton2_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -200,7 +207,7 @@ namespace WindowsFormsApplication1
         {
 
 
-
+            String QrCode_principale = null;
             List<String> paths = new List<String>();
            
             //Creation des dossiers de traitement 
@@ -217,16 +224,14 @@ namespace WindowsFormsApplication1
             //traitment image par image 
             foreach (String s in paths)
             {
-                String[] notes = new String[14];                //list pour stockage des note 
-                String[] Qretudiant = new String[14];           //list de stockage des valeur de Qrcode
 
-                try
-                {
+                //try
+                //{
 
                     im = Class2.GetCopyImage(s);                //travailler avec une copy de l'image reel
 
-                    Class2.qrcode_principal((Bitmap)im);
-                    //MessageBox.Show("sssssss");
+                    QrCode_principale=Class2.qrcode_principal((Bitmap)im);
+                    MessageBox.Show(QrCode_principale);
                     //im = Class2.verifier_retation((Bitmap)im);  //corection de orientation de l"image 
                     Bitmap p1 = (Bitmap)im;
                     //p1 = Class2.ProcessFile(p1);
@@ -239,23 +244,12 @@ namespace WindowsFormsApplication1
                     //Commencer le traitement de chaque etudiant 
                     if (list_rect_etudiant.Count != 0)
                     {
+                        //list des image a traiter pour chaque etudinat
 
                         List<Bitmap> list_qrcode = new List<Bitmap>();
                         List<Bitmap> list_rect_etudiant_Note = new List<Bitmap>();
 
-
-
-                        //TODO :
-                        /*
-                         *  create class etudiant 
-                         *  insert in list<etudiant>
-                         * 
-                         * 
-                         * 
-                         * 
-                         * 
-                         * 
-                         * */
+                        //remplissage des list des image a traiter pour chaque etudinat
                         foreach (Bitmap b in list_rect_etudiant)
                         {
                             Bitmap b_B_W;
@@ -270,112 +264,143 @@ namespace WindowsFormsApplication1
                                 list_qrcode.Add(Class2.takebarcode(b));
                             }
                         }
-                        int z = 0;
-                        foreach (Bitmap b in list_rect_etudiant_Note)
+
+                        Examen_inscription_note examen_inscription_note ;
+                        List<Examen_inscription_note> list_examen_inscription_note = new List<Examen_inscription_note>();
+                        String note="";
+                        String Qrcode="";
+                        for (int i = 0; i < 14; i++)
                         {
-                                                
-                                                Bitmap[,] chunkedImages = Class2.splitImage(b, 1, 46, @"D:\hnada20\" + "note" + z + "\\");
-                                                Bitmap[] Ad = new Bitmap[2];
-                                                Bitmap[] N3 = new Bitmap[10];
-                                                Bitmap[] N1 = new Bitmap[10];
-                                                Bitmap[] N2 = new Bitmap[10];
-                                                Bitmap[] N4 = new Bitmap[10];
+                            Qrcode="";
+                            note="";
 
-                                                int a = 0;
-                                                int a1 = 0;
-                                                int a2 = 0;
-                                                int a3 = 0;
-                                                int a4 = 0;
+                            //gére exeption de Decodage de Qrcode
+                            try
+                            {
+                                Qrcode = Class2.QReader(list_qrcode[i] as Bitmap);
+                            }
+                            catch (Exception e)
+                            {
+                            MessageBox.Show("" + Qrcode +""+e.Message);
+                            //le Qrcode n'est pas bient Decoder ---> save in Erreur Dossier.
+                            //TODO: nom = information du etudiant.
+                            String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
+                                list_rect_etudiant[i].Save(ErrorForlder + "\\Qrcode" + i + day + ".png");
+                                continue;
+                            }
+                            
 
-                                                for (int i = 0; i < chunkedImages.Length; i++)
-                                                {
-                                                    if (i == 0 || i == 1)
-                                                    {
-                                                        Ad[a] = chunkedImages[0, i];
-                                                        a++;
-                                                    }
-                                                    if (i > 2 && i < 13)
-                                                    {
-                                                        N1[a1] = chunkedImages[0, i];
-                                                        a1++;
-                                                    }
-                                                    if (i > 13 && i < 24)
-                                                    {
-                                                        N2[a2] = chunkedImages[0, i];
-                                                        a2++;
-                                                    }
-                                                    if (i > 24 && i < 35)
-                                                    {
-                                                        N3[a3] = chunkedImages[0, i];
-                                                        a3++;
-                                                    }
-                                                    if (i > 35)
-                                                    {
-                                                        N4[a4] = chunkedImages[0, i];
-                                                        a4++;
-                                                    }
-                                                }
-                                                String note = "";
-                                                if (Class2.maxnew(Ad) != -1)
-                                                {
-                                                    if (Class2.maxnew(Ad) == 0)
-                                                    {
-                                                        note += "A  ";
-                                                    }
-                                                    else
-                                                    {
-                                                        note += "D  ";
-                                                    }
-                                                }
-                                                else
-                                                {
-                                                    String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
-                                                    list_rect_etudiant[z].Save(ErrorForlder + "\\IMG" + z + day + ".png");
-                                                    continue;
-                                                }
-                                                note += Class2.max(N1).ToString();
-                                                note += Class2.max(N2).ToString();
-                                                note += ",";
-                                                note += Class2.max(N3).ToString();
-                                                note += Class2.max(N4).ToString();
+                            Bitmap[,] chunkedImages = Class2.splitImage(list_rect_etudiant_Note[i], 1, 46, @"D:\hnada20\" + "note" + i + "\\");
+                            Bitmap[] Ad = new Bitmap[2];
+                            Bitmap[] N3 = new Bitmap[10];
+                            Bitmap[] N1 = new Bitmap[10];
+                            Bitmap[] N2 = new Bitmap[10];
+                            Bitmap[] N4 = new Bitmap[10];
 
-                                                notes[z] = note;
-                                                z++;
+                            int a = 0;
+                            int a1 = 0;
+                            int a2 = 0;
+                            int a3 = 0;
+                            int a4 = 0;
+
+                            for (int k = 0; k < chunkedImages.Length; k++)
+                            {
+                                if (k == 0 || k == 1)
+                                {
+                                    Ad[a] = chunkedImages[0, k];
+                                    a++;
+                                }
+                                if (k > 2 && k < 13)
+                                {
+                                    N1[a1] = chunkedImages[0, k];
+                                    a1++;
+                                }
+                                if (k > 13 && k < 24)
+                                {
+                                    N2[a2] = chunkedImages[0, k];
+                                    a2++;
+                                }
+                                if (k > 24 && k < 35)
+                                {
+                                    N3[a3] = chunkedImages[0, k];
+                                    a3++;
+                                }
+                                if (k> 35)
+                                {
+                                    N4[a4] = chunkedImages[0, k];
+                                    a4++;
+                                }
+                            }
+
+                            String Situation = "Present";
+                            if (Class2.maxnew(Ad, 2) != -1)
+                            {
+                                if (Class2.maxnew(Ad, 2) == 0)
+                                {
+                                    Situation = "Absent";
+                                    continue;
+                            }
+                                else if (Class2.maxnew(Ad, 2) == 1)
+                                {
+                                    Situation = "Disponser";
+                                    continue;
+                            }
+                                else
+                                {
+                                    //les deux case est cocher ---> save in Erreur Dossier.
+                                    //TODO: nom = information du etudiant.
+                                    String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
+                                    list_rect_etudiant[i].Save(ErrorForlder + "\\Note" + i + day + ".png");
+                                    continue;
+                                }
+                            }
+                            else
+                            {
+                                /// TODO : tester sur les valeur de retour de la fonction maxnew1
+                                //Eleve ni Disponser ni Absent Alors Present .
+                                note += Class2.maxnew1(N1, 10).ToString();
+                                note += Class2.maxnew1(N2, 10).ToString();
+                                note += ",";
+                                note += Class2.maxnew1(N3, 10).ToString();
+                                note += Class2.maxnew1(N4, 10).ToString();
+
+
+                                ///TODO: Recuperation du exam_id from Qrcode principal  .
+                                ///si etudiant est absent ou disponser !!!!!!!!!!!!!!!!!!
+                                
+                                MessageBox.Show(""+Qrcode +"     "+note);
+                                //Qrcode variable doit contenir un int alors on doit tester par la dernier feille
+                                //examen_inscription_note = new Examen_inscription_note(int.Parse(Qrcode), exam_id, Double.Parse(note));
+                                examen_inscription_note = new Examen_inscription_note(i, i, Double.Parse(note));
+                                list_examen_inscription_note.Add(examen_inscription_note);
+
+                            }
+
                         }
-                        z = 0;
-                        foreach (Bitmap b1 in list_qrcode)
-                        {
-                            MessagingToolkit.QRCode.Codec.QRCodeDecoder decoder = new MessagingToolkit.QRCode.Codec.QRCodeDecoder();
-                            Qretudiant[z] = decoder.Decode(new QRCodeBitmapImage(b1 as Bitmap));
-                            z++;
-                        }
-                        
                         MySqlCommand mysqlComm = new MySqlCommand();
-                        for (int  i=0;i< Qretudiant.Length;i++)
+                        foreach (Examen_inscription_note ex in list_examen_inscription_note)
                         {
-
-
-                            String sql = "insert into note values(" + i + ",'" + notes[i] + "','" + Qretudiant[i] + "')";
+                            // Fonction de remplissage qui accepte en paramettre un objet Examen_inscription_note
+                            String sql = "insert into note values(" + ex.examen_id + ",'" + ex.moyenne + "','" + ex.inscription_id + "')";
                             MessageBox.Show(sql);
                             mysqlComm.Connection = DatabaseManager.cnx;
                             mysqlComm.CommandText = sql;
                             mysqlComm.ExecuteNonQuery();
 
-
                         }
-                      
-                    }
-                }
-                catch (Exception e8)
-                {
-                    //on cas de erreur dans le try on copier l'image dans le dossier "Erreur"
-                    MessageBox.Show(" form 1 try catch "+e8.Message);
-                    String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
-                    im.Save(ErrorForlder + "\\IMG" + day + ".png");
-                }
 
-                // A la fin de traitment de chaque image en la copier dans le dossier "Done" et la supprimer du dossier du traitement 
-                FileInfo fi = new FileInfo(s);
+                    }
+            //}
+            //    catch (Exception e8)
+            //{
+            //    //on cas de erreur dans le try on copier l'image dans le dossier "Erreur"
+            //    MessageBox.Show(" form 1 try catch " + e8.Message);
+            //    String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
+            //    im.Save(ErrorForlder + "\\IMG" + day + ".png");
+            //}
+
+            // A la fin de traitment de chaque image en la copier dans le dossier "Done" et la supprimer du dossier du traitement 
+            FileInfo fi = new FileInfo(s);
                 fi.CopyTo(Path.Combine(DoneForlder, fi.Name), true);
                 fi.Delete();
             }
