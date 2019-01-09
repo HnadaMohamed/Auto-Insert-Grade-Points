@@ -55,6 +55,7 @@ namespace WindowsFormsApplication1
             DatabaseManager.OpenConnection();
 
             get_pictures();
+            label_nb_feuille.Text = "Nombre des feuilles : " + paths.Count;
 
             if (paths.Count != 0)
             {
@@ -64,13 +65,13 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                panel2.Visible = false;
+                //panel2.Visible = false;
             }
           
 
             textBox_NumEtud.Text = "F172186329";
 
-            radioButton_Absent.Checked = true;
+            radioButton_Present.Checked = true;
             checkBox_Message.Checked = true;
         }
         public void get_pictures()
@@ -89,6 +90,7 @@ namespace WindowsFormsApplication1
                         fi.CopyTo(Path.Combine(@"D:\hnada20\Error_seconde\", fi.Name), true);
                         paths.Add(@"D:\hnada20\Error_seconde\" + fi.Name);
                         paths_delete.Add(@"D:\hnada20\Error\" + fi.Name);
+
                         // MessageBox.Show(paths[0]);
 
                     }
@@ -97,7 +99,7 @@ namespace WindowsFormsApplication1
             }
             catch (Exception e)
             {
-                MessageBox.Show("Dossier est vide !" + e.Message);
+                MessageBox.Show("Dossiern'existe pas !" + e.Message);
             }
 
 
@@ -146,7 +148,7 @@ namespace WindowsFormsApplication1
 
         private void button_enregitrer_Click(object sender, EventArgs e)
         {
-     
+           
         }
 
        
@@ -166,7 +168,7 @@ namespace WindowsFormsApplication1
                  return;
              }
 
-            insert_note();
+            //insert_note();
 
             if (paths.Count != 0)
             {
@@ -178,14 +180,21 @@ namespace WindowsFormsApplication1
                 fi.Delete();
                 paths_delete.RemoveAt(0);
 
+                label_nb_feuille.Text = "Nombre des feuilles : " + paths.Count;
 
                 if (paths.Count != 0)
                 {
                     //MessageBox.Show(paths[0] + "s/2");
                     pictureBox1.Image = Image.FromFile(paths[0]);
                 }
+                else
+                {
+                    string filePath = Path.Combine(Path.GetFullPath(@"..\..\"), "Resources");
+                    pictureBox1.Image = Image.FromFile(filePath+@"\vide.png");
+                    panel2.Visible = false;
+                }
 
-             }
+            }
 
             initialise();
 
@@ -277,6 +286,16 @@ namespace WindowsFormsApplication1
                 fi.Delete();
             }*/
 
+
+        }
+
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
 
         }
 

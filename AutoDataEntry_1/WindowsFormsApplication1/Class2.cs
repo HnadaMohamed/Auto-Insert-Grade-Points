@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
@@ -19,6 +21,7 @@ using MessagingToolkit.QRCode.Codec.Data;
 using ZXing;
 using ZXing.Common;
 using ZXing.QrCode;
+using Tesseract;
 
 /// <summary>
 /// Class qui contient tous les fonction de  traitement 
@@ -33,7 +36,7 @@ namespace WindowsFormsApplication1
         //fontion de decoupage des image par ligne et colonne passe en paramettre
         public static Bitmap[,] splitImage(Bitmap b, int rows, int cols, String foldername)
         {
-            if (rows == 46)
+            if (rows == 48)
             {
                 b = addblack(b);
             }
@@ -68,23 +71,27 @@ namespace WindowsFormsApplication1
                 {
                     if (y > 2)
                     {
-                        if (y > 5)
-                        {
-                            a = 1000;
-                        }
-                        if (y > 12)
+                        if (y > 3)
                         {
                             a = 44;
                         }
-                        if (y > 26)
+                        if (y > 13)
                         {
                             a = 1000;
                         }
+                        if (y > 14)
+                        {
+                            a = 44;
+                        }
                         if (y > 28)
                         {
-                            a = -44;
+                            a = 46;
                         }
-                        if (y > 35)
+                        if (y > 33)
+                        {
+                            a = 1000;
+                        }
+                        if (y > 36)
                         {
                             a = 44;
                         }
@@ -106,7 +113,6 @@ namespace WindowsFormsApplication1
             return chunkedImages;
         }
 
-
         //Creer le dossier s'il nexist pas 
         public static void CreateIfMissing(string path)
         {
@@ -126,11 +132,33 @@ namespace WindowsFormsApplication1
             //g.DrawImage(img, new Rectangle(0, 0, b.Width-(4*b.Width/24), b.Height), new Rectangle(b.Width - (4 * b.Width / 24), b.Height, b.Width - (4 * b.Width / 24), b.Height), GraphicsUnit.Pixel);
             g.Dispose();
             CreateIfMissing(@"D:\hnada20\students\");
-            chunkedImages.Save(@"D:\hnada20\students\" + String.Format("{0}.bmp", a));
+            //chunkedImages.Save(@"D:\hnada20\students\" + String.Format("{0}.bmp", a));
             a++;
+
+            //take_id_inscription(b);
+
             return chunkedImages;
         }
 
+        public static Bitmap take_id_inscription(Bitmap b)
+        {
+            int a = 0;
+            System.Drawing.Image img = b;
+
+            //string xcrd = Convert.ToString( * img.Width);
+            //string[] xcrd_t = xcrd.Split(',');
+            //int img_width = Convert.ToInt16(xcrd_t[0]);
+
+            Bitmap chunkedImages = new Bitmap(img.Width/5, (img.Height / 7) * 3);
+            Graphics g = Graphics.FromImage(chunkedImages);
+            g.DrawImage(img, new Rectangle(0, 0, img.Width /5, (img.Height / 7) * 3), new Rectangle(0, 0, img.Width/5 , (img.Height / 7) * 3), GraphicsUnit.Pixel);
+            //g.DrawImage(img, new Rectangle(0, 0, b.Width-(4*b.Width/24), b.Height), new Rectangle(b.Width - (4 * b.Width / 24), b.Height, b.Width - (4 * b.Width / 24), b.Height), GraphicsUnit.Pixel);
+            g.Dispose();
+            CreateIfMissing(@"D:\hnada20\students\");
+            chunkedImages.Save(@"D:\hnada20\students\" + String.Format("{0}XX.bmp", a));
+            a++;
+            return chunkedImages;
+        }
 
         //decouper la partie des cercle cocher  
         public static Bitmap takenotes(Bitmap b)
@@ -141,17 +169,17 @@ namespace WindowsFormsApplication1
             gr.Dispose();
             b = br;
             System.Drawing.Image img = b;
-            Bitmap chunkedImages = new Bitmap(349 * (img.Width / 350), 3 * img.Height / 10);
+            Bitmap chunkedImages = new Bitmap(375 * (img.Width / 350), 3 * img.Height / 10);
 
             Graphics g = Graphics.FromImage(chunkedImages);
-            g.DrawImage(img, new Rectangle(0, 0, 349 * (img.Width / 350), 3 * img.Height / 10), new Rectangle(31 * (img.Width / 350), 6 * img.Height / 10, 349 * (img.Width / 350), 3 * img.Height / 10), GraphicsUnit.Pixel);
+            g.DrawImage(img, new Rectangle(0, 0, 375 * (img.Width / 350), 3 * img.Height / 10), new Rectangle(6 * (img.Width / 350), 6 * img.Height / 10, 375 * (img.Width / 350), 3 * img.Height / 10), GraphicsUnit.Pixel);
             //g.DrawImage(img, new Rectangle(0, 0, b.Width-(4*b.Width/24), b.Height), new Rectangle(b.Width - (4 * b.Width / 24), b.Height, b.Width - (4 * b.Width / 24), b.Height), GraphicsUnit.Pixel);
             g.Dispose();
             CreateIfMissing(@"D:\hnada20\students\");
             chunkedImages.Save(@"D:\hnada20\students\" + String.Format("{0}.bmp", "Note"));
             return chunkedImages;
         }
-
+               
         //*******Used in the old methode ****
         //Extract the red edge from the bitmap given (Using in Detect function)  
         public static Bitmap takepart2(Bitmap b, int t, int width, int heigth, int x, int y)
@@ -501,6 +529,43 @@ namespace WindowsFormsApplication1
 
             return imax;
         }
+
+
+        //test si 100 es t cocher ou nom 
+        public static int maxnew100(Bitmap[] b100, Bitmap[] bmin, int n)
+        {
+            int[] table = Class2.giveMeTable(bmin, 10);
+            int[] table100 = Class2.giveMeTable(b100, 1);
+            int n100 = table100[0];
+            // Finding max
+            int  min, imax = 0;
+            
+            min = table[0];
+            for (int i = 0; i < table.Length; i++)
+            {
+
+                
+                if (min > table[i])
+                {
+
+                    min = table[i];
+
+                }
+
+            }
+
+            if (Math.Abs(n100-min)>50 )
+            {
+                //case 100 est cocher 
+                imax = 100;
+            }else
+            {
+                imax = -1;
+            }
+            //MessageBox.Show(max + "-" + min + "=" + Math.Abs(max - min));
+            
+            return imax;
+        }
         //pour les note
         public static int maxnew1(Bitmap[] b, int n)
         {
@@ -554,9 +619,6 @@ namespace WindowsFormsApplication1
             }
             return imax;
         }
-
-
-
 
         //Correction de image scanner  --Test--
         public static Bitmap ProcessFile(Bitmap b)
@@ -731,8 +793,8 @@ namespace WindowsFormsApplication1
             //Create a instance of blob counter algorithm
             BlobCounter _blobCounter = new BlobCounter();
             //Configure Filter
-            _blobCounter.MinWidth = _bitmapSourceImage.Width / 2;
-            _blobCounter.MinHeight = _bitmapSourceImage.Height / 2;
+            _blobCounter.MinWidth    = _bitmapSourceImage.Width / 2;
+            _blobCounter.MinHeight   = _bitmapSourceImage.Height / 2;
             _blobCounter.FilterBlobs = true;
 
             _blobCounter.ProcessImage(_bitmapBinaryImage);
@@ -810,7 +872,9 @@ namespace WindowsFormsApplication1
                 QuadrilateralTransformation filter = new QuadrilateralTransformation(new List<IntPoint>() { _cornersnew[1], _cornersnew[2], _cornersnew[3], _cornersnew[0] }, reserve.Rectangle.Width, reserve.Rectangle.Height);
                 b = filter.Apply(bg);
             }
+            MessageBox.Show(_cornersnew.Count + "");
             return b;
+            
         }
 
         //Directory info : traiter les fichier d un dossier 
@@ -1028,7 +1092,6 @@ namespace WindowsFormsApplication1
 
         }
 
-
         //QrCode Decodage
         static MessagingToolkit.QRCode.Codec.QRCodeDecoder decoder = new MessagingToolkit.QRCode.Codec.QRCodeDecoder();
         public static string QReader(Bitmap bitmap)
@@ -1037,7 +1100,6 @@ namespace WindowsFormsApplication1
                     var Qrcode = decoder.Decode(new QRCodeBitmapImage(bitmap));
                     return Qrcode;
         }
-
 
         //Triagle Detection  --Test--
         public static Bitmap BlobDetection1(Bitmap _bitmapSourceImage)
@@ -1132,7 +1194,6 @@ namespace WindowsFormsApplication1
             //b.Save(@"D:\hnada20\students\" + String.Format("{0}.bmp", Qretudiant_principale));
             return QrCode_principale;
         }
-
 
         public static BlobCounter fct_for_retation_qrcode(Bitmap bitmap, int x)
         {
@@ -1266,8 +1327,18 @@ namespace WindowsFormsApplication1
         }
 
 
-
-
+        //fonction de traitement de text qui contient les num des etudiant   --Test--
+        public static String GetText(Bitmap b)
+        {
+            var img = b;
+            var ocr = new TesseractEngine("./tessdata", "eng", EngineMode.TesseractAndCube);
+            var page = ocr.Process(img);
+            String s = page.GetText();
+            s.Replace(" ", "");
+            String[] s1 = s.Split('-');
+            
+            return s1[0];
+        }
     }
 
     

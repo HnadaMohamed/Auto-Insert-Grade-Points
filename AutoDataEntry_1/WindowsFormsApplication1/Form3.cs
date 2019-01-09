@@ -26,7 +26,7 @@ namespace WindowsFormsApplication1
         {
             //Design Part
             this.StyleManager = metroStyleManager;
-            metroStyleManager.Theme = MetroThemeStyle.Dark;
+            metroStyleManager.Theme = MetroThemeStyle.Light;
             this.FormBorderStyle = FormBorderStyle.None;
 
             loginform.Visible = false;
@@ -62,7 +62,15 @@ namespace WindowsFormsApplication1
         private void btn_login_Click(object sender, EventArgs e)
         {
             Form1 f = new Form1();
-            f.Show();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+            
+        }
+
+        private void bunifuImageButton3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -15,6 +15,7 @@ using System.Globalization;
 using MetroFramework;
 using System.IO;
 using System.Threading;
+using Tesseract;
 /// <summary>
 /// Form Pour tester les nouvelle ligne de code
 /// le resultat du traitement sera afficher dans deux list box 
@@ -39,16 +40,29 @@ namespace WindowsFormsApplication1
 
         private void Proccess_Click(object sender, EventArgs e)
         {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                var img = new Bitmap(openFileDialog.FileName);
+                Bitmap[,] chunkedImages = Class2.splitImage(img, 1, 48, @"D:\hnada20\" + "note" + 0 + "\\");
+            }
 
+            //StartOperation();
 
-            StartOperation();
-           
 
 
 
 
         }
 
+        public static String GetText(Bitmap b)
+        {
+            var img = b;
+            var ocr = new TesseractEngine("./tessdata", "eng", EngineMode.TesseractAndCube);
+            var page = ocr.Process(img);
+            String s = page.GetText();
+
+            return s;
+        }
     
         private void timer1_Tick(object sender, EventArgs e)
         {

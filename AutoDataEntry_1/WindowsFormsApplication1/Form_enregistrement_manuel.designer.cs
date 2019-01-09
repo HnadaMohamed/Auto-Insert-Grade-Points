@@ -43,25 +43,31 @@
             this.label_etudiantnote = new System.Windows.Forms.Label();
             this.button_verifier_num_etud = new System.Windows.Forms.Button();
             this.textBox_verifer_num_etu = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
-            this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label_nb_feuille = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(21, 14);
+            this.pictureBox1.Image = global::WindowsFormsApplication1.Properties.Resources.vide;
+            this.pictureBox1.Location = new System.Drawing.Point(8, 108);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(657, 78);
+            this.pictureBox1.Size = new System.Drawing.Size(628, 62);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -72,16 +78,16 @@
             // 
             // insertion
             // 
-            this.insertion.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.insertion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.insertion.Activecolor = System.Drawing.SystemColors.ActiveCaption;
+            this.insertion.BackColor = System.Drawing.Color.White;
             this.insertion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.insertion.BorderRadius = 0;
-            this.insertion.ButtonText = "Insert";
+            this.insertion.ButtonText = "            Insert";
             this.insertion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.insertion.DisabledColor = System.Drawing.Color.White;
-            this.insertion.ForeColor = System.Drawing.Color.Black;
+            this.insertion.DisabledColor = System.Drawing.Color.Black;
+            this.insertion.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.insertion.Iconcolor = System.Drawing.Color.Transparent;
-            this.insertion.Iconimage = ((System.Drawing.Image)(resources.GetObject("insertion.Iconimage")));
+            this.insertion.Iconimage = null;
             this.insertion.Iconimage_right = null;
             this.insertion.Iconimage_right_Selected = null;
             this.insertion.Iconimage_Selected = null;
@@ -92,28 +98,28 @@
             this.insertion.IconVisible = true;
             this.insertion.IconZoom = 90D;
             this.insertion.IsTab = false;
-            this.insertion.Location = new System.Drawing.Point(489, 119);
+            this.insertion.Location = new System.Drawing.Point(472, 108);
             this.insertion.Name = "insertion";
-            this.insertion.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.insertion.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.insertion.OnHoverTextColor = System.Drawing.Color.White;
+            this.insertion.Normalcolor = System.Drawing.Color.White;
+            this.insertion.OnHovercolor = System.Drawing.SystemColors.ActiveCaption;
+            this.insertion.OnHoverTextColor = System.Drawing.SystemColors.ButtonFace;
             this.insertion.selected = false;
             this.insertion.Size = new System.Drawing.Size(96, 27);
             this.insertion.TabIndex = 3;
-            this.insertion.Text = "Insert";
+            this.insertion.Text = "            Insert";
             this.insertion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.insertion.Textcolor = System.Drawing.Color.White;
+            this.insertion.Textcolor = System.Drawing.SystemColors.ActiveCaption;
             this.insertion.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.insertion.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
             // 
             // checkBox_Message
             // 
-            this.checkBox_Message.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
+            this.checkBox_Message.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.checkBox_Message.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
             this.checkBox_Message.Checked = true;
-            this.checkBox_Message.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
-            this.checkBox_Message.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Message.Location = new System.Drawing.Point(438, 69);
+            this.checkBox_Message.CheckedOnColor = System.Drawing.SystemColors.ButtonFace;
+            this.checkBox_Message.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.checkBox_Message.Location = new System.Drawing.Point(425, 65);
             this.checkBox_Message.Name = "checkBox_Message";
             this.checkBox_Message.Size = new System.Drawing.Size(20, 20);
             this.checkBox_Message.TabIndex = 11;
@@ -122,8 +128,8 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(464, 67);
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label3.Location = new System.Drawing.Point(448, 64);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(177, 19);
             this.label3.TabIndex = 12;
@@ -132,14 +138,14 @@
             // textBox_NumEtud
             // 
             this.textBox_NumEtud.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.textBox_NumEtud.BorderColorIdle = System.Drawing.Color.White;
+            this.textBox_NumEtud.BorderColorIdle = System.Drawing.SystemColors.ActiveCaption;
             this.textBox_NumEtud.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.textBox_NumEtud.BorderThickness = 1;
             this.textBox_NumEtud.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBox_NumEtud.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.textBox_NumEtud.ForeColor = System.Drawing.Color.Black;
             this.textBox_NumEtud.isPassword = false;
-            this.textBox_NumEtud.Location = new System.Drawing.Point(158, 9);
+            this.textBox_NumEtud.Location = new System.Drawing.Point(145, 15);
             this.textBox_NumEtud.Margin = new System.Windows.Forms.Padding(0);
             this.textBox_NumEtud.Name = "textBox_NumEtud";
             this.textBox_NumEtud.Size = new System.Drawing.Size(204, 38);
@@ -149,11 +155,11 @@
             // label_num
             // 
             this.label_num.AutoSize = true;
-            this.label_num.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_num.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_num.Location = new System.Drawing.Point(18, 17);
+            this.label_num.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_num.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label_num.Location = new System.Drawing.Point(5, 23);
             this.label_num.Name = "label_num";
-            this.label_num.Size = new System.Drawing.Size(117, 16);
+            this.label_num.Size = new System.Drawing.Size(123, 17);
             this.label_num.TabIndex = 14;
             this.label_num.Text = "Numéro d\'étudient";
             // 
@@ -161,8 +167,8 @@
             // 
             this.radioButton_Present.AutoSize = true;
             this.radioButton_Present.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_Present.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radioButton_Present.Location = new System.Drawing.Point(567, 14);
+            this.radioButton_Present.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.radioButton_Present.Location = new System.Drawing.Point(539, 21);
             this.radioButton_Present.Name = "radioButton_Present";
             this.radioButton_Present.Size = new System.Drawing.Size(74, 22);
             this.radioButton_Present.TabIndex = 1;
@@ -175,8 +181,8 @@
             // 
             this.radioButton_Absent.AutoSize = true;
             this.radioButton_Absent.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_Absent.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radioButton_Absent.Location = new System.Drawing.Point(445, 14);
+            this.radioButton_Absent.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.radioButton_Absent.Location = new System.Drawing.Point(425, 21);
             this.radioButton_Absent.Name = "radioButton_Absent";
             this.radioButton_Absent.Size = new System.Drawing.Size(70, 22);
             this.radioButton_Absent.TabIndex = 22;
@@ -188,14 +194,14 @@
             // textBox_Note_Etud
             // 
             this.textBox_Note_Etud.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.textBox_Note_Etud.BorderColorIdle = System.Drawing.Color.White;
+            this.textBox_Note_Etud.BorderColorIdle = System.Drawing.SystemColors.ActiveCaption;
             this.textBox_Note_Etud.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.textBox_Note_Etud.BorderThickness = 1;
             this.textBox_Note_Etud.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBox_Note_Etud.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.textBox_Note_Etud.ForeColor = System.Drawing.Color.Black;
             this.textBox_Note_Etud.isPassword = false;
-            this.textBox_Note_Etud.Location = new System.Drawing.Point(158, 67);
+            this.textBox_Note_Etud.Location = new System.Drawing.Point(145, 73);
             this.textBox_Note_Etud.Margin = new System.Windows.Forms.Padding(0);
             this.textBox_Note_Etud.Name = "textBox_Note_Etud";
             this.textBox_Note_Etud.Size = new System.Drawing.Size(204, 33);
@@ -205,11 +211,11 @@
             // label_etudiantnote
             // 
             this.label_etudiantnote.AutoSize = true;
-            this.label_etudiantnote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_etudiantnote.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_etudiantnote.Location = new System.Drawing.Point(18, 75);
+            this.label_etudiantnote.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_etudiantnote.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label_etudiantnote.Location = new System.Drawing.Point(5, 81);
             this.label_etudiantnote.Name = "label_etudiantnote";
-            this.label_etudiantnote.Size = new System.Drawing.Size(116, 16);
+            this.label_etudiantnote.Size = new System.Drawing.Size(123, 17);
             this.label_etudiantnote.TabIndex = 16;
             this.label_etudiantnote.Text = "La Note d\'étudient";
             // 
@@ -233,44 +239,6 @@
             this.textBox_verifer_num_etu.TabIndex = 8;
             this.textBox_verifer_num_etu.Visible = false;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(54, 63);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(695, 103);
-            this.panel1.TabIndex = 17;
-            // 
-            // bunifuImageButton1
-            // 
-            this.bunifuImageButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
-            this.bunifuImageButton1.ImageActive = null;
-            this.bunifuImageButton1.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.InitialImage")));
-            this.bunifuImageButton1.Location = new System.Drawing.Point(755, 63);
-            this.bunifuImageButton1.Name = "bunifuImageButton1";
-            this.bunifuImageButton1.Size = new System.Drawing.Size(43, 103);
-            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton1.TabIndex = 18;
-            this.bunifuImageButton1.TabStop = false;
-            this.bunifuImageButton1.Zoom = 10;
-            this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click);
-            // 
-            // bunifuImageButton2
-            // 
-            this.bunifuImageButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.bunifuImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton2.Image")));
-            this.bunifuImageButton2.ImageActive = null;
-            this.bunifuImageButton2.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton2.InitialImage")));
-            this.bunifuImageButton2.Location = new System.Drawing.Point(5, 61);
-            this.bunifuImageButton2.Name = "bunifuImageButton2";
-            this.bunifuImageButton2.Size = new System.Drawing.Size(43, 103);
-            this.bunifuImageButton2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton2.TabIndex = 19;
-            this.bunifuImageButton2.TabStop = false;
-            this.bunifuImageButton2.Zoom = 10;
-            // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 5;
@@ -283,6 +251,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.insertion);
             this.panel2.Controls.Add(this.label_etudiantnote);
             this.panel2.Controls.Add(this.textBox_Note_Etud);
@@ -292,34 +261,106 @@
             this.panel2.Controls.Add(this.checkBox_Message);
             this.panel2.Controls.Add(this.radioButton_Present);
             this.panel2.Controls.Add(this.radioButton_Absent);
-            this.panel2.Location = new System.Drawing.Point(54, 173);
+            this.panel2.Location = new System.Drawing.Point(6, 183);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(707, 172);
+            this.panel2.Size = new System.Drawing.Size(628, 155);
             this.panel2.TabIndex = 23;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // label_nb_feuille
+            // 
+            this.label_nb_feuille.AutoSize = true;
+            this.label_nb_feuille.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_nb_feuille.Font = new System.Drawing.Font("Ubuntu", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nb_feuille.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label_nb_feuille.Location = new System.Drawing.Point(199, 69);
+            this.label_nb_feuille.Name = "label_nb_feuille";
+            this.label_nb_feuille.Size = new System.Drawing.Size(246, 26);
+            this.label_nb_feuille.TabIndex = 24;
+            this.label_nb_feuille.Text = "Il Vous Reste 12 feuilles ";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(10, 9);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(127, 49);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 25;
+            this.pictureBox2.TabStop = false;
+            // 
+            // bunifuImageButton2
+            // 
+            this.bunifuImageButton2.BackColor = System.Drawing.Color.White;
+            this.bunifuImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton2.Image")));
+            this.bunifuImageButton2.ImageActive = null;
+            this.bunifuImageButton2.Location = new System.Drawing.Point(598, 10);
+            this.bunifuImageButton2.Name = "bunifuImageButton2";
+            this.bunifuImageButton2.Size = new System.Drawing.Size(35, 35);
+            this.bunifuImageButton2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bunifuImageButton2.TabIndex = 26;
+            this.bunifuImageButton2.TabStop = false;
+            this.bunifuImageButton2.Zoom = 10;
+            this.bunifuImageButton2.Click += new System.EventHandler(this.bunifuImageButton2_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.label_nb_feuille);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.panel5);
+            this.panel1.Location = new System.Drawing.Point(-3, -4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(646, 370);
+            this.panel1.TabIndex = 27;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.panel3);
+            this.panel5.Location = new System.Drawing.Point(3, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(643, 63);
+            this.panel5.TabIndex = 26;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.Location = new System.Drawing.Point(-119, 56);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(888, 5);
+            this.panel3.TabIndex = 15;
+            // 
+            // bunifuDragControl1
+            // 
+            this.bunifuDragControl1.Fixed = true;
+            this.bunifuDragControl1.Horizontal = true;
+            this.bunifuDragControl1.TargetControl = this.panel5;
+            this.bunifuDragControl1.Vertical = true;
             // 
             // Form_enregistrement_manuel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 352);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(642, 365);
             this.Controls.Add(this.bunifuImageButton2);
-            this.Controls.Add(this.bunifuImageButton1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.textBox_verifer_num_etu);
             this.Controls.Add(this.button_verifier_num_etud);
+            this.Controls.Add(this.panel1);
             this.Name = "Form_enregistrement_manuel";
-            this.Text = "Correction Des Erreur";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_enregistrement_manuel_FormClosing);
             this.Load += new System.EventHandler(this.Form_enregistrement_manuel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,11 +381,15 @@
         private System.Windows.Forms.Label label_etudiantnote;
         private System.Windows.Forms.Button button_verifier_num_etud;
         private System.Windows.Forms.TextBox textBox_verifer_num_etu;
-        private System.Windows.Forms.Panel panel1;
-        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
-        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton2;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label_nb_feuille;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel5;
+        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
+        private System.Windows.Forms.Panel panel3;
     }
 }
