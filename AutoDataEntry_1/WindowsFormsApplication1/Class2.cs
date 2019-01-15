@@ -31,7 +31,7 @@ namespace WindowsFormsApplication1
 {
     public class Class2
     {
-        
+
 
         //fontion de decoupage des image par ligne et colonne passe en paramettre
         public static Bitmap[,] splitImage(Bitmap b, int rows, int cols, String foldername)
@@ -40,6 +40,12 @@ namespace WindowsFormsApplication1
             {
                 b = addblack(b);
             }
+            Bitmap br = new Bitmap(2112, 50);
+            Graphics gr = Graphics.FromImage(br);
+            gr.DrawImage(b, 0, 0, 2112, 50);
+            gr.Dispose();
+            b = br;
+
             //System.Drawing.Image img = System.Drawing.Image.FromFile(filepath);
             Image<Gray, byte> ImgInput = new Image<Gray, byte>(b);
             //System.Drawing.Image img = FormEdgeDetection.sobel(ImgInput);
@@ -61,49 +67,18 @@ namespace WindowsFormsApplication1
             //xCoord and yCoord are the pixel positions of the image chunks
             //int yCoord = 0;
             int z = 1;
-            int a = 44;
-            int xcord = 0;
+
 
             for (int x = 0; x < rows; x++)
             {
-                //int xCoord = 0;
+
                 for (int y = 0; y < cols; y++)
                 {
-                    if (y > 2)
-                    {
-                        if (y > 3)
-                        {
-                            a = 44;
-                        }
-                        if (y > 13)
-                        {
-                            a = 1000;
-                        }
-                        if (y > 14)
-                        {
-                            a = 44;
-                        }
-                        if (y > 28)
-                        {
-                            a = 46;
-                        }
-                        if (y > 33)
-                        {
-                            a = 1000;
-                        }
-                        if (y > 36)
-                        {
-                            a = 44;
-                        }
-                        xcord += chunkWidth / a;
-                    }
-                    // Rectangle rect = new Rectangle(xCoord, yCoord, chunkWidth, chunkHeight);
-                    chunkedImages[x, y] = new Bitmap(chunkWidth, chunkHeight);
+                    chunkedImages[x, y] = new Bitmap(44, 50);
                     Graphics g = Graphics.FromImage(chunkedImages[x, y]);
-                    g.DrawImage(img, new Rectangle(0, 0, chunkWidth, chunkHeight), new Rectangle(y * chunkWidth + xcord, x * chunkHeight, chunkWidth, chunkHeight), GraphicsUnit.Pixel);
-                    //g.DrawImage(img, new Rectangle(0, 0, chunkWidth, chunkHeight), new Rectangle(y * chunkWidth, x * chunkHeight, chunkWidth, chunkHeight), GraphicsUnit.Pixel);
+                    g.DrawImage(img, new Rectangle(0, 0, 44, 50), new Rectangle(y * 44, x * 50, 44, 50), GraphicsUnit.Pixel);
                     g.Dispose();
-                    chunkedImages[x, y].Save(foldername + "0" + z + ".bmp");
+                    //chunkedImages[x, y].Save(foldername + "0" + z + ".bmp");
                     z++;
                     //xCoord += chunkWidth+(chunkWidth/10) * z;
                 }
@@ -122,17 +97,24 @@ namespace WindowsFormsApplication1
         }
 
         //decouperle Qrcode d'etudiant 
-        static int a = 0;
+        static int a = 0,bb=0 ,nn=0;
         public static Bitmap takebarcode(Bitmap b)
         {
+            Bitmap br = new Bitmap(2200, 166);
+            Graphics gr = Graphics.FromImage(br);
+            gr.DrawImage(b, 0, 0, 2200, 166);
+            gr.Dispose();
+            b = br;
             System.Drawing.Image img = b;
-            Bitmap chunkedImages = new Bitmap(25 * (img.Width / 300), img.Height);
+            Bitmap chunkedImages = new Bitmap(160, 65);
+
             Graphics g = Graphics.FromImage(chunkedImages);
-            g.DrawImage(img, new Rectangle(0, 0, 25 * (img.Width / 300), img.Height), new Rectangle(0, 0, 25 * (img.Width / 300), img.Height), GraphicsUnit.Pixel);
+            g.DrawImage(img, new Rectangle(0, 0, 160, 65), new Rectangle(0, 0, 160, 65), GraphicsUnit.Pixel);
+
             //g.DrawImage(img, new Rectangle(0, 0, b.Width-(4*b.Width/24), b.Height), new Rectangle(b.Width - (4 * b.Width / 24), b.Height, b.Width - (4 * b.Width / 24), b.Height), GraphicsUnit.Pixel);
             g.Dispose();
             CreateIfMissing(@"D:\hnada20\students\");
-            //chunkedImages.Save(@"D:\hnada20\students\" + String.Format("{0}.bmp", a));
+            chunkedImages.Save(@"D:\hnada20\students\" + String.Format("{0}XX.bmp", a));
             a++;
 
             //take_id_inscription(b);
@@ -142,7 +124,14 @@ namespace WindowsFormsApplication1
 
         public static Bitmap take_id_inscription(Bitmap b)
         {
-            int a = 0;
+            //Bitmap br = new Bitmap(2317, 168);
+            // Graphics gr = Graphics.FromImage(br);
+            // gr.DrawImage(b, 0, 0, 2317, 168);
+            // gr.Dispose();
+            // b = br;
+
+            b = addblack(b);
+
             System.Drawing.Image img = b;
 
             //string xcrd = Convert.ToString( * img.Width);
@@ -155,31 +144,31 @@ namespace WindowsFormsApplication1
             //g.DrawImage(img, new Rectangle(0, 0, b.Width-(4*b.Width/24), b.Height), new Rectangle(b.Width - (4 * b.Width / 24), b.Height, b.Width - (4 * b.Width / 24), b.Height), GraphicsUnit.Pixel);
             g.Dispose();
             CreateIfMissing(@"D:\hnada20\students\");
-            chunkedImages.Save(@"D:\hnada20\students\" + String.Format("{0}XX.bmp", a));
-            a++;
+            //chunkedImages.Save(@"D:\hnada20\students\" + String.Format("{0}XX.bmp", bb));
+            bb++;
             return chunkedImages;
         }
 
         //decouper la partie des cercle cocher  
         public static Bitmap takenotes(Bitmap b)
         {
-            Bitmap br = new Bitmap(2317, 168);
+            Bitmap br = new Bitmap(2200, 166);
             Graphics gr = Graphics.FromImage(br);
-            gr.DrawImage(b, 0, 0, 2317, 168);
+            gr.DrawImage(b, 0, 0, 2200, 166);
             gr.Dispose();
             b = br;
             System.Drawing.Image img = b;
-            Bitmap chunkedImages = new Bitmap(375 * (img.Width / 350), 3 * img.Height / 10);
+            Bitmap chunkedImages = new Bitmap(2137, 51);
 
             Graphics g = Graphics.FromImage(chunkedImages);
-            g.DrawImage(img, new Rectangle(0, 0, 375 * (img.Width / 350), 3 * img.Height / 10), new Rectangle(6 * (img.Width / 350), 6 * img.Height / 10, 375 * (img.Width / 350), 3 * img.Height / 10), GraphicsUnit.Pixel);
+            g.DrawImage(img, new Rectangle(0, 0, 2137, 51), new Rectangle(36, 98, 2137, 51), GraphicsUnit.Pixel);
             //g.DrawImage(img, new Rectangle(0, 0, b.Width-(4*b.Width/24), b.Height), new Rectangle(b.Width - (4 * b.Width / 24), b.Height, b.Width - (4 * b.Width / 24), b.Height), GraphicsUnit.Pixel);
             g.Dispose();
             CreateIfMissing(@"D:\hnada20\students\");
-            chunkedImages.Save(@"D:\hnada20\students\" + String.Format("{0}.bmp", "Note"));
+            //chunkedImages.Save(@"D:\hnada20\students\" + String.Format("{0}.bmp", "Note"));
             return chunkedImages;
         }
-               
+
         //*******Used in the old methode ****
         //Extract the red edge from the bitmap given (Using in Detect function)  
         public static Bitmap takepart2(Bitmap b, int t, int width, int heigth, int x, int y)
@@ -320,20 +309,20 @@ namespace WindowsFormsApplication1
         }
 
         //Aforge function Detect the Rectagles based on the Heigth --Test--
-        public static List<Bitmap> Detect(Bitmap b)
+        public static Bitmap Detect(Bitmap b)
         {
             // Open your image
-            List<Bitmap> list_rect_etudiant = new List<Bitmap>();
+            Bitmap bg = b;
             Bitmap image = addblack(b);
-            image.Save(@"D:\hnada20\students\moreblack.png");
+            //image.Save(@"D:\hnada20\students\moreblack.png");
 
 
             // locating objects
             BlobCounter blobCounter = new BlobCounter();
 
             blobCounter.FilterBlobs = true;
-            blobCounter.MinHeight = 5;
-            blobCounter.MinWidth = 5;
+            blobCounter.MinHeight = image.Height/2;
+            blobCounter.MinWidth = image.Width/2;
 
             blobCounter.ProcessImage(image);
             Blob[] blobs = blobCounter.GetObjectsInformation();
@@ -360,12 +349,11 @@ namespace WindowsFormsApplication1
                         // x, y, width, height values.
                         //**                        s += " / " + blobs[i].Rectangle.Height;
 
-                        if (blobs[i].Rectangle.Height < 170 && blobs[i].Rectangle.Height > 100)
-                        {
+                        
 
-                            list_rect_etudiant.Add(Class2.takepart2(image, t, blobs[i].Rectangle.Width, blobs[i].Rectangle.Height, blobs[i].Rectangle.X, blobs[i].Rectangle.Y));
-                            t++;
-                        }
+                            QuadrilateralTransformation filter = new QuadrilateralTransformation(new List<IntPoint>() { cornerPoints[0], cornerPoints[1], cornerPoints[2], cornerPoints[3] }, blob.Rectangle.Width, blob.Rectangle.Height);
+                            b = filter.Apply(bg);
+                        
 
 
                         /*
@@ -384,7 +372,7 @@ namespace WindowsFormsApplication1
                 }
                 i++;
             }
-            return list_rect_etudiant;
+            return b;
         }
 
         //Blob Detection fonction --Test--
@@ -504,7 +492,7 @@ namespace WindowsFormsApplication1
             int[] table = Class2.giveMeTable(b, n);
             int a = table[0];
             int d = table[1];
-            if (Math.Abs(a - d) < 50)
+            if (Math.Abs(a - d) < 60)
             {
                 if (a < 270 || d < 270)
                 {
@@ -597,9 +585,9 @@ namespace WindowsFormsApplication1
                 if (Math.Abs(max - table[i]) < 50 && max != table[i])
                 {
 
-                    if (Math.Abs(max - table[i]) < 30)
+                    if (Math.Abs(max - table[i]) < 35)
                     {
-                        MessageBox.Show(max + "-" + min + "=" + Math.Abs(max - min));
+                        //.Show(max + "-" + min + "=" + Math.Abs(max - min));
                         if (Math.Abs(max - min) > 50)
                         {
                             //les deux cocher
@@ -657,27 +645,11 @@ namespace WindowsFormsApplication1
         //Addmore Black : Netoyage de image pour bien detecter les rectangle 
         public static Bitmap addblack(Bitmap bitm)
         {
+            return bitm;
+            /*
             double contrast = Convert.ToDouble(1000);
             Bitmap b7 = bitm;
-            /*
-            Bitmap bmap = (Bitmap)temp.Clone();
-            Color c;
-            for (int i = 0; i < bmap.Width; i++)
-            {
-                for (int j = 0; j < bmap.Height; j++)
-                {
-                    c = bmap.GetPixel(i, j);
-                    bmap.SetPixel(i, j,
-            Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B));
-                }
-            }
-            Bitmap b  = (Bitmap)bmap.Clone();
-            pictureshow.Image = b;
-            b.Save(@"D:\hnada20\students\inverse.png");
-            */
-
-
-
+     
             Bitmap temp = (Bitmap)b7;
             Bitmap bmap = (Bitmap)temp.Clone();
             if (contrast < -100) contrast = -100;
@@ -719,10 +691,9 @@ namespace WindowsFormsApplication1
                 }
             }
             b7 = (Bitmap)bmap.Clone();
-            //pictureshow.Image = b7;
             return b7;
-            //path.Text = @"D:\hnada20\students\inverse.png";
-
+            */
+            
         }
 
         //Decouper les image et retourne les images reel
@@ -740,8 +711,8 @@ namespace WindowsFormsApplication1
             //Bitmap bitmap=ConvertToBlackAndWhite(bitmap1);
             //image.setImageBitmap(bitmap);
             //Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), true);
-            chunkHeight = img.Height / rows;
-            chunkWidth = img.Width / cols;
+            chunkHeight = 166;
+            chunkWidth = 2200;
             CreateIfMissing(foldername);
             //xCoord and yCoord are the pixel positions of the image chunks
             //int yCoord = 0;
@@ -756,7 +727,7 @@ namespace WindowsFormsApplication1
                 {
                     if (x == 4)
                     {
-                        h += chunkHeight / 20;
+                        // h += chunkHeight / 20;
                     }
                     // Rectangle rect = new Rectangle(xCoord, yCoord, chunkWidth, chunkHeight);
                     chunkedImages.Add(new Bitmap(chunkWidth, chunkHeight));
@@ -764,7 +735,7 @@ namespace WindowsFormsApplication1
                     g.DrawImage(img, new Rectangle(0, 0, chunkWidth, chunkHeight), new Rectangle(y * chunkWidth + xcord, x * chunkHeight + h, chunkWidth, chunkHeight), GraphicsUnit.Pixel);
                     //g.DrawImage(img, new Rectangle(0, 0, chunkWidth, chunkHeight), new Rectangle(y * chunkWidth, x * chunkHeight, chunkWidth, chunkHeight), GraphicsUnit.Pixel);
                     g.Dispose();
-                    chunkedImages[x].Save(foldername + QrCode_principale + ";0" + z + ".bmp");
+                    //chunkedImages[x].Save(foldername + QrCode_principale + ";0" + z + ".bmp");
                     z++;
                     //xCoord += chunkWidth+(chunkWidth/10) * z;
                 }
@@ -779,17 +750,19 @@ namespace WindowsFormsApplication1
 
 
             Bitmap bg = _bitmapSourceImage;
+            //MessageBox.Show("debut filtre");
             _bitmapSourceImage = Class2.addblack(_bitmapSourceImage);
+            //MessageBox.Show("fin filtre");
             Grayscale _grayscale = new Grayscale(0.2125, 0.7154, 0.0721);
             Bitmap _bitmapGreyImage = _grayscale.Apply(_bitmapSourceImage);
             Bitmap b = null;
             //create a edge detector instance
             DifferenceEdgeDetector _differeceEdgeDetector = new DifferenceEdgeDetector();
             Bitmap _bitmapEdgeImage = _differeceEdgeDetector.Apply(_bitmapGreyImage);
-
+         
             Threshold _threshold = new Threshold(40);
             Bitmap _bitmapBinaryImage = _threshold.Apply(_bitmapEdgeImage);
-
+          
             //Create a instance of blob counter algorithm
             BlobCounter _blobCounter = new BlobCounter();
             //Configure Filter
@@ -872,7 +845,7 @@ namespace WindowsFormsApplication1
                 QuadrilateralTransformation filter = new QuadrilateralTransformation(new List<IntPoint>() { _cornersnew[1], _cornersnew[2], _cornersnew[3], _cornersnew[0] }, reserve.Rectangle.Width, reserve.Rectangle.Height);
                 b = filter.Apply(bg);
             }
-            MessageBox.Show(_cornersnew.Count + "");
+            //MessageBox.Show(_cornersnew.Count + "");
             return b;
             
         }
@@ -1328,17 +1301,25 @@ namespace WindowsFormsApplication1
 
 
         //fonction de traitement de text qui contient les num des etudiant   --Test--
-        public static String GetText(Bitmap b)
+        public static string GetText(Bitmap imgsource)
         {
-            var img = b;
-            var ocr = new TesseractEngine("./tessdata", "eng", EngineMode.TesseractAndCube);
-            var page = ocr.Process(img);
-            String s = page.GetText();
-            s.Replace(" ", "");
-            String[] s1 = s.Split('-');
-            
-            return s1[0];
+            var ocrtext = string.Empty;
+            using (var engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default))
+            {
+                
+                using (var img = PixConverter.ToPix(imgsource))
+                {
+                    using (var page = engine.Process(img))
+                    {
+                        ocrtext = page.GetText();
+                    }
+                }
+            }
+
+            return ocrtext.Replace(" ", "");
+
         }
+
     }
 
     

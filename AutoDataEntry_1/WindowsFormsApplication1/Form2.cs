@@ -42,8 +42,9 @@ namespace WindowsFormsApplication1
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                var img = new Bitmap(openFileDialog.FileName);
-                Bitmap[,] chunkedImages = Class2.splitImage(img, 1, 48, @"D:\hnada20\" + "note" + 0 + "\\");
+                //var img = new Bitmap(openFileDialog.FileName);
+                textBox1.Text = openFileDialog.FileName;
+                //Bitmap[,] chunkedImages = Class2.splitImage(img, 1, 48, @"D:\hnada20\" + "note" + 0 + "\\");
             }
 
             //StartOperation();
@@ -63,10 +64,10 @@ namespace WindowsFormsApplication1
 
             return s;
         }
-    
+        public int s;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
+            s++;
             
         }
 
@@ -241,12 +242,37 @@ namespace WindowsFormsApplication1
         
         private void button1_Click(object sender, EventArgs e)
         {
-           
-            Image b = Class2.GetCopyImage(@"D:\hnada20\g1.png");
-            //Bitmap b1 = Class2.BlobDetection1((Bitmap)b);
-          
-            Bitmap b1=Class2.verifier_retation((Bitmap)b);
-            b1.Save(@"D:\hnada20\students\g2.png");
+            string ocrtext = textBox1.Text;
+            
+            textBox2.Text = ocrtext.Replace(" ", "");
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+            Image b = Class2.GetCopyImage(textBox1.Text);
+            Bitmap b1 = Class2.BlobDetectiontest((Bitmap)b);
+            pictureBox1.Image = b1;
+            textBox1.Text = b1.Height.ToString();
+           textBox2.Text= s.ToString();
+            timer1.Stop();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+            Image b = Class2.GetCopyImage(textBox1.Text);
+            String b1= null;
+            
+
+                b1 = Class2.GetText1((Bitmap)b);
+            
+            
+            
+            //textBox1.Text = b1.Height.ToString();
+            textBox2.Text = b1;
+            timer1.Stop();
         }
     }
 }

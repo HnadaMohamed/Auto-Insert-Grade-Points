@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,17 @@ namespace WindowsFormsApplication1
             this.FormBorderStyle = FormBorderStyle.None;
 
             loginform.Visible = false;
+
+            //copy process folder in scanner folder 
+            DirectoryInfo process = new DirectoryInfo(ParametreClass.ProcessForlder);
+
+            foreach (FileInfo fi in process.GetFiles())
+            {
+
+                fi.CopyTo(Path.Combine(ParametreClass.ScannerForlder, fi.Name), true);
+                fi.Delete();
+            }
+
         }
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
@@ -39,7 +51,7 @@ namespace WindowsFormsApplication1
 
         private void label2_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void bunifuThinButton22_Click(object sender, EventArgs e)
@@ -71,6 +83,18 @@ namespace WindowsFormsApplication1
         private void bunifuImageButton3_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void bunifuImageButton4_Click(object sender, EventArgs e)
+        {
+            panel_settings.Visible = true;
+            panel_settings.Height = 350;
+        }
+
+
+        private void bunifuImageButton5_Click(object sender, EventArgs e)
+        {
+            panel_settings.Visible = false;
         }
     }
 }

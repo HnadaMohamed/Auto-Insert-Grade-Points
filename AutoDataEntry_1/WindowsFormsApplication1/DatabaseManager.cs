@@ -19,7 +19,7 @@ namespace WindowsFormsApplication1
         public static MySqlConnection cnx = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionStringManar"].ConnectionString);
         static MySqlCommand mysqlComm;
         static MySqlDataReader dr;
-
+         static int aer = 0;
         static string examen_id , sql;
 
         public static void OpenConnection()
@@ -43,7 +43,69 @@ namespace WindowsFormsApplication1
                 cnx.Close();
         }
 
-        
+        public static string fct_sql(List<Examen_inscription_note> list_note )
+        {
+            string sql_= "INSERT INTO examen_inscription_note (inscription_id, examen_id,moyenne) VALUES ";
+
+            int i = 0;
+
+            foreach (var item in list_note)
+            {
+                //ex.inscription_id.ToString(), ex.moyenne.ToString(), ex.examen_id
+                sql_ += "(" + item.inscription_id.ToString() + "," + item.examen_id.ToString() + "," + item.moyenne.ToString().Replace(",", ".") + ") ";
+
+                if (list_note.Count - 1 != i)
+                {
+                    sql_ += " , ";
+                }
+                else if (list_note.Count - 1 == i)
+                {
+                    sql_ += " ; " ;
+                }
+
+
+               i++;
+            }
+
+            MessageBox.Show(sql_);
+
+            return sql_;
+        }
+
+        public static void insert_note_list(List<Examen_inscription_note> list_note)
+        {
+            try
+            {
+                //inscription_id = qrcode d'eleve
+
+                //find_examen_id(qrcode_principale);
+
+                //if (examen_id == "rien")
+                //{
+                //    MessageBox.Show("L'examen n'existe pas .", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
+
+                //moyenne = moyenne.Replace(",", ".");
+
+                //MessageBox.Show(moyenne);
+                //sql = "INSERT INTO examen_inscription_note (inscription_id, examen_id,moyenne) VALUES (" + inscription_id + "," + examen_id + "," + moyenne + ");";
+                //sql = "INSERT INTO examen_inscription_note (inscription_id, examen_id,moyenne) VALUES ";
+
+                sql = fct_sql(list_note);
+
+                mysqlComm = new MySqlCommand(sql, DatabaseManager.cnx);
+                mysqlComm.ExecuteNonQuery();
+
+                mysqlComm = null;
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.ToString());
+            }
+
+        }
+
         public static void insert_note(string inscription_id , string moyenne ,int examen_id)
         {
             try
@@ -58,10 +120,14 @@ namespace WindowsFormsApplication1
                 //    return;
                 //}
 
-
-                sql = "INSERT INTO examen_inscription_note (inscription_id, examen_id,moyenne,remarque) VALUES (" + inscription_id + "," + examen_id + "," + moyenne + ",'passable')";
+                moyenne = moyenne.Replace(",", ".");
+                //MessageBox.Show(moyenne);
+                sql = "INSERT INTO examen_inscription_note (inscription_id, examen_id,moyenne) VALUES (" + inscription_id + "," + examen_id + "," + moyenne + ");";
+                //sql = "INSERT INTO examen_inscription_note (inscription_id, examen_id,moyenne) VALUES ";
                 mysqlComm = new MySqlCommand(sql, DatabaseManager.cnx);
                 mysqlComm.ExecuteNonQuery();
+
+                mysqlComm = null;
             }
             catch (Exception e1)
             {
@@ -80,8 +146,9 @@ namespace WindowsFormsApplication1
             try
             {
                 //sql = "SELECT * FROM `examen` where Personnel_id = 206 and UniteMatiere_id = 804 and type_id = 528 and periode_id = 526";
+                
 
-                sql = "SELECT * FROM `examen` where Personnel_id = " + id_champs[0] + " and UniteMatiere_id =" + id_champs[1] + " and type_id = " + id_champs[2] + " and periode_id = " + id_champs[3];
+                sql = "SELECT * FROM `examen` where Personnel_id = " + id_champs[1] + " and UniteMatiere_id =" + id_champs[2] + " and type_id = " + id_champs[3] + " and periode_id = " + id_champs[4] + " and annee_scolaire_id = " + id_champs[5];
                 mysqlComm = new MySqlCommand(sql, DatabaseManager.cnx);
                 dr = mysqlComm.ExecuteReader();
 
@@ -93,13 +160,16 @@ namespace WindowsFormsApplication1
                 {
                     dr.Close();
                     dr = null;
-
-                    MessageBox.Show("examen = rien");
+                    aer = 1;
+                    //MessageBox.Show("examen = rien");
                     insert_examen(id_champs);
                 }
-
-                dr.Close();
-                dr = null;
+                if ( aer==0) {
+                    dr.Close();
+                    dr = null;
+                }
+                
+                
 
 
             }
@@ -116,14 +186,14 @@ namespace WindowsFormsApplication1
             try
             {
                 //sql = "INSERT INTO examen (Personnel_id, UniteMatiere_id,type_id,periode_id) VALUES (206, 804, 528, 526)";
-
-                sql = "INSERT INTO examen (Personnel_id, UniteMatiere_id,type_id,periode_id) VALUES (" + id_champs[0] + ", " + id_champs[1] + ", " + id_champs[2] + ", " + id_champs[3] + ")";
+                MessageBox.Show("Personnel_id, UniteMatiere_id, type_id, periode_id, annee_scolaire_id) VALUES(" + id_champs[1] + ", " + id_champs[2] + ", " + id_champs[3] + ", " + id_champs[4] + ", " + id_champs[5] + ");");
+                sql = "INSERT INTO examen (Personnel_id,UniteMatiere_id,type_id,periode_id,annee_scolaire_id) VALUES ("+ id_champs [1]+ "," + id_champs[2] + "," + id_champs[3] + "," + id_champs[4] + "," + id_champs[5] + ");";
                 mysqlComm = new MySqlCommand(sql, DatabaseManager.cnx);
                 mysqlComm.ExecuteNonQuery();
 
-                //INSERT INTO examen (Personnel_id, UniteMatiere_id,type_id,periode_id) VALUES (1,62,430,430)
+                //INSERT INTO examen (Personnel_id,UniteMatiere_id,type_id,periode_id,annee_scolaire_id) VALUES (39,843,430,433,256)
                 //find examen_id
-                sql = "SELECT * FROM `examen` where Personnel_id = " + id_champs[0] + " and UniteMatiere_id =" + id_champs[1] + " and type_id = " + id_champs[2] + " and periode_id = " + id_champs[3];
+                sql = "SELECT * FROM `examen` where Personnel_id = " + id_champs[1] + " and UniteMatiere_id =" + id_champs[2] + " and type_id = " + id_champs[3] + " and periode_id = " + id_champs[4] + " and annee_scolaire_id = " + id_champs[5];
                 mysqlComm = new MySqlCommand(sql, DatabaseManager.cnx);
                 dr = mysqlComm.ExecuteReader();
 
