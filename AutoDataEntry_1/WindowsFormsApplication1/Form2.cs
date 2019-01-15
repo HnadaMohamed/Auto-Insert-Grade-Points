@@ -266,7 +266,7 @@ namespace WindowsFormsApplication1
             String b1= null;
             
 
-                b1 = Class2.GetText1((Bitmap)b);
+                b1 = Class2.GetText((Bitmap)b);
             
             
             

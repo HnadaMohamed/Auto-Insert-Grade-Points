@@ -1315,8 +1315,16 @@ namespace WindowsFormsApplication1
                     }
                 }
             }
-
-            return ocrtext.Replace(" ", "");
+            string o = "";
+            foreach (char item in ocrtext)
+            {
+                if (char.IsDigit(item) )
+                {
+                    o += item;
+                }
+            }
+            ocrtext= ocrtext.Replace(" ","");
+            return o;
 
         }
 

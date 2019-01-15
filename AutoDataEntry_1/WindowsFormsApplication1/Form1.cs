@@ -407,7 +407,7 @@ namespace WindowsFormsApplication1
 
                         if (!int.TryParse(Qrcode, out io))
                         {
-                            MessageBox.Show("*" + Qrcode + "*");
+                            MessageBox.Show("" + Qrcode + "");
                             //le Qrcode n'est pas bient Decoder ---> save in Erreur Folder.
                             String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
                             list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\Qrcode;" + QrCode_principale + ";" + day + ".png");

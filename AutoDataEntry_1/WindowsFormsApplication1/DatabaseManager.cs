@@ -67,7 +67,7 @@ namespace WindowsFormsApplication1
                i++;
             }
 
-            MessageBox.Show(sql_);
+          //  MessageBox.Show(sql_);
 
             return sql_;
         }
@@ -186,7 +186,7 @@ namespace WindowsFormsApplication1
             try
             {
                 //sql = "INSERT INTO examen (Personnel_id, UniteMatiere_id,type_id,periode_id) VALUES (206, 804, 528, 526)";
-                MessageBox.Show("Personnel_id, UniteMatiere_id, type_id, periode_id, annee_scolaire_id) VALUES(" + id_champs[1] + ", " + id_champs[2] + ", " + id_champs[3] + ", " + id_champs[4] + ", " + id_champs[5] + ");");
+                //MessageBox.Show("Personnel_id, UniteMatiere_id, type_id, periode_id, annee_scolaire_id) VALUES(" + id_champs[1] + ", " + id_champs[2] + ", " + id_champs[3] + ", " + id_champs[4] + ", " + id_champs[5] + ");");
                 sql = "INSERT INTO examen (Personnel_id,UniteMatiere_id,type_id,periode_id,annee_scolaire_id) VALUES ("+ id_champs [1]+ "," + id_champs[2] + "," + id_champs[3] + "," + id_champs[4] + "," + id_champs[5] + ");";
                 mysqlComm = new MySqlCommand(sql, DatabaseManager.cnx);
                 mysqlComm.ExecuteNonQuery();
