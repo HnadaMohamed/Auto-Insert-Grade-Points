@@ -45,26 +45,30 @@ namespace WindowsFormsApplication1
 
         public static string fct_sql(List<Examen_inscription_note> list_note )
         {
-            string sql_= "INSERT INTO examen_inscription_note (inscription_id, examen_id,moyenne) VALUES ";
+            string sql_= "";
 
             int i = 0;
-
-            foreach (var item in list_note)
+            if (list_note.Count != 0)
             {
-                //ex.inscription_id.ToString(), ex.moyenne.ToString(), ex.examen_id
-                sql_ += "(" + item.inscription_id.ToString() + "," + item.examen_id.ToString() + "," + item.moyenne.ToString().Replace(",", ".") + ") ";
 
-                if (list_note.Count - 1 != i)
+                sql_ = "INSERT INTO examen_inscription_note (inscription_id, examen_id,moyenne) VALUES ";
+                foreach (var item in list_note)
                 {
-                    sql_ += " , ";
-                }
-                else if (list_note.Count - 1 == i)
-                {
-                    sql_ += " ; " ;
-                }
+                    //ex.inscription_id.ToString(), ex.moyenne.ToString(), ex.examen_id
+                    sql_ += "(" + item.inscription_id.ToString() + "," + item.examen_id.ToString() + "," + item.moyenne.ToString().Replace(",", ".") + ") ";
+
+                    if (list_note.Count - 1 != i)
+                    {
+                        sql_ += " , ";
+                    }
+                    else if (list_note.Count - 1 == i)
+                    {
+                        sql_ += " ; ";
+                    }
 
 
-               i++;
+                    i++;
+                }
             }
 
           //  MessageBox.Show(sql_);
@@ -93,11 +97,14 @@ namespace WindowsFormsApplication1
                 //sql = "INSERT INTO examen_inscription_note (inscription_id, examen_id,moyenne) VALUES ";
 
                 sql = fct_sql(list_note);
+                if (sql != "")
+                {
+                    mysqlComm = new MySqlCommand(sql, DatabaseManager.cnx);
+                    mysqlComm.ExecuteNonQuery();
 
-                mysqlComm = new MySqlCommand(sql, DatabaseManager.cnx);
-                mysqlComm.ExecuteNonQuery();
-
-                mysqlComm = null;
+                    mysqlComm = null;
+                }
+                
             }
             catch (Exception e1)
             {

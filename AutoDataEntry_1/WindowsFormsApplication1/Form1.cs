@@ -651,8 +651,11 @@ namespace WindowsFormsApplication1
                             MessageBox.Show(er.Message);
                         }
                     }
-
-                    DatabaseManager.insert_note_list(list_examen_inscription_note);
+                    if (list_examen_inscription_note.Count != 0)
+                    {
+                        DatabaseManager.insert_note_list(list_examen_inscription_note);
+                    }
+                    
                 }
                 // A la fin de traitment de chaque image en la copier dans le dossier "Done" et la supprimer du dossier du traitement 
                 FileInfo fi = new FileInfo(s);
