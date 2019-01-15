@@ -291,6 +291,7 @@ namespace WindowsFormsApplication1
             String UniteMatiere_id;
             String type_id;
             String periode_id;
+            string examen_id_form1="";
             List<String> paths = new List<String>();
 
             //Creation des dossiers de traitement 
@@ -313,11 +314,14 @@ namespace WindowsFormsApplication1
                 {
                     //extraction des donner du QRcode principal
                     QrCode_principale = Class2.qrcode_principal((Bitmap)im);
-                    String[] id_champs = QrCode_principale.Split(';');
+
+                    /*String[] id_champs = QrCode_principale.Split(';');
                     Personnel_id = id_champs[0];
                     UniteMatiere_id = id_champs[1];
                     type_id = id_champs[2];
-                    periode_id = id_champs[3];
+                    periode_id = id_champs[3];*/
+
+                    
 
 
                 }
@@ -332,6 +336,17 @@ namespace WindowsFormsApplication1
                     continue;
 
                 }
+
+                try
+                {
+                    examen_id_form1 = DatabaseManager.find_examen_id(QrCode_principale);
+                    //MessageBox.Show(examen_id_form1);
+                }
+                catch
+                {
+                    //MessageBox.Show(examen_id_form1);
+                }
+
                 //im = Class2.verifier_retation((Bitmap)im);  //corection de orientation de l"image 
                 Bitmap p = (Bitmap)im;
 
@@ -399,22 +414,7 @@ namespace WindowsFormsApplication1
                         Qrcode = "";
                         note = "";
 
-                        //TODO:Remplacer catsh par simple if ()
-
-                        Qrcode = Class2.GetText(list_qrcode[i] as Bitmap);
-                        //MessageBox.Show(Qrcode);
-                        int io;
-
-                        if (!int.TryParse(Qrcode, out io))
-                        {
-                            MessageBox.Show("" + Qrcode + "");
-                            //le Qrcode n'est pas bient Decoder ---> save in Erreur Folder.
-                            String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
-                            list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\Qrcode;" + QrCode_principale + ";" + day + ".png");
-                            continue;
-                        }
-
-
+                        
                         Bitmap[,] chunkedImages = Class2.splitImage(list_rect_etudiant_Note[i], 1, 48, @"D:\hnada20\" + "note" + i + "\\");
                         Bitmap[] Ad = new Bitmap[2];
                         Bitmap[] N100 = new Bitmap[1];
@@ -513,36 +513,37 @@ namespace WindowsFormsApplication1
                                 list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\Note" + i + day + ".png");
                                 continue;
                             }
-                            else if (Situation == -1)
+                            else if (Situation == -1 || Situation == -2)
                             {
-                                note += -1;
+                                //note += -1;
 
                                 try
                                 {
-                                    examen_inscription_note = new Examen_inscription_note(int.Parse(Qrcode), int.Parse(DatabaseManager.find_examen_id(QrCode_principale)), Double.Parse(note));
+                                    //TODO:Remplacer catsh par simple if ()
+
+                                    Qrcode = Class2.GetText(list_qrcode[i] as Bitmap);
+                                    //MessageBox.Show(Qrcode);
+                                    int io;
+
+                                    if (!int.TryParse(Qrcode, out io))
+                                    {
+                                        MessageBox.Show("" + Qrcode + "");
+                                        //le Qrcode n'est pas bient Decoder ---> save in Erreur Folder.
+                                        String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
+                                        list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\Qrcode;" + QrCode_principale + ";" + day + ".png");
+                                        continue;
+                                    }
+
+                                    examen_inscription_note = new Examen_inscription_note(int.Parse(Qrcode), int.Parse(examen_id_form1), Double.Parse(Situation.ToString()));
                                     //MessageBox.Show("" + Qrcode + "     " + DatabaseManager.find_examen_id(QrCode_principale)+" /"+ Double.Parse(note));
                                     list_examen_inscription_note.Add(examen_inscription_note);
+
                                 }
                                 catch (Exception er)
                                 {
                                     MessageBox.Show(er.Message);
                                 }
-                                continue;
-                            }
-                            else if (Situation == -2)
-                            {
-                                note += -2;
 
-                                try
-                                {
-                                    examen_inscription_note = new Examen_inscription_note(int.Parse(Qrcode), int.Parse(DatabaseManager.find_examen_id(QrCode_principale)), Double.Parse(note));
-                                    //MessageBox.Show("" + Qrcode + "     " + DatabaseManager.find_examen_id(QrCode_principale)+" /"+ Double.Parse(note));
-                                    list_examen_inscription_note.Add(examen_inscription_note);
-                                }
-                                catch (Exception er)
-                                {
-                                    MessageBox.Show(er.Message);
-                                }
                                 continue;
                             }
                         }
@@ -642,7 +643,23 @@ namespace WindowsFormsApplication1
 
                         try
                         {
-                            examen_inscription_note = new Examen_inscription_note(int.Parse(Qrcode), int.Parse(DatabaseManager.find_examen_id(QrCode_principale)), Double.Parse(note));
+
+                            //TODO:Remplacer catsh par simple if ()
+
+                            Qrcode = Class2.GetText(list_qrcode[i] as Bitmap);
+                            //MessageBox.Show(Qrcode);
+                            int io;
+
+                            if (!int.TryParse(Qrcode, out io))
+                            {
+                                MessageBox.Show("" + Qrcode + "");
+                                //le Qrcode n'est pas bient Decoder ---> save in Erreur Folder.
+                                String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
+                                list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\Qrcode;" + QrCode_principale + ";" + day + ".png");
+                                continue;
+                            }
+
+                            examen_inscription_note = new Examen_inscription_note(int.Parse(Qrcode), int.Parse(examen_id_form1), Double.Parse(note));
                             //MessageBox.Show("" + Qrcode + "     " + DatabaseManager.find_examen_id(QrCode_principale)+" /"+ Double.Parse(note));
                             list_examen_inscription_note.Add(examen_inscription_note);
                         }
@@ -653,7 +670,11 @@ namespace WindowsFormsApplication1
                     }
                     if (list_examen_inscription_note.Count != 0)
                     {
-                        DatabaseManager.insert_note_list(list_examen_inscription_note);
+                        foreach(var item in list_examen_inscription_note) {
+                            DatabaseManager.insert_note(item.inscription_id.ToString(), item.moyenne.ToString(), item.examen_id );
+                        }
+
+                        //DatabaseManager.insert_note_list(list_examen_inscription_note);
                     }
                     
                 }

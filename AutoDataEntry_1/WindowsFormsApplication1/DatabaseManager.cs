@@ -99,6 +99,9 @@ namespace WindowsFormsApplication1
                 sql = fct_sql(list_note);
                 if (sql != "")
                 {
+
+                    //MessageBox.Show(sql);
+
                     mysqlComm = new MySqlCommand(sql, DatabaseManager.cnx);
                     mysqlComm.ExecuteNonQuery();
 
@@ -113,28 +116,70 @@ namespace WindowsFormsApplication1
 
         }
 
+        public static string find_note(string inscription_id, string moyenne, int examen_id)
+        {
+            string sql_ = "";
+            try
+            {
+                sql = "select COUNT(id) as count_id from examen_inscription_note where inscription_id = " + Int32.Parse(inscription_id) + " and examen_id = " + examen_id+ ";";
+                //sql = "INSERT INTO examen_inscription_note (inscription_id, examen_id,moyenne) VALUES ";
+                mysqlComm = new MySqlCommand(sql, DatabaseManager.cnx);
+                dr = mysqlComm.ExecuteReader();
+
+
+                if (dr.Read())
+                {
+                    if (dr["count_id"].ToString().Equals("0"))
+                    {
+                        sql_ = "INSERT INTO examen_inscription_note (inscription_id, examen_id,moyenne) VALUES (" + Int32.Parse(inscription_id) + "," + examen_id + "," + moyenne + ");";
+                       // MessageBox.Show(sql_);
+
+                    }
+                    else
+                    {
+
+                        sql_ = "UPDATE examen_inscription_note set moyenne = " + moyenne + " where inscription_id = " + Int32.Parse(inscription_id) + " and examen_id = " + examen_id + ";";
+                       // MessageBox.Show(sql_);
+
+                    }
+                }
+
+                mysqlComm = null;
+                dr.Close();
+                dr = null;
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.ToString());
+            }
+
+            return sql_;
+        }
+
         public static void insert_note(string inscription_id , string moyenne ,int examen_id)
         {
             try
             {
-                //inscription_id = qrcode d'eleve
-
-                //find_examen_id(qrcode_principale);
-
-                //if (examen_id == "rien")
-                //{
-                //    MessageBox.Show("L'examen n'existe pas .", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    return;
-                //}
-
                 moyenne = moyenne.Replace(",", ".");
-                //MessageBox.Show(moyenne);
-                sql = "INSERT INTO examen_inscription_note (inscription_id, examen_id,moyenne) VALUES (" + inscription_id + "," + examen_id + "," + moyenne + ");";
-                //sql = "INSERT INTO examen_inscription_note (inscription_id, examen_id,moyenne) VALUES ";
-                mysqlComm = new MySqlCommand(sql, DatabaseManager.cnx);
-                mysqlComm.ExecuteNonQuery();
 
-                mysqlComm = null;
+                //MessageBox.Show(moyenne);
+                //sql = "INSERT INTO examen_inscription_note (inscription_id, examen_id,moyenne) VALUES (" +Int32.Parse(inscription_id) + "," + examen_id + "," + moyenne + ");";
+                //sql = "INSERT INTO examen_inscription_note (inscription_id, examen_id,moyenne) VALUES ";
+
+                sql = find_note(inscription_id, moyenne, examen_id);
+
+                if (sql != "")
+                {
+                    mysqlComm = new MySqlCommand(sql, DatabaseManager.cnx);
+                    mysqlComm.ExecuteNonQuery();
+
+                    mysqlComm = null;
+                }
+                else
+                {
+                    MessageBox.Show("la requette est vide !");
+                }
+               
             }
             catch (Exception e1)
             {
