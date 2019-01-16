@@ -409,7 +409,7 @@ namespace WindowsFormsApplication1
                     List<Examen_inscription_note> list_examen_inscription_note = new List<Examen_inscription_note>();
                     String note = "";
                     String Qrcode = "";
-                    for (int i = 0; i < 14; i++)
+                    for (int i = 0; i < list_rect_etudiant_Note.Count ; i++)
                     {
                         Qrcode = "";
                         note = "";

@@ -100,7 +100,7 @@ namespace WindowsFormsApplication1
                 if (sql != "")
                 {
 
-                    //MessageBox.Show(sql);
+                    
 
                     mysqlComm = new MySqlCommand(sql, DatabaseManager.cnx);
                     mysqlComm.ExecuteNonQuery();
