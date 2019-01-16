@@ -371,7 +371,7 @@ namespace WindowsFormsApplication1
                     //on cas de erreur  on copier l'image dans le dossier "Erreur"
                     MessageBox.Show(" Erreur dans la detaction de rectangle des notes ");
                     String day = DateTime.Now.ToString("yyyy-MM-dd");
-                    im.Save(ParametreClass.ErrorForlder + "\\" + QrCode_principale + ";" + day + ".png");
+                    im.Save(ParametreClass.ErrorForlder + "\\" + QrCode_principale + ";" + day+ ";rectangle_principale_apres" + ".png");
                     FileInfo fi1 = new FileInfo(s);
                     fi1.Delete();
                     continue;
@@ -403,6 +403,7 @@ namespace WindowsFormsApplication1
                             list_rect_etudiant_Note.Add(Class2.takenotes(b));
                             list_qrcode.Add(Class2.takebarcode(b));
                         }
+
                     }
 
                     Examen_inscription_note examen_inscription_note;
@@ -488,7 +489,7 @@ namespace WindowsFormsApplication1
                             //les A & D sont cocher ---> save in Erreur Dossier.
                             //TODO: nom = information du etudiant.
                             String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
-                            list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\Note" + i + day + ".png");
+                            list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\" + QrCode_principale + "; " + day + ";Note" + ".png");
                             continue;
                         }
 
@@ -510,7 +511,7 @@ namespace WindowsFormsApplication1
                             {
                                 //TODO: nom = information du etudiant.
                                 String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
-                                list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\Note" + i + day + ".png");
+                                list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\" + QrCode_principale + ";" + day + ";Note" + ".png");
                                 continue;
                             }
                             else if (Situation == -1 || Situation == -2)
@@ -530,7 +531,7 @@ namespace WindowsFormsApplication1
                                         MessageBox.Show("" + Qrcode + "");
                                         //le Qrcode n'est pas bient Decoder ---> save in Erreur Folder.
                                         String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
-                                        list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\Qrcode;" + QrCode_principale + ";" + day + ".png");
+                                        list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\" + QrCode_principale + ";" + day + ";Qrcode" + ".png");
                                         continue;
                                     }
 
@@ -553,7 +554,7 @@ namespace WindowsFormsApplication1
                         {
                             //TODO: nom = information du etudiant.
                             String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
-                            list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\Note" + i + day + ".png");
+                            list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\" + QrCode_principale + ";" + day + ";Note" + ".png");
                             continue;
                         }
                         else
@@ -610,7 +611,7 @@ namespace WindowsFormsApplication1
 
                             //TODO: nom = information du etudiant.
                             String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
-                            list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\Note" + i + day + ".png");
+                            list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\" + QrCode_principale + ";" + day + ";Note"  + ".png");
                             continue;
                         }
                         //case de 0 dans tous les note + disp
@@ -620,7 +621,7 @@ namespace WindowsFormsApplication1
 
                             //TODO: nom = information du etudiant.
                             String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
-                            list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\Note" + i + day + ".png");
+                            list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\" + QrCode_principale + ";" + day + ";Note" + ".png");
                             continue;
                         }
                         //une note est existe + absent
@@ -628,7 +629,7 @@ namespace WindowsFormsApplication1
                         {
                             //TODO: nom = information du etudiant.
                             String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
-                            list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\Note" + i + day + ".png");
+                            list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\" + QrCode_principale + ";" + day + ";Note" + ".png");
                             continue;
                         }
                         //une note est exist + disp
@@ -636,7 +637,7 @@ namespace WindowsFormsApplication1
                         {
                             //TODO: nom = information du etudiant.
                             String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
-                            list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\Note" + i + day + ".png");
+                            list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\" + QrCode_principale + ";" + day + ";Note" + ".png");
                             continue;
                         }
 
@@ -655,7 +656,7 @@ namespace WindowsFormsApplication1
                                 MessageBox.Show("" + Qrcode + "");
                                 //le Qrcode n'est pas bient Decoder ---> save in Erreur Folder.
                                 String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
-                                list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\Qrcode;" + QrCode_principale + ";" + day + ".png");
+                                list_rect_etudiant[i].Save(ParametreClass.ErrorForlder + "\\" + QrCode_principale + ";" + day+";Qrcode" + ".png");
                                 continue;
                             }
 
@@ -671,7 +672,7 @@ namespace WindowsFormsApplication1
                     if (list_examen_inscription_note.Count != 0)
                     {
                         foreach(var item in list_examen_inscription_note) {
-                            DatabaseManager.insert_note(item.inscription_id.ToString(), item.moyenne.ToString(), item.examen_id );
+                            DatabaseManager.insert_note(item.inscription_id.ToString(), item.moyenne.ToString(), item.examen_id.ToString() );
                         }
 
                         //DatabaseManager.insert_note_list(list_examen_inscription_note);

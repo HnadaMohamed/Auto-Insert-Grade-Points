@@ -155,11 +155,11 @@
             // label_num
             // 
             this.label_num.AutoSize = true;
-            this.label_num.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_num.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_num.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label_num.Location = new System.Drawing.Point(5, 23);
             this.label_num.Name = "label_num";
-            this.label_num.Size = new System.Drawing.Size(123, 17);
+            this.label_num.Size = new System.Drawing.Size(117, 16);
             this.label_num.TabIndex = 14;
             this.label_num.Text = "Numéro d\'étudient";
             // 
@@ -211,11 +211,11 @@
             // label_etudiantnote
             // 
             this.label_etudiantnote.AutoSize = true;
-            this.label_etudiantnote.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_etudiantnote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_etudiantnote.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label_etudiantnote.Location = new System.Drawing.Point(5, 81);
             this.label_etudiantnote.Name = "label_etudiantnote";
-            this.label_etudiantnote.Size = new System.Drawing.Size(123, 17);
+            this.label_etudiantnote.Size = new System.Drawing.Size(116, 16);
             this.label_etudiantnote.TabIndex = 16;
             this.label_etudiantnote.Text = "La Note d\'étudient";
             // 
@@ -271,13 +271,13 @@
             // 
             this.label_nb_feuille.AutoSize = true;
             this.label_nb_feuille.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_nb_feuille.Font = new System.Drawing.Font("Ubuntu", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nb_feuille.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_nb_feuille.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label_nb_feuille.Location = new System.Drawing.Point(199, 69);
             this.label_nb_feuille.Name = "label_nb_feuille";
-            this.label_nb_feuille.Size = new System.Drawing.Size(246, 26);
+            this.label_nb_feuille.Size = new System.Drawing.Size(237, 25);
             this.label_nb_feuille.TabIndex = 24;
-            this.label_nb_feuille.Text = "Il Vous Reste 12 feuilles ";
+            this.label_nb_feuille.Text = "Il Vous Reste 0 feuilles ";
             // 
             // pictureBox2
             // 

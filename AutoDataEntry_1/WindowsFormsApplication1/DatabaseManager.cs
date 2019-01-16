@@ -116,7 +116,7 @@ namespace WindowsFormsApplication1
 
         }
 
-        public static string find_note(string inscription_id, string moyenne, int examen_id)
+        public static string find_note(string inscription_id, string moyenne, string examen_id)
         {
             string sql_ = "";
             try
@@ -156,7 +156,7 @@ namespace WindowsFormsApplication1
             return sql_;
         }
 
-        public static void insert_note(string inscription_id , string moyenne ,int examen_id)
+        public static void insert_note(string inscription_id , string moyenne ,string examen_id)
         {
             try
             {
@@ -184,6 +184,8 @@ namespace WindowsFormsApplication1
             catch (Exception e1)
             {
                 MessageBox.Show(e1.ToString());
+
+
             }
 
         }
@@ -216,6 +218,7 @@ namespace WindowsFormsApplication1
                     //MessageBox.Show("examen = rien");
                     insert_examen(id_champs);
                 }
+
                 if ( aer==0) {
                     dr.Close();
                     dr = null;
@@ -260,6 +263,7 @@ namespace WindowsFormsApplication1
             catch (Exception e1)
             {
                 MessageBox.Show(e1.ToString());
+                //examen_id = "rien";
             }
         }
     }
