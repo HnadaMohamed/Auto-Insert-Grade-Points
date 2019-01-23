@@ -1,2 +1,2 @@
 # Project_Spliter_Recognition
-Winform App For AutoDataEntryUsing Aforge & EmguCV 
+Winform App For AutoDataEntry Using Aforge & EmguCV 
