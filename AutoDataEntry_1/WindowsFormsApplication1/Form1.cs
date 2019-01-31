@@ -46,7 +46,7 @@ namespace WindowsFormsApplication1
 
             //Design
             this.StyleManager = metroStyleManager1;
-            metroStyleManager1.Theme = MetroThemeStyle.Light;
+            metroStyleManager1.Theme = MetroThemeStyle.Dark;
             this.FormBorderStyle = FormBorderStyle.None;
 
             
@@ -274,6 +274,16 @@ namespace WindowsFormsApplication1
 
             
 
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label_button_traitement_Click(object sender, EventArgs e)
+        {
 
         }
 

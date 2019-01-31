@@ -27,7 +27,7 @@ namespace WindowsFormsApplication1
         {
             //Design Part
             this.StyleManager = metroStyleManager;
-            metroStyleManager.Theme = MetroThemeStyle.Light;
+            metroStyleManager.Theme = MetroThemeStyle.Dark;
             this.FormBorderStyle = FormBorderStyle.None;
 
             loginform.Visible = false;

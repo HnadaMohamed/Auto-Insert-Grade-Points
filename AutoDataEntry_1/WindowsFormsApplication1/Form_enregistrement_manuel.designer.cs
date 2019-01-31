@@ -79,7 +79,7 @@
             // insertion
             // 
             this.insertion.Activecolor = System.Drawing.SystemColors.ActiveCaption;
-            this.insertion.BackColor = System.Drawing.Color.White;
+            this.insertion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.insertion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.insertion.BorderRadius = 0;
             this.insertion.ButtonText = "            Insert";
@@ -100,8 +100,8 @@
             this.insertion.IsTab = false;
             this.insertion.Location = new System.Drawing.Point(472, 108);
             this.insertion.Name = "insertion";
-            this.insertion.Normalcolor = System.Drawing.Color.White;
-            this.insertion.OnHovercolor = System.Drawing.SystemColors.ActiveCaption;
+            this.insertion.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.insertion.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.insertion.OnHoverTextColor = System.Drawing.SystemColors.ButtonFace;
             this.insertion.selected = false;
             this.insertion.Size = new System.Drawing.Size(96, 27);
@@ -114,7 +114,7 @@
             // 
             // checkBox_Message
             // 
-            this.checkBox_Message.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.checkBox_Message.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.checkBox_Message.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
             this.checkBox_Message.Checked = true;
             this.checkBox_Message.CheckedOnColor = System.Drawing.SystemColors.ButtonFace;
@@ -128,7 +128,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.label3.Location = new System.Drawing.Point(448, 64);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(177, 19);
@@ -137,13 +137,13 @@
             // 
             // textBox_NumEtud
             // 
-            this.textBox_NumEtud.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.textBox_NumEtud.BorderColorIdle = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox_NumEtud.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.textBox_NumEtud.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(246)))), ((int)(((byte)(61)))));
+            this.textBox_NumEtud.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
+            this.textBox_NumEtud.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.textBox_NumEtud.BorderThickness = 1;
             this.textBox_NumEtud.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBox_NumEtud.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.textBox_NumEtud.ForeColor = System.Drawing.Color.Black;
+            this.textBox_NumEtud.ForeColor = System.Drawing.Color.White;
             this.textBox_NumEtud.isPassword = false;
             this.textBox_NumEtud.Location = new System.Drawing.Point(145, 15);
             this.textBox_NumEtud.Margin = new System.Windows.Forms.Padding(0);
@@ -156,7 +156,7 @@
             // 
             this.label_num.AutoSize = true;
             this.label_num.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_num.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label_num.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.label_num.Location = new System.Drawing.Point(5, 23);
             this.label_num.Name = "label_num";
             this.label_num.Size = new System.Drawing.Size(117, 16);
@@ -167,7 +167,7 @@
             // 
             this.radioButton_Present.AutoSize = true;
             this.radioButton_Present.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_Present.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.radioButton_Present.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.radioButton_Present.Location = new System.Drawing.Point(539, 21);
             this.radioButton_Present.Name = "radioButton_Present";
             this.radioButton_Present.Size = new System.Drawing.Size(74, 22);
@@ -181,7 +181,7 @@
             // 
             this.radioButton_Absent.AutoSize = true;
             this.radioButton_Absent.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_Absent.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.radioButton_Absent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.radioButton_Absent.Location = new System.Drawing.Point(425, 21);
             this.radioButton_Absent.Name = "radioButton_Absent";
             this.radioButton_Absent.Size = new System.Drawing.Size(70, 22);
@@ -193,18 +193,18 @@
             // 
             // textBox_Note_Etud
             // 
-            this.textBox_Note_Etud.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.textBox_Note_Etud.BorderColorIdle = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox_Note_Etud.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.textBox_Note_Etud.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(246)))), ((int)(((byte)(61)))));
+            this.textBox_Note_Etud.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
+            this.textBox_Note_Etud.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.textBox_Note_Etud.BorderThickness = 1;
             this.textBox_Note_Etud.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBox_Note_Etud.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.textBox_Note_Etud.ForeColor = System.Drawing.Color.Black;
+            this.textBox_Note_Etud.ForeColor = System.Drawing.Color.White;
             this.textBox_Note_Etud.isPassword = false;
             this.textBox_Note_Etud.Location = new System.Drawing.Point(145, 73);
             this.textBox_Note_Etud.Margin = new System.Windows.Forms.Padding(0);
             this.textBox_Note_Etud.Name = "textBox_Note_Etud";
-            this.textBox_Note_Etud.Size = new System.Drawing.Size(204, 33);
+            this.textBox_Note_Etud.Size = new System.Drawing.Size(204, 38);
             this.textBox_Note_Etud.TabIndex = 2;
             this.textBox_Note_Etud.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -212,7 +212,7 @@
             // 
             this.label_etudiantnote.AutoSize = true;
             this.label_etudiantnote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_etudiantnote.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label_etudiantnote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.label_etudiantnote.Location = new System.Drawing.Point(5, 81);
             this.label_etudiantnote.Name = "label_etudiantnote";
             this.label_etudiantnote.Size = new System.Drawing.Size(116, 16);
@@ -251,7 +251,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.panel2.Controls.Add(this.insertion);
             this.panel2.Controls.Add(this.label_etudiantnote);
             this.panel2.Controls.Add(this.textBox_Note_Etud);
@@ -270,9 +270,9 @@
             // label_nb_feuille
             // 
             this.label_nb_feuille.AutoSize = true;
-            this.label_nb_feuille.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_nb_feuille.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.label_nb_feuille.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_nb_feuille.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label_nb_feuille.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.label_nb_feuille.Location = new System.Drawing.Point(199, 69);
             this.label_nb_feuille.Name = "label_nb_feuille";
             this.label_nb_feuille.Size = new System.Drawing.Size(237, 25);
@@ -291,7 +291,7 @@
             // 
             // bunifuImageButton2
             // 
-            this.bunifuImageButton2.BackColor = System.Drawing.Color.White;
+            this.bunifuImageButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.bunifuImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton2.Image")));
             this.bunifuImageButton2.ImageActive = null;
             this.bunifuImageButton2.Location = new System.Drawing.Point(598, 10);
@@ -305,7 +305,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.label_nb_feuille);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -325,7 +325,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.panel3.Location = new System.Drawing.Point(-119, 56);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(888, 5);

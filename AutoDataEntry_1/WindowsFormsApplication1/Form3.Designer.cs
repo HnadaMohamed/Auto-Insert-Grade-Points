@@ -52,14 +52,14 @@ namespace WindowsFormsApplication1
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuImageButton4 = new Bunifu.Framework.UI.BunifuImageButton();
             this.panel_settings = new System.Windows.Forms.Panel();
-            this.label_nb_feuille = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.bunifuMetroTextbox1 = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.bunifuMetroTextbox2 = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.bunifuMetroTextbox3 = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.bunifuImageButton5 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.bunifuMetroTextbox3 = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.bunifuMetroTextbox2 = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.bunifuMetroTextbox1 = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label_nb_feuille = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
@@ -80,7 +80,7 @@ namespace WindowsFormsApplication1
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(228, -1);
             this.pictureBox2.Name = "pictureBox2";
@@ -93,7 +93,7 @@ namespace WindowsFormsApplication1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.label1.Location = new System.Drawing.Point(34, 147);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(158, 33);
@@ -104,7 +104,7 @@ namespace WindowsFormsApplication1
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.label2.Location = new System.Drawing.Point(41, 189);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(270, 15);
@@ -128,7 +128,7 @@ namespace WindowsFormsApplication1
             // 
             // bunifuImageButton2
             // 
-            this.bunifuImageButton2.BackColor = System.Drawing.Color.White;
+            this.bunifuImageButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.bunifuImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton2.Image")));
             this.bunifuImageButton2.ImageActive = null;
             this.bunifuImageButton2.Location = new System.Drawing.Point(44, 214);
@@ -154,12 +154,12 @@ namespace WindowsFormsApplication1
             // 
             // loginform
             // 
-            this.loginform.BackColor = System.Drawing.Color.White;
+            this.loginform.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.loginform.Controls.Add(this.btn_login);
             this.loginform.Controls.Add(this.texlogin);
             this.loginform.Controls.Add(this.label3);
             this.loginform.Controls.Add(this.textpassword);
-            this.loginform.Location = new System.Drawing.Point(11, 122);
+            this.loginform.Location = new System.Drawing.Point(10, 127);
             this.loginform.Name = "loginform";
             this.loginform.Size = new System.Drawing.Size(301, 188);
             this.loginform.TabIndex = 9;
@@ -168,13 +168,13 @@ namespace WindowsFormsApplication1
             // btn_login
             // 
             this.btn_login.Activecolor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_login.BackColor = System.Drawing.Color.White;
+            this.btn_login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.btn_login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_login.BorderRadius = 0;
+            this.btn_login.BorderRadius = 3;
             this.btn_login.ButtonText = "    Login";
             this.btn_login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_login.DisabledColor = System.Drawing.Color.Black;
-            this.btn_login.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_login.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.btn_login.Iconcolor = System.Drawing.Color.Transparent;
             this.btn_login.Iconimage = null;
             this.btn_login.Iconimage_right = null;
@@ -187,33 +187,34 @@ namespace WindowsFormsApplication1
             this.btn_login.IconVisible = true;
             this.btn_login.IconZoom = 90D;
             this.btn_login.IsTab = false;
-            this.btn_login.Location = new System.Drawing.Point(13, 143);
+            this.btn_login.Location = new System.Drawing.Point(13, 146);
             this.btn_login.Name = "btn_login";
-            this.btn_login.Normalcolor = System.Drawing.Color.White;
-            this.btn_login.OnHovercolor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_login.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.btn_login.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.btn_login.OnHoverTextColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_login.selected = false;
             this.btn_login.Size = new System.Drawing.Size(65, 20);
             this.btn_login.TabIndex = 19;
             this.btn_login.Text = "    Login";
             this.btn_login.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_login.Textcolor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_login.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.btn_login.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
             // texlogin
             // 
-            this.texlogin.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.texlogin.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.texlogin.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.texlogin.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(246)))), ((int)(((byte)(61)))));
+            this.texlogin.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
+            this.texlogin.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.texlogin.BorderThickness = 1;
             this.texlogin.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.texlogin.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.texlogin.ForeColor = System.Drawing.Color.Black;
+            this.texlogin.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.texlogin.ForeColor = System.Drawing.Color.White;
             this.texlogin.isPassword = false;
             this.texlogin.Location = new System.Drawing.Point(12, 58);
             this.texlogin.Margin = new System.Windows.Forms.Padding(4);
             this.texlogin.Name = "texlogin";
+            this.texlogin.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.texlogin.Size = new System.Drawing.Size(264, 33);
             this.texlogin.TabIndex = 12;
             this.texlogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -222,7 +223,7 @@ namespace WindowsFormsApplication1
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Ubuntu", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.label3.Location = new System.Drawing.Point(6, 6);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 33);
@@ -231,17 +232,18 @@ namespace WindowsFormsApplication1
             // 
             // textpassword
             // 
-            this.textpassword.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.textpassword.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.textpassword.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.textpassword.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(246)))), ((int)(((byte)(61)))));
+            this.textpassword.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
+            this.textpassword.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.textpassword.BorderThickness = 1;
             this.textpassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textpassword.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.textpassword.ForeColor = System.Drawing.Color.Black;
+            this.textpassword.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textpassword.ForeColor = System.Drawing.Color.White;
             this.textpassword.isPassword = false;
             this.textpassword.Location = new System.Drawing.Point(12, 102);
             this.textpassword.Margin = new System.Windows.Forms.Padding(4);
             this.textpassword.Name = "textpassword";
+            this.textpassword.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.textpassword.Size = new System.Drawing.Size(264, 33);
             this.textpassword.TabIndex = 4;
             this.textpassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -319,87 +321,19 @@ namespace WindowsFormsApplication1
             this.panel_settings.TabIndex = 14;
             this.panel_settings.Visible = false;
             // 
-            // label_nb_feuille
+            // bunifuImageButton5
             // 
-            this.label_nb_feuille.AutoSize = true;
-            this.label_nb_feuille.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label_nb_feuille.Font = new System.Drawing.Font("Ubuntu", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_nb_feuille.ForeColor = System.Drawing.Color.White;
-            this.label_nb_feuille.Location = new System.Drawing.Point(26, 29);
-            this.label_nb_feuille.Name = "label_nb_feuille";
-            this.label_nb_feuille.Size = new System.Drawing.Size(184, 39);
-            this.label_nb_feuille.TabIndex = 25;
-            this.label_nb_feuille.Text = "Paramettre";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label4.Font = new System.Drawing.Font("Ubuntu", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(70, 121);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(151, 24);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "Nom Du Serveur";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label5.Font = new System.Drawing.Font("Ubuntu", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(70, 187);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(127, 24);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Mot De Passe";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label6.Font = new System.Drawing.Font("Ubuntu", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(70, 154);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(144, 24);
-            this.label6.TabIndex = 28;
-            this.label6.Text = "Nom Utilisateur";
-            // 
-            // bunifuMetroTextbox1
-            // 
-            this.bunifuMetroTextbox1.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.bunifuMetroTextbox1.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.bunifuMetroTextbox1.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.bunifuMetroTextbox1.BorderThickness = 1;
-            this.bunifuMetroTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMetroTextbox1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.bunifuMetroTextbox1.ForeColor = System.Drawing.Color.Black;
-            this.bunifuMetroTextbox1.isPassword = false;
-            this.bunifuMetroTextbox1.Location = new System.Drawing.Point(229, 118);
-            this.bunifuMetroTextbox1.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuMetroTextbox1.Name = "bunifuMetroTextbox1";
-            this.bunifuMetroTextbox1.Size = new System.Drawing.Size(264, 33);
-            this.bunifuMetroTextbox1.TabIndex = 30;
-            this.bunifuMetroTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // bunifuMetroTextbox2
-            // 
-            this.bunifuMetroTextbox2.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.bunifuMetroTextbox2.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.bunifuMetroTextbox2.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.bunifuMetroTextbox2.BorderThickness = 1;
-            this.bunifuMetroTextbox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMetroTextbox2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.bunifuMetroTextbox2.ForeColor = System.Drawing.Color.Black;
-            this.bunifuMetroTextbox2.isPassword = false;
-            this.bunifuMetroTextbox2.Location = new System.Drawing.Point(229, 154);
-            this.bunifuMetroTextbox2.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuMetroTextbox2.Name = "bunifuMetroTextbox2";
-            this.bunifuMetroTextbox2.Size = new System.Drawing.Size(264, 33);
-            this.bunifuMetroTextbox2.TabIndex = 31;
-            this.bunifuMetroTextbox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.bunifuImageButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuImageButton5.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton5.Image")));
+            this.bunifuImageButton5.ImageActive = null;
+            this.bunifuImageButton5.Location = new System.Drawing.Point(443, 230);
+            this.bunifuImageButton5.Name = "bunifuImageButton5";
+            this.bunifuImageButton5.Size = new System.Drawing.Size(50, 50);
+            this.bunifuImageButton5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bunifuImageButton5.TabIndex = 34;
+            this.bunifuImageButton5.TabStop = false;
+            this.bunifuImageButton5.Zoom = 10;
+            this.bunifuImageButton5.Click += new System.EventHandler(this.bunifuImageButton5_Click);
             // 
             // bunifuMetroTextbox3
             // 
@@ -418,19 +352,87 @@ namespace WindowsFormsApplication1
             this.bunifuMetroTextbox3.TabIndex = 32;
             this.bunifuMetroTextbox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // bunifuImageButton5
+            // bunifuMetroTextbox2
             // 
-            this.bunifuImageButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuImageButton5.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton5.Image")));
-            this.bunifuImageButton5.ImageActive = null;
-            this.bunifuImageButton5.Location = new System.Drawing.Point(443, 230);
-            this.bunifuImageButton5.Name = "bunifuImageButton5";
-            this.bunifuImageButton5.Size = new System.Drawing.Size(50, 50);
-            this.bunifuImageButton5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bunifuImageButton5.TabIndex = 34;
-            this.bunifuImageButton5.TabStop = false;
-            this.bunifuImageButton5.Zoom = 10;
-            this.bunifuImageButton5.Click += new System.EventHandler(this.bunifuImageButton5_Click);
+            this.bunifuMetroTextbox2.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.bunifuMetroTextbox2.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.bunifuMetroTextbox2.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.bunifuMetroTextbox2.BorderThickness = 1;
+            this.bunifuMetroTextbox2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.bunifuMetroTextbox2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bunifuMetroTextbox2.ForeColor = System.Drawing.Color.Black;
+            this.bunifuMetroTextbox2.isPassword = false;
+            this.bunifuMetroTextbox2.Location = new System.Drawing.Point(229, 154);
+            this.bunifuMetroTextbox2.Margin = new System.Windows.Forms.Padding(4);
+            this.bunifuMetroTextbox2.Name = "bunifuMetroTextbox2";
+            this.bunifuMetroTextbox2.Size = new System.Drawing.Size(264, 33);
+            this.bunifuMetroTextbox2.TabIndex = 31;
+            this.bunifuMetroTextbox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // bunifuMetroTextbox1
+            // 
+            this.bunifuMetroTextbox1.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.bunifuMetroTextbox1.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.bunifuMetroTextbox1.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.bunifuMetroTextbox1.BorderThickness = 1;
+            this.bunifuMetroTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.bunifuMetroTextbox1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bunifuMetroTextbox1.ForeColor = System.Drawing.Color.Black;
+            this.bunifuMetroTextbox1.isPassword = false;
+            this.bunifuMetroTextbox1.Location = new System.Drawing.Point(229, 118);
+            this.bunifuMetroTextbox1.Margin = new System.Windows.Forms.Padding(4);
+            this.bunifuMetroTextbox1.Name = "bunifuMetroTextbox1";
+            this.bunifuMetroTextbox1.Size = new System.Drawing.Size(264, 33);
+            this.bunifuMetroTextbox1.TabIndex = 30;
+            this.bunifuMetroTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label6.Font = new System.Drawing.Font("Ubuntu", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(70, 154);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(144, 24);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Nom Utilisateur";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label5.Font = new System.Drawing.Font("Ubuntu", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(70, 187);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(127, 24);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Mot De Passe";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label4.Font = new System.Drawing.Font("Ubuntu", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(70, 121);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(151, 24);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Nom Du Serveur";
+            // 
+            // label_nb_feuille
+            // 
+            this.label_nb_feuille.AutoSize = true;
+            this.label_nb_feuille.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label_nb_feuille.Font = new System.Drawing.Font("Ubuntu", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nb_feuille.ForeColor = System.Drawing.Color.White;
+            this.label_nb_feuille.Location = new System.Drawing.Point(26, 29);
+            this.label_nb_feuille.Name = "label_nb_feuille";
+            this.label_nb_feuille.Size = new System.Drawing.Size(184, 39);
+            this.label_nb_feuille.TabIndex = 25;
+            this.label_nb_feuille.Text = "Paramettre";
             // 
             // Form3
             // 
@@ -450,6 +452,7 @@ namespace WindowsFormsApplication1
             this.Controls.Add(this.pictureBox2);
             this.Name = "Form3";
             this.Style = MetroFramework.MetroColorStyle.White;
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

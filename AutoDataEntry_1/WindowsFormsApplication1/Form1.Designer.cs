@@ -34,17 +34,15 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label_button_traitement = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.Startbutton = new Bunifu.Framework.UI.BunifuImageButton();
-            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btn_correctt = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.Progressbarerreur = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.Progressbartraiter = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.Progressbarencours = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -67,17 +65,17 @@
             this.bunifuElipse15 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.btn_correctt = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.Startbutton = new Bunifu.Framework.UI.BunifuImageButton();
+            this.label_button_traitement = new Bunifu.Framework.UI.BunifuCustomLabel();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Startbutton)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Startbutton)).BeginInit();
             this.SuspendLayout();
             // 
             // metroStyleManager1
@@ -98,8 +96,9 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.panel2);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.panel1.Controls.Add(this.label_button_traitement);
+            this.panel1.Controls.Add(this.Startbutton);
             this.panel1.Controls.Add(this.panel8);
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel6);
@@ -111,81 +110,9 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.label_button_traitement);
-            this.panel2.Controls.Add(this.Startbutton);
-            this.panel2.Location = new System.Drawing.Point(30, 230);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(590, 118);
-            this.panel2.TabIndex = 16;
-            // 
-            // label_button_traitement
-            // 
-            this.label_button_traitement.AutoSize = true;
-            this.label_button_traitement.BackColor = System.Drawing.Color.White;
-            this.label_button_traitement.Font = new System.Drawing.Font("Ubuntu Light", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_button_traitement.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label_button_traitement.Location = new System.Drawing.Point(53, 40);
-            this.label_button_traitement.Name = "label_button_traitement";
-            this.label_button_traitement.Size = new System.Drawing.Size(378, 34);
-            this.label_button_traitement.TabIndex = 17;
-            this.label_button_traitement.Text = "Vous Avez 42 Fichier a Traiter";
-            // 
-            // Startbutton
-            // 
-            this.Startbutton.BackColor = System.Drawing.Color.White;
-            this.Startbutton.Image = ((System.Drawing.Image)(resources.GetObject("Startbutton.Image")));
-            this.Startbutton.ImageActive = null;
-            this.Startbutton.Location = new System.Drawing.Point(477, 10);
-            this.Startbutton.Name = "Startbutton";
-            this.Startbutton.Size = new System.Drawing.Size(100, 100);
-            this.Startbutton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Startbutton.TabIndex = 18;
-            this.Startbutton.TabStop = false;
-            this.Startbutton.Zoom = 10;
-            this.Startbutton.Click += new System.EventHandler(this.bunifuImageButton1_Click_1);
-            // 
-            // bunifuCustomLabel4
-            // 
-            this.bunifuCustomLabel4.AutoSize = true;
-            this.bunifuCustomLabel4.BackColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Ubuntu", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(5, 5);
-            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
-            this.bunifuCustomLabel4.Size = new System.Drawing.Size(157, 20);
-            this.bunifuCustomLabel4.TabIndex = 16;
-            this.bunifuCustomLabel4.Text = "Erreur De traitement";
-            // 
-            // bunifuCustomLabel3
-            // 
-            this.bunifuCustomLabel3.AutoSize = true;
-            this.bunifuCustomLabel3.BackColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Ubuntu", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(3, 5);
-            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
-            this.bunifuCustomLabel3.Size = new System.Drawing.Size(110, 20);
-            this.bunifuCustomLabel3.TabIndex = 16;
-            this.bunifuCustomLabel3.Text = "Fichier Traiter ";
-            // 
-            // bunifuCustomLabel2
-            // 
-            this.bunifuCustomLabel2.AutoSize = true;
-            this.bunifuCustomLabel2.BackColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Ubuntu", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(3, 5);
-            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(152, 20);
-            this.bunifuCustomLabel2.TabIndex = 16;
-            this.bunifuCustomLabel2.Text = "Traitement en cours";
-            // 
             // panel8
             // 
-            this.panel8.BackColor = System.Drawing.Color.White;
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.panel8.Controls.Add(this.btn_correctt);
             this.panel8.Controls.Add(this.bunifuCustomLabel4);
             this.panel8.Controls.Add(this.Progressbarerreur);
@@ -194,12 +121,60 @@
             this.panel8.Size = new System.Drawing.Size(167, 118);
             this.panel8.TabIndex = 17;
             // 
+            // btn_correctt
+            // 
+            this.btn_correctt.Activecolor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_correctt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.btn_correctt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_correctt.BorderRadius = 0;
+            this.btn_correctt.ButtonText = "    Correction";
+            this.btn_correctt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_correctt.DisabledColor = System.Drawing.Color.Black;
+            this.btn_correctt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
+            this.btn_correctt.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_correctt.Iconimage = null;
+            this.btn_correctt.Iconimage_right = null;
+            this.btn_correctt.Iconimage_right_Selected = null;
+            this.btn_correctt.Iconimage_Selected = null;
+            this.btn_correctt.IconMarginLeft = 0;
+            this.btn_correctt.IconMarginRight = 0;
+            this.btn_correctt.IconRightVisible = true;
+            this.btn_correctt.IconRightZoom = 0D;
+            this.btn_correctt.IconVisible = true;
+            this.btn_correctt.IconZoom = 90D;
+            this.btn_correctt.IsTab = false;
+            this.btn_correctt.Location = new System.Drawing.Point(80, 87);
+            this.btn_correctt.Name = "btn_correctt";
+            this.btn_correctt.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.btn_correctt.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
+            this.btn_correctt.OnHoverTextColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_correctt.selected = false;
+            this.btn_correctt.Size = new System.Drawing.Size(77, 20);
+            this.btn_correctt.TabIndex = 18;
+            this.btn_correctt.Text = "    Correction";
+            this.btn_correctt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_correctt.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
+            this.btn_correctt.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_correctt.Click += new System.EventHandler(this.btn_correction_Click);
+            // 
+            // bunifuCustomLabel4
+            // 
+            this.bunifuCustomLabel4.AutoSize = true;
+            this.bunifuCustomLabel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Ubuntu", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(5, 5);
+            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
+            this.bunifuCustomLabel4.Size = new System.Drawing.Size(157, 20);
+            this.bunifuCustomLabel4.TabIndex = 16;
+            this.bunifuCustomLabel4.Text = "Erreur De traitement";
+            // 
             // Progressbarerreur
             // 
             this.Progressbarerreur.animated = true;
             this.Progressbarerreur.animationIterval = 5;
             this.Progressbarerreur.animationSpeed = 300;
-            this.Progressbarerreur.BackColor = System.Drawing.Color.White;
+            this.Progressbarerreur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.Progressbarerreur.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Progressbarerreur.BackgroundImage")));
             this.Progressbarerreur.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Progressbarerreur.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -218,7 +193,7 @@
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.panel7.Controls.Add(this.bunifuCustomLabel3);
             this.panel7.Controls.Add(this.Progressbartraiter);
             this.panel7.Location = new System.Drawing.Point(239, 88);
@@ -226,12 +201,24 @@
             this.panel7.Size = new System.Drawing.Size(167, 118);
             this.panel7.TabIndex = 16;
             // 
+            // bunifuCustomLabel3
+            // 
+            this.bunifuCustomLabel3.AutoSize = true;
+            this.bunifuCustomLabel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Ubuntu", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(3, 5);
+            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(110, 20);
+            this.bunifuCustomLabel3.TabIndex = 16;
+            this.bunifuCustomLabel3.Text = "Fichier Traiter ";
+            // 
             // Progressbartraiter
             // 
             this.Progressbartraiter.animated = true;
             this.Progressbartraiter.animationIterval = 5;
             this.Progressbartraiter.animationSpeed = 300;
-            this.Progressbartraiter.BackColor = System.Drawing.Color.White;
+            this.Progressbartraiter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.Progressbartraiter.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Progressbartraiter.BackgroundImage")));
             this.Progressbartraiter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Progressbartraiter.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -250,7 +237,7 @@
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.panel6.Controls.Add(this.bunifuCustomLabel2);
             this.panel6.Controls.Add(this.Progressbarencours);
             this.panel6.Location = new System.Drawing.Point(30, 88);
@@ -258,12 +245,24 @@
             this.panel6.Size = new System.Drawing.Size(167, 118);
             this.panel6.TabIndex = 15;
             // 
+            // bunifuCustomLabel2
+            // 
+            this.bunifuCustomLabel2.AutoSize = true;
+            this.bunifuCustomLabel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Ubuntu", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(3, 5);
+            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(152, 20);
+            this.bunifuCustomLabel2.TabIndex = 16;
+            this.bunifuCustomLabel2.Text = "Traitement en cours";
+            // 
             // Progressbarencours
             // 
             this.Progressbarencours.animated = true;
             this.Progressbarencours.animationIterval = 5;
             this.Progressbarencours.animationSpeed = 300;
-            this.Progressbarencours.BackColor = System.Drawing.Color.White;
+            this.Progressbarencours.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.Progressbarencours.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Progressbarencours.BackgroundImage")));
             this.Progressbarencours.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Progressbarencours.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -282,7 +281,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.panel3.Location = new System.Drawing.Point(0, 56);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(888, 5);
@@ -310,7 +309,7 @@
             // 
             // bunifuImageButton2
             // 
-            this.bunifuImageButton2.BackColor = System.Drawing.Color.White;
+            this.bunifuImageButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.bunifuImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton2.Image")));
             this.bunifuImageButton2.ImageActive = null;
             this.bunifuImageButton2.Location = new System.Drawing.Point(606, 6);
@@ -354,10 +353,12 @@
             // bunifuElipse7
             // 
             this.bunifuElipse7.ElipseRadius = 5;
+            this.bunifuElipse7.TargetControl = this;
             // 
             // bunifuElipse8
             // 
             this.bunifuElipse8.ElipseRadius = 5;
+            this.bunifuElipse8.TargetControl = this;
             // 
             // bunifuElipse9
             // 
@@ -367,27 +368,31 @@
             // bunifuElipse10
             // 
             this.bunifuElipse10.ElipseRadius = 5;
+            this.bunifuElipse10.TargetControl = this;
             // 
             // bunifuElipse11
             // 
             this.bunifuElipse11.ElipseRadius = 5;
+            this.bunifuElipse11.TargetControl = this;
             // 
             // bunifuElipse12
             // 
             this.bunifuElipse12.ElipseRadius = 5;
-            this.bunifuElipse12.TargetControl = this.panel2;
             // 
             // bunifuElipse13
             // 
             this.bunifuElipse13.ElipseRadius = 5;
+            this.bunifuElipse13.TargetControl = this;
             // 
             // bunifuElipse14
             // 
             this.bunifuElipse14.ElipseRadius = 5;
+            this.bunifuElipse14.TargetControl = this;
             // 
             // bunifuElipse15
             // 
             this.bunifuElipse15.ElipseRadius = 5;
+            this.bunifuElipse15.TargetControl = this;
             // 
             // bunifuDragControl2
             // 
@@ -400,41 +405,32 @@
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // btn_correctt
+            // Startbutton
             // 
-            this.btn_correctt.Activecolor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn_correctt.BackColor = System.Drawing.Color.White;
-            this.btn_correctt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_correctt.BorderRadius = 0;
-            this.btn_correctt.ButtonText = "    Correction";
-            this.btn_correctt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_correctt.DisabledColor = System.Drawing.Color.Black;
-            this.btn_correctt.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn_correctt.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_correctt.Iconimage = null;
-            this.btn_correctt.Iconimage_right = null;
-            this.btn_correctt.Iconimage_right_Selected = null;
-            this.btn_correctt.Iconimage_Selected = null;
-            this.btn_correctt.IconMarginLeft = 0;
-            this.btn_correctt.IconMarginRight = 0;
-            this.btn_correctt.IconRightVisible = true;
-            this.btn_correctt.IconRightZoom = 0D;
-            this.btn_correctt.IconVisible = true;
-            this.btn_correctt.IconZoom = 90D;
-            this.btn_correctt.IsTab = false;
-            this.btn_correctt.Location = new System.Drawing.Point(80, 87);
-            this.btn_correctt.Name = "btn_correctt";
-            this.btn_correctt.Normalcolor = System.Drawing.Color.White;
-            this.btn_correctt.OnHovercolor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn_correctt.OnHoverTextColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_correctt.selected = false;
-            this.btn_correctt.Size = new System.Drawing.Size(77, 20);
-            this.btn_correctt.TabIndex = 18;
-            this.btn_correctt.Text = "    Correction";
-            this.btn_correctt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_correctt.Textcolor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn_correctt.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_correctt.Click += new System.EventHandler(this.btn_correction_Click);
+            this.Startbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.Startbutton.Image = ((System.Drawing.Image)(resources.GetObject("Startbutton.Image")));
+            this.Startbutton.ImageActive = null;
+            this.Startbutton.Location = new System.Drawing.Point(487, 247);
+            this.Startbutton.Name = "Startbutton";
+            this.Startbutton.Size = new System.Drawing.Size(100, 100);
+            this.Startbutton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Startbutton.TabIndex = 18;
+            this.Startbutton.TabStop = false;
+            this.Startbutton.Zoom = 10;
+            this.Startbutton.Click += new System.EventHandler(this.bunifuImageButton1_Click_1);
+            // 
+            // label_button_traitement
+            // 
+            this.label_button_traitement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.label_button_traitement.Font = new System.Drawing.Font("Ubuntu Light", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_button_traitement.ForeColor = System.Drawing.Color.White;
+            this.label_button_traitement.Location = new System.Drawing.Point(80, 247);
+            this.label_button_traitement.Name = "label_button_traitement";
+            this.label_button_traitement.Size = new System.Drawing.Size(398, 100);
+            this.label_button_traitement.TabIndex = 17;
+            this.label_button_traitement.Text = "Vous Avez 0 Fichier a Traiter";
+            this.label_button_traitement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_button_traitement.Click += new System.EventHandler(this.label_button_traitement_Click);
             // 
             // Form1
             // 
@@ -448,9 +444,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Startbutton)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -460,6 +453,7 @@
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Startbutton)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -490,9 +484,6 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse9;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse10;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse11;
-        private Bunifu.Framework.UI.BunifuImageButton Startbutton;
-        private System.Windows.Forms.Panel panel2;
-        private Bunifu.Framework.UI.BunifuCustomLabel label_button_traitement;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse12;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
@@ -504,5 +495,7 @@
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl2;
         private System.Windows.Forms.Timer timer2;
         private Bunifu.Framework.UI.BunifuFlatButton btn_correctt;
+        private Bunifu.Framework.UI.BunifuCustomLabel label_button_traitement;
+        private Bunifu.Framework.UI.BunifuImageButton Startbutton;
     }
 }
