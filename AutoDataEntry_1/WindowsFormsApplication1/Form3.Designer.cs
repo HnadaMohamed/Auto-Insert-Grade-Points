@@ -42,7 +42,7 @@ namespace WindowsFormsApplication1
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.loginform = new System.Windows.Forms.Panel();
             this.btn_login = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.texlogin = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.textLogin = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label3 = new System.Windows.Forms.Label();
             this.textpassword = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.bunifuElipse4 = new Bunifu.Framework.UI.BunifuElipse(this.components);
@@ -156,7 +156,7 @@ namespace WindowsFormsApplication1
             // 
             this.loginform.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.loginform.Controls.Add(this.btn_login);
-            this.loginform.Controls.Add(this.texlogin);
+            this.loginform.Controls.Add(this.textLogin);
             this.loginform.Controls.Add(this.label3);
             this.loginform.Controls.Add(this.textpassword);
             this.loginform.Location = new System.Drawing.Point(10, 127);
@@ -201,32 +201,33 @@ namespace WindowsFormsApplication1
             this.btn_login.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
-            // texlogin
+            // textLogin
             // 
-            this.texlogin.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(246)))), ((int)(((byte)(61)))));
-            this.texlogin.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
-            this.texlogin.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
-            this.texlogin.BorderThickness = 1;
-            this.texlogin.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.texlogin.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.texlogin.ForeColor = System.Drawing.Color.White;
-            this.texlogin.isPassword = false;
-            this.texlogin.Location = new System.Drawing.Point(12, 58);
-            this.texlogin.Margin = new System.Windows.Forms.Padding(4);
-            this.texlogin.Name = "texlogin";
-            this.texlogin.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.texlogin.Size = new System.Drawing.Size(264, 33);
-            this.texlogin.TabIndex = 12;
-            this.texlogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textLogin.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(246)))), ((int)(((byte)(61)))));
+            this.textLogin.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
+            this.textLogin.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
+            this.textLogin.BorderThickness = 1;
+            this.textLogin.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textLogin.ForeColor = System.Drawing.Color.White;
+            this.textLogin.isPassword = false;
+            this.textLogin.Location = new System.Drawing.Point(12, 58);
+            this.textLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.textLogin.Name = "textLogin";
+            this.textLogin.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.textLogin.Size = new System.Drawing.Size(264, 33);
+            this.textLogin.TabIndex = 12;
+            this.textLogin.Text = "E_AKANI_2";
+            this.textLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Ubuntu", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.label3.Location = new System.Drawing.Point(6, 6);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 33);
+            this.label3.Size = new System.Drawing.Size(80, 31);
             this.label3.TabIndex = 10;
             this.label3.Text = "Login";
             // 
@@ -237,7 +238,7 @@ namespace WindowsFormsApplication1
             this.textpassword.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.textpassword.BorderThickness = 1;
             this.textpassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textpassword.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textpassword.ForeColor = System.Drawing.Color.White;
             this.textpassword.isPassword = false;
             this.textpassword.Location = new System.Drawing.Point(12, 102);
@@ -246,6 +247,7 @@ namespace WindowsFormsApplication1
             this.textpassword.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.textpassword.Size = new System.Drawing.Size(264, 33);
             this.textpassword.TabIndex = 4;
+            this.textpassword.Text = "123456";
             this.textpassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // bunifuElipse4
@@ -390,11 +392,11 @@ namespace WindowsFormsApplication1
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label6.Font = new System.Drawing.Font("Ubuntu", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(70, 154);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(144, 24);
+            this.label6.Size = new System.Drawing.Size(136, 24);
             this.label6.TabIndex = 28;
             this.label6.Text = "Nom Utilisateur";
             // 
@@ -402,11 +404,11 @@ namespace WindowsFormsApplication1
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label5.Font = new System.Drawing.Font("Ubuntu", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(70, 187);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(127, 24);
+            this.label5.Size = new System.Drawing.Size(126, 24);
             this.label5.TabIndex = 27;
             this.label5.Text = "Mot De Passe";
             // 
@@ -414,7 +416,7 @@ namespace WindowsFormsApplication1
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label4.Font = new System.Drawing.Font("Ubuntu", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(70, 121);
             this.label4.Name = "label4";
@@ -426,11 +428,11 @@ namespace WindowsFormsApplication1
             // 
             this.label_nb_feuille.AutoSize = true;
             this.label_nb_feuille.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label_nb_feuille.Font = new System.Drawing.Font("Ubuntu", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nb_feuille.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_nb_feuille.ForeColor = System.Drawing.Color.White;
             this.label_nb_feuille.Location = new System.Drawing.Point(26, 29);
             this.label_nb_feuille.Name = "label_nb_feuille";
-            this.label_nb_feuille.Size = new System.Drawing.Size(184, 39);
+            this.label_nb_feuille.Size = new System.Drawing.Size(175, 37);
             this.label_nb_feuille.TabIndex = 25;
             this.label_nb_feuille.Text = "Paramettre";
             // 
@@ -484,7 +486,7 @@ namespace WindowsFormsApplication1
         private System.Windows.Forms.Panel loginform;
         private System.Windows.Forms.Label label3;
         private BunifuMetroTextbox textpassword;
-        private BunifuMetroTextbox texlogin;
+        private BunifuMetroTextbox textLogin;
         private BunifuElipse bunifuElipse4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private BunifuImageButton bunifuImageButton3;

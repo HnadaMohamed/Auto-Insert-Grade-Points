@@ -266,5 +266,23 @@ namespace WindowsFormsApplication1
                 //examen_id = "rien";
             }
         }
+
+
+        public static string get_password(string login)
+        {
+            string password="";
+
+            sql = "SELECT PASSWORD FROM `utilisateurs` where (username='" + login + "' or email='" + login+"') and typeUser in ('tuteur','eleve','Prospect','personnel') and  enabled = 1 ";
+            mysqlComm = new MySqlCommand(sql, DatabaseManager.cnx);
+            dr = mysqlComm.ExecuteReader();
+
+            if (dr.Read())
+            {
+                password = dr["PASSWORD"].ToString();
+            }
+            
+            return password;
+
+        }
     }
 }
