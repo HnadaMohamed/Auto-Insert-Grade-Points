@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_enregistrement_manuel));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
-            this.insertion = new Bunifu.Framework.UI.BunifuFlatButton();
             this.checkBox_Message = new Bunifu.Framework.UI.BunifuCheckbox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox_NumEtud = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -53,6 +52,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.insertion = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -65,7 +65,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::WindowsFormsApplication1.Properties.Resources.vide;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 108);
+            this.pictureBox1.Location = new System.Drawing.Point(8, 111);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(628, 62);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -76,50 +76,14 @@
             // 
             this.metroStyleManager1.Owner = null;
             // 
-            // insertion
-            // 
-            this.insertion.Activecolor = System.Drawing.SystemColors.ActiveCaption;
-            this.insertion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.insertion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.insertion.BorderRadius = 0;
-            this.insertion.ButtonText = "            Insert";
-            this.insertion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.insertion.DisabledColor = System.Drawing.Color.Black;
-            this.insertion.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.insertion.Iconcolor = System.Drawing.Color.Transparent;
-            this.insertion.Iconimage = null;
-            this.insertion.Iconimage_right = null;
-            this.insertion.Iconimage_right_Selected = null;
-            this.insertion.Iconimage_Selected = null;
-            this.insertion.IconMarginLeft = 0;
-            this.insertion.IconMarginRight = 0;
-            this.insertion.IconRightVisible = true;
-            this.insertion.IconRightZoom = 0D;
-            this.insertion.IconVisible = true;
-            this.insertion.IconZoom = 90D;
-            this.insertion.IsTab = false;
-            this.insertion.Location = new System.Drawing.Point(472, 108);
-            this.insertion.Name = "insertion";
-            this.insertion.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.insertion.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
-            this.insertion.OnHoverTextColor = System.Drawing.SystemColors.ButtonFace;
-            this.insertion.selected = false;
-            this.insertion.Size = new System.Drawing.Size(96, 27);
-            this.insertion.TabIndex = 3;
-            this.insertion.Text = "            Insert";
-            this.insertion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.insertion.Textcolor = System.Drawing.SystemColors.ActiveCaption;
-            this.insertion.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.insertion.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
-            // 
             // checkBox_Message
             // 
-            this.checkBox_Message.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.checkBox_Message.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.checkBox_Message.Checked = true;
+            this.checkBox_Message.BackColor = System.Drawing.Color.White;
+            this.checkBox_Message.ChechedOffColor = System.Drawing.Color.White;
+            this.checkBox_Message.Checked = false;
             this.checkBox_Message.CheckedOnColor = System.Drawing.SystemColors.ButtonFace;
-            this.checkBox_Message.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkBox_Message.Location = new System.Drawing.Point(425, 65);
+            this.checkBox_Message.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.checkBox_Message.Location = new System.Drawing.Point(405, 68);
             this.checkBox_Message.Name = "checkBox_Message";
             this.checkBox_Message.Size = new System.Drawing.Size(20, 20);
             this.checkBox_Message.TabIndex = 11;
@@ -129,7 +93,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
-            this.label3.Location = new System.Drawing.Point(448, 64);
+            this.label3.Location = new System.Drawing.Point(428, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(177, 19);
             this.label3.TabIndex = 12;
@@ -148,7 +112,7 @@
             this.textBox_NumEtud.Location = new System.Drawing.Point(145, 15);
             this.textBox_NumEtud.Margin = new System.Windows.Forms.Padding(0);
             this.textBox_NumEtud.Name = "textBox_NumEtud";
-            this.textBox_NumEtud.Size = new System.Drawing.Size(204, 38);
+            this.textBox_NumEtud.Size = new System.Drawing.Size(204, 30);
             this.textBox_NumEtud.TabIndex = 0;
             this.textBox_NumEtud.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -168,7 +132,7 @@
             this.radioButton_Present.AutoSize = true;
             this.radioButton_Present.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton_Present.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
-            this.radioButton_Present.Location = new System.Drawing.Point(539, 21);
+            this.radioButton_Present.Location = new System.Drawing.Point(520, 20);
             this.radioButton_Present.Name = "radioButton_Present";
             this.radioButton_Present.Size = new System.Drawing.Size(74, 22);
             this.radioButton_Present.TabIndex = 1;
@@ -182,7 +146,7 @@
             this.radioButton_Absent.AutoSize = true;
             this.radioButton_Absent.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton_Absent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
-            this.radioButton_Absent.Location = new System.Drawing.Point(425, 21);
+            this.radioButton_Absent.Location = new System.Drawing.Point(406, 20);
             this.radioButton_Absent.Name = "radioButton_Absent";
             this.radioButton_Absent.Size = new System.Drawing.Size(70, 22);
             this.radioButton_Absent.TabIndex = 22;
@@ -201,10 +165,10 @@
             this.textBox_Note_Etud.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.textBox_Note_Etud.ForeColor = System.Drawing.Color.White;
             this.textBox_Note_Etud.isPassword = false;
-            this.textBox_Note_Etud.Location = new System.Drawing.Point(145, 73);
+            this.textBox_Note_Etud.Location = new System.Drawing.Point(145, 63);
             this.textBox_Note_Etud.Margin = new System.Windows.Forms.Padding(0);
             this.textBox_Note_Etud.Name = "textBox_Note_Etud";
-            this.textBox_Note_Etud.Size = new System.Drawing.Size(204, 38);
+            this.textBox_Note_Etud.Size = new System.Drawing.Size(204, 30);
             this.textBox_Note_Etud.TabIndex = 2;
             this.textBox_Note_Etud.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -213,7 +177,7 @@
             this.label_etudiantnote.AutoSize = true;
             this.label_etudiantnote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_etudiantnote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
-            this.label_etudiantnote.Location = new System.Drawing.Point(5, 81);
+            this.label_etudiantnote.Location = new System.Drawing.Point(5, 71);
             this.label_etudiantnote.Name = "label_etudiantnote";
             this.label_etudiantnote.Size = new System.Drawing.Size(116, 16);
             this.label_etudiantnote.TabIndex = 16;
@@ -247,7 +211,6 @@
             // bunifuElipse2
             // 
             this.bunifuElipse2.ElipseRadius = 5;
-            this.bunifuElipse2.TargetControl = this.insertion;
             // 
             // panel2
             // 
@@ -273,7 +236,7 @@
             this.label_nb_feuille.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.label_nb_feuille.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_nb_feuille.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
-            this.label_nb_feuille.Location = new System.Drawing.Point(199, 69);
+            this.label_nb_feuille.Location = new System.Drawing.Point(199, 73);
             this.label_nb_feuille.Name = "label_nb_feuille";
             this.label_nb_feuille.Size = new System.Drawing.Size(237, 25);
             this.label_nb_feuille.TabIndex = 24;
@@ -282,7 +245,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(10, 9);
+            this.pictureBox2.Location = new System.Drawing.Point(10, 6);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(127, 49);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -338,6 +301,18 @@
             this.bunifuDragControl1.TargetControl = this.panel5;
             this.bunifuDragControl1.Vertical = true;
             // 
+            // insertion
+            // 
+            this.insertion.Location = new System.Drawing.Point(450, 113);
+            this.insertion.Name = "insertion";
+            this.insertion.Size = new System.Drawing.Size(109, 23);
+            this.insertion.TabIndex = 23;
+            this.insertion.Text = "Submit";
+            this.insertion.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.insertion.UseSelectable = true;
+            this.insertion.UseStyleColors = true;
+            this.insertion.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
+            // 
             // Form_enregistrement_manuel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,7 +345,6 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private MetroFramework.Components.MetroStyleManager metroStyleManager1;
-        private Bunifu.Framework.UI.BunifuFlatButton insertion;
         private Bunifu.Framework.UI.BunifuCheckbox checkBox_Message;
         private System.Windows.Forms.Label label3;
         private Bunifu.Framework.UI.BunifuMetroTextbox textBox_NumEtud;
@@ -391,5 +365,6 @@
         private System.Windows.Forms.Panel panel5;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private System.Windows.Forms.Panel panel3;
+        private MetroFramework.Controls.MetroButton insertion;
     }
 }

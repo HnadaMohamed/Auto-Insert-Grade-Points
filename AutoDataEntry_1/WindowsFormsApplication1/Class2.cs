@@ -774,7 +774,7 @@ namespace WindowsFormsApplication1
             Blob[] _blobPoints = _blobCounter.GetObjectsInformation();
             Blob reserve = null;
             Graphics _g = Graphics.FromImage(_bitmapSourceImage);
-
+            //
             SimpleShapeChecker _shapeChecker = new SimpleShapeChecker();
 
             List<IntPoint> _cornersnew = new List<IntPoint>(); ;
