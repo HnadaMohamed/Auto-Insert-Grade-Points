@@ -41,7 +41,8 @@ namespace WindowsFormsApplication1
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.loginform = new System.Windows.Forms.Panel();
-            this.texlogin = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.btn_login = new MetroFramework.Controls.MetroButton();
+            this.textLogin = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label3 = new System.Windows.Forms.Label();
             this.textpassword = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.bunifuElipse4 = new Bunifu.Framework.UI.BunifuElipse(this.components);
@@ -51,15 +52,14 @@ namespace WindowsFormsApplication1
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuImageButton4 = new Bunifu.Framework.UI.BunifuImageButton();
             this.panel_settings = new System.Windows.Forms.Panel();
+            this.bunifuMetroTextbox2 = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.bunifuMetroTextbox1 = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.bunifuMetroTextbox4 = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.bunifuImageButton5 = new Bunifu.Framework.UI.BunifuImageButton();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label_nb_feuille = new System.Windows.Forms.Label();
-            this.btn_login = new MetroFramework.Controls.MetroButton();
-            this.bunifuMetroTextbox4 = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.bunifuMetroTextbox1 = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.bunifuMetroTextbox2 = new Bunifu.Framework.UI.BunifuMetroTextbox();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
@@ -156,7 +156,7 @@ namespace WindowsFormsApplication1
             // 
             this.loginform.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.loginform.Controls.Add(this.btn_login);
-            this.loginform.Controls.Add(this.texlogin);
+            this.loginform.Controls.Add(this.textLogin);
             this.loginform.Controls.Add(this.label3);
             this.loginform.Controls.Add(this.textpassword);
             this.loginform.Location = new System.Drawing.Point(10, 127);
@@ -165,23 +165,35 @@ namespace WindowsFormsApplication1
             this.loginform.TabIndex = 9;
             this.loginform.Visible = false;
             // 
-            // texlogin
+            // btn_login
             // 
-            this.texlogin.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(246)))), ((int)(((byte)(61)))));
-            this.texlogin.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
-            this.texlogin.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
-            this.texlogin.BorderThickness = 1;
-            this.texlogin.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.texlogin.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.texlogin.ForeColor = System.Drawing.Color.White;
-            this.texlogin.isPassword = false;
-            this.texlogin.Location = new System.Drawing.Point(12, 58);
-            this.texlogin.Margin = new System.Windows.Forms.Padding(4);
-            this.texlogin.Name = "texlogin";
-            this.texlogin.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.texlogin.Size = new System.Drawing.Size(264, 33);
-            this.texlogin.TabIndex = 12;
-            this.texlogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_login.Location = new System.Drawing.Point(13, 145);
+            this.btn_login.Name = "btn_login";
+            this.btn_login.Size = new System.Drawing.Size(129, 23);
+            this.btn_login.TabIndex = 15;
+            this.btn_login.Text = "Login";
+            this.btn_login.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btn_login.UseSelectable = true;
+            this.btn_login.UseStyleColors = true;
+            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
+            // 
+            // textLogin
+            // 
+            this.textLogin.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(246)))), ((int)(((byte)(61)))));
+            this.textLogin.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
+            this.textLogin.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
+            this.textLogin.BorderThickness = 1;
+            this.textLogin.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textLogin.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textLogin.ForeColor = System.Drawing.Color.White;
+            this.textLogin.isPassword = false;
+            this.textLogin.Location = new System.Drawing.Point(12, 58);
+            this.textLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.textLogin.Name = "textLogin";
+            this.textLogin.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.textLogin.Size = new System.Drawing.Size(264, 33);
+            this.textLogin.TabIndex = 12;
+            this.textLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // label3
             // 
@@ -252,7 +264,7 @@ namespace WindowsFormsApplication1
             // bunifuElipse2
             // 
             this.bunifuElipse2.ElipseRadius = 5;
-            this.bunifuElipse2.TargetControl = null;
+            this.bunifuElipse2.TargetControl = this;
             // 
             // bunifuImageButton4
             // 
@@ -281,9 +293,63 @@ namespace WindowsFormsApplication1
             this.panel_settings.Controls.Add(this.label_nb_feuille);
             this.panel_settings.Location = new System.Drawing.Point(9, 6);
             this.panel_settings.Name = "panel_settings";
-            this.panel_settings.Size = new System.Drawing.Size(624, 350);
+            this.panel_settings.Size = new System.Drawing.Size(624, 0);
             this.panel_settings.TabIndex = 14;
             this.panel_settings.Visible = false;
+            // 
+            // bunifuMetroTextbox2
+            // 
+            this.bunifuMetroTextbox2.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(246)))), ((int)(((byte)(61)))));
+            this.bunifuMetroTextbox2.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
+            this.bunifuMetroTextbox2.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
+            this.bunifuMetroTextbox2.BorderThickness = 1;
+            this.bunifuMetroTextbox2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.bunifuMetroTextbox2.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuMetroTextbox2.ForeColor = System.Drawing.Color.White;
+            this.bunifuMetroTextbox2.isPassword = false;
+            this.bunifuMetroTextbox2.Location = new System.Drawing.Point(229, 196);
+            this.bunifuMetroTextbox2.Margin = new System.Windows.Forms.Padding(4);
+            this.bunifuMetroTextbox2.Name = "bunifuMetroTextbox2";
+            this.bunifuMetroTextbox2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.bunifuMetroTextbox2.Size = new System.Drawing.Size(264, 33);
+            this.bunifuMetroTextbox2.TabIndex = 37;
+            this.bunifuMetroTextbox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // bunifuMetroTextbox1
+            // 
+            this.bunifuMetroTextbox1.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(246)))), ((int)(((byte)(61)))));
+            this.bunifuMetroTextbox1.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
+            this.bunifuMetroTextbox1.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
+            this.bunifuMetroTextbox1.BorderThickness = 1;
+            this.bunifuMetroTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.bunifuMetroTextbox1.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuMetroTextbox1.ForeColor = System.Drawing.Color.White;
+            this.bunifuMetroTextbox1.isPassword = false;
+            this.bunifuMetroTextbox1.Location = new System.Drawing.Point(229, 156);
+            this.bunifuMetroTextbox1.Margin = new System.Windows.Forms.Padding(4);
+            this.bunifuMetroTextbox1.Name = "bunifuMetroTextbox1";
+            this.bunifuMetroTextbox1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.bunifuMetroTextbox1.Size = new System.Drawing.Size(264, 33);
+            this.bunifuMetroTextbox1.TabIndex = 36;
+            this.bunifuMetroTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // bunifuMetroTextbox4
+            // 
+            this.bunifuMetroTextbox4.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(246)))), ((int)(((byte)(61)))));
+            this.bunifuMetroTextbox4.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
+            this.bunifuMetroTextbox4.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
+            this.bunifuMetroTextbox4.BorderThickness = 1;
+            this.bunifuMetroTextbox4.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.bunifuMetroTextbox4.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuMetroTextbox4.ForeColor = System.Drawing.Color.White;
+            this.bunifuMetroTextbox4.isPassword = false;
+            this.bunifuMetroTextbox4.Location = new System.Drawing.Point(229, 116);
+            this.bunifuMetroTextbox4.Margin = new System.Windows.Forms.Padding(4);
+            this.bunifuMetroTextbox4.Name = "bunifuMetroTextbox4";
+            this.bunifuMetroTextbox4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.bunifuMetroTextbox4.Size = new System.Drawing.Size(264, 33);
+            this.bunifuMetroTextbox4.TabIndex = 35;
+            this.bunifuMetroTextbox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // bunifuImageButton5
             // 
@@ -347,72 +413,6 @@ namespace WindowsFormsApplication1
             this.label_nb_feuille.TabIndex = 25;
             this.label_nb_feuille.Text = "Paramettre";
             // 
-            // btn_login
-            // 
-            this.btn_login.Location = new System.Drawing.Point(13, 145);
-            this.btn_login.Name = "btn_login";
-            this.btn_login.Size = new System.Drawing.Size(129, 23);
-            this.btn_login.TabIndex = 15;
-            this.btn_login.Text = "Login";
-            this.btn_login.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.btn_login.UseSelectable = true;
-            this.btn_login.UseStyleColors = true;
-            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
-            // 
-            // bunifuMetroTextbox4
-            // 
-            this.bunifuMetroTextbox4.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(246)))), ((int)(((byte)(61)))));
-            this.bunifuMetroTextbox4.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
-            this.bunifuMetroTextbox4.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
-            this.bunifuMetroTextbox4.BorderThickness = 1;
-            this.bunifuMetroTextbox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMetroTextbox4.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuMetroTextbox4.ForeColor = System.Drawing.Color.White;
-            this.bunifuMetroTextbox4.isPassword = false;
-            this.bunifuMetroTextbox4.Location = new System.Drawing.Point(229, 116);
-            this.bunifuMetroTextbox4.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuMetroTextbox4.Name = "bunifuMetroTextbox4";
-            this.bunifuMetroTextbox4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.bunifuMetroTextbox4.Size = new System.Drawing.Size(264, 33);
-            this.bunifuMetroTextbox4.TabIndex = 35;
-            this.bunifuMetroTextbox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // bunifuMetroTextbox1
-            // 
-            this.bunifuMetroTextbox1.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(246)))), ((int)(((byte)(61)))));
-            this.bunifuMetroTextbox1.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
-            this.bunifuMetroTextbox1.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
-            this.bunifuMetroTextbox1.BorderThickness = 1;
-            this.bunifuMetroTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMetroTextbox1.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuMetroTextbox1.ForeColor = System.Drawing.Color.White;
-            this.bunifuMetroTextbox1.isPassword = false;
-            this.bunifuMetroTextbox1.Location = new System.Drawing.Point(229, 156);
-            this.bunifuMetroTextbox1.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuMetroTextbox1.Name = "bunifuMetroTextbox1";
-            this.bunifuMetroTextbox1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.bunifuMetroTextbox1.Size = new System.Drawing.Size(264, 33);
-            this.bunifuMetroTextbox1.TabIndex = 36;
-            this.bunifuMetroTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // bunifuMetroTextbox2
-            // 
-            this.bunifuMetroTextbox2.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(246)))), ((int)(((byte)(61)))));
-            this.bunifuMetroTextbox2.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
-            this.bunifuMetroTextbox2.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
-            this.bunifuMetroTextbox2.BorderThickness = 1;
-            this.bunifuMetroTextbox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMetroTextbox2.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuMetroTextbox2.ForeColor = System.Drawing.Color.White;
-            this.bunifuMetroTextbox2.isPassword = false;
-            this.bunifuMetroTextbox2.Location = new System.Drawing.Point(229, 196);
-            this.bunifuMetroTextbox2.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuMetroTextbox2.Name = "bunifuMetroTextbox2";
-            this.bunifuMetroTextbox2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.bunifuMetroTextbox2.Size = new System.Drawing.Size(264, 33);
-            this.bunifuMetroTextbox2.TabIndex = 37;
-            this.bunifuMetroTextbox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -463,7 +463,7 @@ namespace WindowsFormsApplication1
         private System.Windows.Forms.Panel loginform;
         private System.Windows.Forms.Label label3;
         private BunifuMetroTextbox textpassword;
-        private BunifuMetroTextbox texlogin;
+        private BunifuMetroTextbox textLogin;
         private BunifuElipse bunifuElipse4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private BunifuImageButton bunifuImageButton3;

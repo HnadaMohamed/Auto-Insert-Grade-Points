@@ -32,6 +32,9 @@ namespace WindowsFormsApplication1
 
             loginform.Visible = false;
 
+            //open connection
+            DatabaseManager.OpenConnection();
+
             //copy process folder in scanner folder 
             DirectoryInfo process = new DirectoryInfo(ParametreClass.ProcessForlder);
 
@@ -77,7 +80,44 @@ namespace WindowsFormsApplication1
             this.Hide();
             f.ShowDialog();
             this.Show();
-            
+            const int workFactor = 13;//12
+            //const string password = "123456";// Password123";
+            string password = textpassword.Text;
+            //var passwordHash = "$2y$13$83kw95skwt8g0gsw0gow0u62iaJPXKT.bpFcCllzYTF6ZDxa/oWwe";
+            var passwordHash = DatabaseManager.get_password(textLogin.Text);
+
+
+
+            /*var options = new CryptSharp.CrypterOptions
+            {
+                { CryptSharp.CrypterOption.Rounds, workFactor },
+                { CryptSharp.CrypterOption.Variant, CryptSharp.BlowfishCrypterVariant.Corrected }
+            };*/
+            if (passwordHash != "")
+            {
+                var matches = passwordHash == CryptSharp.Crypter.Blowfish.Crypt(password, passwordHash);
+                MessageBox.Show("Matches?: " + matches);
+
+                if (matches)
+                {
+                    this.Hide();
+                    f.ShowDialog();
+                    this.Show();
+                }
+                else if (!matches)
+                {
+                    MessageBox.Show("Mot de passe est incorrect", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Authentification est incorrect", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+
         }
 
         private void bunifuImageButton3_Click(object sender, EventArgs e)
