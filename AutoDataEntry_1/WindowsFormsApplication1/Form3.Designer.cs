@@ -204,7 +204,7 @@ namespace WindowsFormsApplication1
             this.textpassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textpassword.ForeColor = System.Drawing.Color.White;
-            this.textpassword.isPassword = false;
+            this.textpassword.isPassword = true;
             this.textpassword.Location = new System.Drawing.Point(12, 102);
             this.textpassword.Margin = new System.Windows.Forms.Padding(4);
             this.textpassword.Name = "textpassword";
