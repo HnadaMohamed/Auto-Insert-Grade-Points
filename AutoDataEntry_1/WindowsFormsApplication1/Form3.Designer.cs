@@ -41,7 +41,6 @@ namespace WindowsFormsApplication1
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.loginform = new System.Windows.Forms.Panel();
-            this.btn_login = new Bunifu.Framework.UI.BunifuFlatButton();
             this.textLogin = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label3 = new System.Windows.Forms.Label();
             this.textpassword = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -60,6 +59,7 @@ namespace WindowsFormsApplication1
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label_nb_feuille = new System.Windows.Forms.Label();
+            this.btn_login = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
@@ -165,42 +165,6 @@ namespace WindowsFormsApplication1
             this.loginform.TabIndex = 9;
             this.loginform.Visible = false;
             // 
-            // btn_login
-            // 
-            this.btn_login.Activecolor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.btn_login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_login.BorderRadius = 3;
-            this.btn_login.ButtonText = "    Login";
-            this.btn_login.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_login.DisabledColor = System.Drawing.Color.Black;
-            this.btn_login.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
-            this.btn_login.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_login.Iconimage = null;
-            this.btn_login.Iconimage_right = null;
-            this.btn_login.Iconimage_right_Selected = null;
-            this.btn_login.Iconimage_Selected = null;
-            this.btn_login.IconMarginLeft = 0;
-            this.btn_login.IconMarginRight = 0;
-            this.btn_login.IconRightVisible = true;
-            this.btn_login.IconRightZoom = 0D;
-            this.btn_login.IconVisible = true;
-            this.btn_login.IconZoom = 90D;
-            this.btn_login.IsTab = false;
-            this.btn_login.Location = new System.Drawing.Point(13, 146);
-            this.btn_login.Name = "btn_login";
-            this.btn_login.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.btn_login.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
-            this.btn_login.OnHoverTextColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_login.selected = false;
-            this.btn_login.Size = new System.Drawing.Size(65, 20);
-            this.btn_login.TabIndex = 19;
-            this.btn_login.Text = "    Login";
-            this.btn_login.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_login.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
-            this.btn_login.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
-            // 
             // textLogin
             // 
             this.textLogin.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(246)))), ((int)(((byte)(61)))));
@@ -290,7 +254,6 @@ namespace WindowsFormsApplication1
             // bunifuElipse2
             // 
             this.bunifuElipse2.ElipseRadius = 5;
-            this.bunifuElipse2.TargetControl = this.btn_login;
             // 
             // bunifuImageButton4
             // 
@@ -308,7 +271,7 @@ namespace WindowsFormsApplication1
             // 
             // panel_settings
             // 
-            this.panel_settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel_settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.panel_settings.Controls.Add(this.bunifuImageButton5);
             this.panel_settings.Controls.Add(this.bunifuMetroTextbox3);
             this.panel_settings.Controls.Add(this.bunifuMetroTextbox2);
@@ -325,7 +288,7 @@ namespace WindowsFormsApplication1
             // 
             // bunifuImageButton5
             // 
-            this.bunifuImageButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuImageButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.bunifuImageButton5.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton5.Image")));
             this.bunifuImageButton5.ImageActive = null;
             this.bunifuImageButton5.Location = new System.Drawing.Point(443, 230);
@@ -391,7 +354,7 @@ namespace WindowsFormsApplication1
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(70, 154);
@@ -403,7 +366,7 @@ namespace WindowsFormsApplication1
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(70, 187);
@@ -415,7 +378,7 @@ namespace WindowsFormsApplication1
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(70, 121);
@@ -427,7 +390,7 @@ namespace WindowsFormsApplication1
             // label_nb_feuille
             // 
             this.label_nb_feuille.AutoSize = true;
-            this.label_nb_feuille.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label_nb_feuille.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.label_nb_feuille.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_nb_feuille.ForeColor = System.Drawing.Color.White;
             this.label_nb_feuille.Location = new System.Drawing.Point(26, 29);
@@ -435,6 +398,19 @@ namespace WindowsFormsApplication1
             this.label_nb_feuille.Size = new System.Drawing.Size(175, 37);
             this.label_nb_feuille.TabIndex = 25;
             this.label_nb_feuille.Text = "Paramettre";
+            // 
+            // btn_login
+            // 
+            this.btn_login.BackColor = System.Drawing.Color.Black;
+            this.btn_login.Location = new System.Drawing.Point(13, 145);
+            this.btn_login.Name = "btn_login";
+            this.btn_login.Size = new System.Drawing.Size(99, 25);
+            this.btn_login.TabIndex = 25;
+            this.btn_login.Text = "Login";
+            this.btn_login.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btn_login.UseSelectable = true;
+            this.btn_login.UseStyleColors = true;
+            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
             // Form3
             // 
@@ -491,7 +467,6 @@ namespace WindowsFormsApplication1
         private System.Windows.Forms.PictureBox pictureBox1;
         private BunifuImageButton bunifuImageButton3;
         private System.Windows.Forms.Panel panel1;
-        private BunifuFlatButton btn_login;
         private BunifuElipse bunifuElipse2;
         private BunifuImageButton bunifuImageButton4;
         private System.Windows.Forms.Panel panel_settings;
@@ -503,5 +478,6 @@ namespace WindowsFormsApplication1
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label_nb_feuille;
         private BunifuImageButton bunifuImageButton5;
+        private MetroFramework.Controls.MetroButton btn_login;
     }
 }
