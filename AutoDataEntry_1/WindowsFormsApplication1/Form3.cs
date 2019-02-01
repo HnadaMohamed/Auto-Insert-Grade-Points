@@ -34,7 +34,6 @@ namespace WindowsFormsApplication1
 
             //open connection
             DatabaseManager.OpenConnection();
-
             //copy process folder in scanner folder 
             DirectoryInfo process = new DirectoryInfo(ParametreClass.ProcessForlder);
 
@@ -76,10 +75,6 @@ namespace WindowsFormsApplication1
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            Form1 f = new Form1();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
             const int workFactor = 13;//12
             //const string password = "123456";// Password123";
             string password = textpassword.Text;
@@ -100,6 +95,7 @@ namespace WindowsFormsApplication1
 
                 if (matches)
                 {
+                    Form1 f = new Form1();
                     this.Hide();
                     f.ShowDialog();
                     this.Show();
@@ -114,10 +110,11 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show("Authentification est incorrect", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
 
 
-
-
+            
+            
         }
 
         private void bunifuImageButton3_Click(object sender, EventArgs e)

@@ -267,11 +267,12 @@ namespace WindowsFormsApplication1
             }
         }
 
+
         public static string get_password(string login)
         {
-            string password = "";
+            string password="";
 
-            sql = "SELECT PASSWORD FROM `utilisateurs` where (username='" + login + "' or email='" + login + "') and typeUser in ('tuteur','eleve','Prospect','personnel') and  enabled = 1 ";
+            sql = "SELECT PASSWORD FROM `utilisateurs` where (username='" + login + "' or email='" + login+"') and typeUser in ('tuteur','eleve','Prospect','personnel') and  enabled = 1 ";
             mysqlComm = new MySqlCommand(sql, DatabaseManager.cnx);
             dr = mysqlComm.ExecuteReader();
 
@@ -279,11 +280,9 @@ namespace WindowsFormsApplication1
             {
                 password = dr["PASSWORD"].ToString();
             }
-
+            
             return password;
 
         }
-
-
     }
 }
