@@ -1,12 +1,12 @@
 # Winform Application To manage and Auto-Correct and Insert Students Notes in the Database .
 
 <h2>Design Part : </h2>
-<h5>  - Bunifu Ui Element : https://bunifuframework.com/free-download
+<h5>  - Bunifu Ui Element : https://bunifuframework.com/free-download <br>
       - MetroFramework Modern UI : https://www.nuget.org/downloads
 </h5>  
 <h2>Coding Part :</h2>
 <h5>
-    - Emgu CV : a cross platform .Net wrapper to the OpenCV image processing library -> https://sourceforge.net/projects/emgucv/
+    - Emgu CV : a cross platform .Net wrapper to the OpenCV image processing library -> https://sourceforge.net/projects/emgucv/ <br>
     - AForge.NET : a C# framework designed for developers and researchers in the fields of Computer Vision and Artificial Intelligence -         image processing, neural networks, genetic algorithms, machine learning, robotics, etc. -> http://www.aforgenet.com/
 </h5>
     
