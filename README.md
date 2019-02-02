@@ -26,7 +26,7 @@
 ![bandicam 2019-02-02 23-49-23-510](https://user-images.githubusercontent.com/46169333/52170206-fba69f00-273d-11e9-8423-79b61fa58be2.png)
 
 
-<h2> Start the Process ans Watch the Magic </h2>
+<h2> Start the Process and Watch the Magic </h2>
 
 ![bandicam 2019-02-02 23-49-37-761](https://user-images.githubusercontent.com/46169333/52170207-fc3f3580-273d-11e9-9304-d138bfe46b83.png)
 
