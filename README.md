@@ -13,24 +13,26 @@
     
 <h2>WelcomScreen </h2>
 
-![bandicam 2019-02-02 23-49-08-183](https://user-images.githubusercontent.com/46169333/52170204-fb0e0880-273d-11e9-9936-48316c299fe7.png)
+![bandicam 2019-02-03 14-10-47-898](https://user-images.githubusercontent.com/46169333/52177205-8aa2ce00-27b5-11e9-9fee-eb69c560ce38.png)
 
 
 <h2>Set Up Your server Info </h2>
 
-![bandicam 2019-02-02 23-49-14-731](https://user-images.githubusercontent.com/46169333/52170205-fba69f00-273d-11e9-95e9-8ab277e64244.png)
+
+![bandicam 2019-02-03 14-10-53-378](https://user-images.githubusercontent.com/46169333/52177212-9c847100-27b5-11e9-8c4f-936ff25a9a18.png)
 
 
 <h2>Login With Existing User Info </h2>
 
-![bandicam 2019-02-02 23-49-23-510](https://user-images.githubusercontent.com/46169333/52170206-fba69f00-273d-11e9-8423-79b61fa58be2.png)
+![bandicam 2019-02-03 14-11-00-979](https://user-images.githubusercontent.com/46169333/52177217-a7d79c80-27b5-11e9-936c-f77ef81545bc.png)
 
 
 <h2> Start the Process and Watch the Magic </h2>
 
-![bandicam 2019-02-02 23-49-37-761](https://user-images.githubusercontent.com/46169333/52170207-fc3f3580-273d-11e9-9304-d138bfe46b83.png)
+
+![bandicam 2019-02-03 14-11-28-606](https://user-images.githubusercontent.com/46169333/52177221-b1610480-27b5-11e9-9871-a8f536f6dfad.png)
 
 
 <h2>Correction form to correct the mistakes that Some people do while writing notes in papers  </h2>
 
-![bandicam 2019-02-02 23-49-55-597](https://user-images.githubusercontent.com/46169333/52170208-fc3f3580-273d-11e9-9aad-670918043346.png)
+![bandicam 2019-02-03 14-12-12-003](https://user-images.githubusercontent.com/46169333/52177225-bcb43000-27b5-11e9-8595-6a4258c52bf8.png)
