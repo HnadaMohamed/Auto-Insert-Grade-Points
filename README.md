@@ -8,8 +8,8 @@
 <h5>
     - Emgu CV :<br> 
       Cross platform .Net wrapper to the OpenCV image processing library . <br>
-      https://sourceforge.net/projects/emgucv/ 
-    - AForge.NET : <br>
+      https://sourceforge.net/projects/emgucv/ <br><br><br>
+    - AForge.NET:<br>
       C# framework designed for developers and researchers in the fields of Computer Vision and Artificial Intelligence
       image processing, neural networks, genetic algorithms, machine learning, robotics, etc. 
       http://www.aforgenet.com/ 
