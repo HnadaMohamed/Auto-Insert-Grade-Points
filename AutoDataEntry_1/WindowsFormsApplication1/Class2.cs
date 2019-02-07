@@ -1,5 +1,4 @@
 ﻿
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -104,10 +103,10 @@ namespace WindowsFormsApplication1
             gr.Dispose();
             b = br;
             System.Drawing.Image img = b;
-            Bitmap chunkedImages = new Bitmap(160, 65);
+            Bitmap chunkedImages = new Bitmap(200, 65);
 
             Graphics g = Graphics.FromImage(chunkedImages);
-            g.DrawImage(img, new Rectangle(0, 0, 160, 65), new Rectangle(0, 0, 160, 65), GraphicsUnit.Pixel);
+            g.DrawImage(img, new Rectangle(0, 0, 200, 65), new Rectangle(0, 0, 200, 65), GraphicsUnit.Pixel);
 
             //g.DrawImage(img, new Rectangle(0, 0, b.Width-(4*b.Width/24), b.Height), new Rectangle(b.Width - (4 * b.Width / 24), b.Height, b.Width - (4 * b.Width / 24), b.Height), GraphicsUnit.Pixel);
             g.Dispose();

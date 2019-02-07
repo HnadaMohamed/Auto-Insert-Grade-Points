@@ -91,7 +91,7 @@ namespace WindowsFormsApplication1
             if (passwordHash != "")
             {
                 var matches = passwordHash == CryptSharp.Crypter.Blowfish.Crypt(password, passwordHash);
-                MessageBox.Show("Matches?: " + matches);
+                //MessageBox.Show("Matches?: " + matches);
 
                 if (matches)
                 {

@@ -97,7 +97,7 @@ namespace WindowsFormsApplication1
                     Startbutton.Enabled = true;
                     if (scan==0)
                     {
-                        label_button_traitement.Text = "Traitement Terminer.";
+                        //label_button_traitement.Text = "Traitement Terminer.";
                         Startbutton.Enabled = false;
                     }else
                     {
