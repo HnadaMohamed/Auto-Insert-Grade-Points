@@ -106,7 +106,7 @@ namespace WindowsFormsApplication1
             }
             catch (Exception e)
             {
-                MessageBox.Show("Dossiern'existe pas !" + e.Message);
+                MessageBox.Show("Dossiern'existe pas  !" + e.Message);
             }
 
 
