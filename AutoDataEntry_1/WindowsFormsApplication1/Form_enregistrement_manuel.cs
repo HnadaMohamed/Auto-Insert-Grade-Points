@@ -149,6 +149,7 @@ namespace WindowsFormsApplication1
                     //remplir textBox_NumEtud par inscription_id
                     Bitmap b = Class2.takebarcode((new Bitmap(paths[0])));
                     textBox_NumEtud.Text = inscription_id = Class2.GetText(b);
+                    //MessageBox.Show(textBox_NumEtud.Text);
                 }
                 else
                 {
@@ -166,7 +167,7 @@ namespace WindowsFormsApplication1
         }
         public void initialise()
         {
-            textBox_NumEtud.Text = "";
+            //textBox_NumEtud.Text = "";
             textBox_Note_Etud.Text = "";
             textBox_NumEtud.Focus();
         }
@@ -233,7 +234,7 @@ namespace WindowsFormsApplication1
 
                 try
                 {
-                    Double d = Double.Parse(moyenne);
+                    Double d = Double.Parse(moyenne.Replace('.',','));
                 }
                 catch
                 {
