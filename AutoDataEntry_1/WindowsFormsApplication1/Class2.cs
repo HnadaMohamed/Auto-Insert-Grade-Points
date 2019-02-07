@@ -18,9 +18,7 @@ using System.Drawing.Imaging;
 using AForge.Math.Geometry;
 using SkewCorrectionNS;
 using MessagingToolkit.QRCode.Codec.Data;
-using ZXing;
-using ZXing.Common;
-using ZXing.QrCode;
+
 using Tesseract;
 
 /// <summary>

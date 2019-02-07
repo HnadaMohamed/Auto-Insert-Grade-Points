@@ -34,9 +34,11 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label_button_traitement = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.Startbutton = new Bunifu.Framework.UI.BunifuImageButton();
+            this.label_button_traitement = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.insertion = new MetroFramework.Controls.MetroButton();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.Progressbarerreur = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -66,10 +68,9 @@
             this.bunifuElipse15 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.insertion = new MetroFramework.Controls.MetroButton();
-            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Startbutton)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -77,7 +78,6 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroStyleManager1
@@ -107,9 +107,33 @@
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Location = new System.Drawing.Point(-5, -5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(654, 375);
+            this.panel1.Size = new System.Drawing.Size(654, 387);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.panel2.Controls.Add(this.Startbutton);
+            this.panel2.Controls.Add(this.label_button_traitement);
+            this.panel2.Location = new System.Drawing.Point(14, 212);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(624, 130);
+            this.panel2.TabIndex = 19;
+            // 
+            // Startbutton
+            // 
+            this.Startbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Startbutton.Image = ((System.Drawing.Image)(resources.GetObject("Startbutton.Image")));
+            this.Startbutton.ImageActive = null;
+            this.Startbutton.Location = new System.Drawing.Point(508, 17);
+            this.Startbutton.Name = "Startbutton";
+            this.Startbutton.Size = new System.Drawing.Size(100, 100);
+            this.Startbutton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Startbutton.TabIndex = 18;
+            this.Startbutton.TabStop = false;
+            this.Startbutton.Zoom = 10;
+            this.Startbutton.Click += new System.EventHandler(this.bunifuImageButton1_Click_1);
             // 
             // label_button_traitement
             // 
@@ -124,30 +148,29 @@
             this.label_button_traitement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label_button_traitement.Click += new System.EventHandler(this.label_button_traitement_Click);
             // 
-            // Startbutton
-            // 
-            this.Startbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.Startbutton.Image = ((System.Drawing.Image)(resources.GetObject("Startbutton.Image")));
-            this.Startbutton.ImageActive = null;
-            this.Startbutton.Location = new System.Drawing.Point(436, 15);
-            this.Startbutton.Name = "Startbutton";
-            this.Startbutton.Size = new System.Drawing.Size(100, 100);
-            this.Startbutton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Startbutton.TabIndex = 18;
-            this.Startbutton.TabStop = false;
-            this.Startbutton.Zoom = 10;
-            this.Startbutton.Click += new System.EventHandler(this.bunifuImageButton1_Click_1);
-            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.panel8.Controls.Add(this.Progressbarerreur);
             this.panel8.Controls.Add(this.insertion);
             this.panel8.Controls.Add(this.bunifuCustomLabel4);
-            this.panel8.Controls.Add(this.Progressbarerreur);
-            this.panel8.Location = new System.Drawing.Point(450, 88);
+            this.panel8.Location = new System.Drawing.Point(434, 88);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(167, 118);
+            this.panel8.Size = new System.Drawing.Size(204, 118);
             this.panel8.TabIndex = 17;
+            // 
+            // insertion
+            // 
+            this.insertion.BackColor = System.Drawing.Color.Black;
+            this.insertion.Location = new System.Drawing.Point(9, 90);
+            this.insertion.Name = "insertion";
+            this.insertion.Size = new System.Drawing.Size(76, 20);
+            this.insertion.TabIndex = 24;
+            this.insertion.Text = "Correction";
+            this.insertion.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.insertion.UseSelectable = true;
+            this.insertion.UseStyleColors = true;
+            this.insertion.Click += new System.EventHandler(this.btn_correction_Click);
             // 
             // bunifuCustomLabel4
             // 
@@ -157,9 +180,9 @@
             this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.bunifuCustomLabel4.Location = new System.Drawing.Point(5, 5);
             this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
-            this.bunifuCustomLabel4.Size = new System.Drawing.Size(157, 20);
+            this.bunifuCustomLabel4.Size = new System.Drawing.Size(147, 20);
             this.bunifuCustomLabel4.TabIndex = 16;
-            this.bunifuCustomLabel4.Text = "Erreur De traitement";
+            this.bunifuCustomLabel4.Text = "Nombre Des Erreur";
             // 
             // Progressbarerreur
             // 
@@ -173,7 +196,7 @@
             this.Progressbarerreur.LabelVisible = true;
             this.Progressbarerreur.LineProgressThickness = 5;
             this.Progressbarerreur.LineThickness = 0;
-            this.Progressbarerreur.Location = new System.Drawing.Point(4, 21);
+            this.Progressbarerreur.Location = new System.Drawing.Point(105, 24);
             this.Progressbarerreur.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Progressbarerreur.MaxValue = 100;
             this.Progressbarerreur.Name = "Progressbarerreur";
@@ -186,11 +209,11 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.panel7.Controls.Add(this.bunifuCustomLabel3);
             this.panel7.Controls.Add(this.Progressbartraiter);
-            this.panel7.Location = new System.Drawing.Point(239, 88);
+            this.panel7.Controls.Add(this.bunifuCustomLabel3);
+            this.panel7.Location = new System.Drawing.Point(224, 88);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(167, 118);
+            this.panel7.Size = new System.Drawing.Size(204, 118);
             this.panel7.TabIndex = 16;
             // 
             // bunifuCustomLabel3
@@ -201,9 +224,9 @@
             this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.bunifuCustomLabel3.Location = new System.Drawing.Point(3, 5);
             this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
-            this.bunifuCustomLabel3.Size = new System.Drawing.Size(110, 20);
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(188, 20);
             this.bunifuCustomLabel3.TabIndex = 16;
-            this.bunifuCustomLabel3.Text = "Fichier Traiter ";
+            this.bunifuCustomLabel3.Text = "Nombre de Fichier traiter";
             // 
             // Progressbartraiter
             // 
@@ -217,7 +240,7 @@
             this.Progressbartraiter.LabelVisible = true;
             this.Progressbartraiter.LineProgressThickness = 5;
             this.Progressbartraiter.LineThickness = 0;
-            this.Progressbartraiter.Location = new System.Drawing.Point(5, 21);
+            this.Progressbartraiter.Location = new System.Drawing.Point(106, 24);
             this.Progressbartraiter.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Progressbartraiter.MaxValue = 100;
             this.Progressbartraiter.Name = "Progressbartraiter";
@@ -230,24 +253,23 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.panel6.Controls.Add(this.bunifuCustomLabel2);
             this.panel6.Controls.Add(this.Progressbarencours);
-            this.panel6.Location = new System.Drawing.Point(30, 88);
+            this.panel6.Controls.Add(this.bunifuCustomLabel2);
+            this.panel6.Location = new System.Drawing.Point(14, 88);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(167, 118);
+            this.panel6.Size = new System.Drawing.Size(204, 118);
             this.panel6.TabIndex = 15;
             // 
             // bunifuCustomLabel2
             // 
-            this.bunifuCustomLabel2.AutoSize = true;
             this.bunifuCustomLabel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Ubuntu", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.bunifuCustomLabel2.Location = new System.Drawing.Point(3, 5);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(152, 20);
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(198, 44);
             this.bunifuCustomLabel2.TabIndex = 16;
-            this.bunifuCustomLabel2.Text = "Traitement en cours";
+            this.bunifuCustomLabel2.Text = "Fichier  en cours de  Traitement";
             // 
             // Progressbarencours
             // 
@@ -261,7 +283,7 @@
             this.Progressbarencours.LabelVisible = true;
             this.Progressbarencours.LineProgressThickness = 5;
             this.Progressbarencours.LineThickness = 0;
-            this.Progressbarencours.Location = new System.Drawing.Point(4, 21);
+            this.Progressbarencours.Location = new System.Drawing.Point(105, 24);
             this.Progressbarencours.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Progressbarencours.MaxValue = 100;
             this.Progressbarencours.Name = "Progressbarencours";
@@ -340,6 +362,7 @@
             // bunifuElipse6
             // 
             this.bunifuElipse6.ElipseRadius = 5;
+            this.bunifuElipse6.TargetControl = this;
             // 
             // bunifuElipse7
             // 
@@ -397,29 +420,6 @@
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // insertion
-            // 
-            this.insertion.BackColor = System.Drawing.Color.Black;
-            this.insertion.Location = new System.Drawing.Point(86, 87);
-            this.insertion.Name = "insertion";
-            this.insertion.Size = new System.Drawing.Size(76, 20);
-            this.insertion.TabIndex = 24;
-            this.insertion.Text = "Correction";
-            this.insertion.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.insertion.UseSelectable = true;
-            this.insertion.UseStyleColors = true;
-            this.insertion.Click += new System.EventHandler(this.btn_correction_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.panel2.Controls.Add(this.Startbutton);
-            this.panel2.Controls.Add(this.label_button_traitement);
-            this.panel2.Location = new System.Drawing.Point(30, 217);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(587, 130);
-            this.panel2.TabIndex = 19;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -432,17 +432,16 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Startbutton)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

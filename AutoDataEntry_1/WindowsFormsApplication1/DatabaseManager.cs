@@ -280,7 +280,8 @@ namespace WindowsFormsApplication1
             {
                 password = dr["PASSWORD"].ToString();
             }
-            
+            dr.Close();
+            dr = null;
             return password;
 
         }
