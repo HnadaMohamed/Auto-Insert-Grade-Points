@@ -266,8 +266,6 @@ namespace WindowsFormsApplication1
                 //examen_id = "rien";
             }
         }
-
-
         public static string get_password(string login)
         {
             string password="";
@@ -283,7 +281,6 @@ namespace WindowsFormsApplication1
             dr.Close();
             dr = null;
             return password;
-
         }
     }
 }
