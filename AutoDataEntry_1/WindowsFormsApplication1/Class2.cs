@@ -165,7 +165,58 @@ namespace WindowsFormsApplication1
             //chunkedImages.Save(@"D:\hnada20\students\" + String.Format("{0}.bmp", "Note"));
             return chunkedImages;
         }
+        public static Bitmap spliteTop(Bitmap b)
+        {
 
+
+            Bitmap br = new Bitmap(2200, 2324);
+            Graphics gr = Graphics.FromImage(br);
+            gr.DrawImage(b, 0, 0, 2200, 2324);
+            gr.Dispose();
+            b = br;
+
+            //System.Drawing.Image img = System.Drawing.Image.FromFile(filepath);
+            Image<Gray, byte> ImgInput = new Image<Gray, byte>(b);
+            //System.Drawing.Image img = FormEdgeDetection.sobel(ImgInput);
+            Image<Gray, byte> _imgCanny = new Image<Gray, byte>(ImgInput.Width, ImgInput.Height, new Gray(0));
+            _imgCanny = ImgInput.Canny(100, 500);
+            System.Drawing.Image img = _imgCanny.Bitmap;
+
+            
+            Bitmap chunkedImages = new Bitmap(44, 20);
+
+            Graphics g = Graphics.FromImage(chunkedImages);
+            g.DrawImage(img, new Rectangle(0, 0, 44, 20), new Rectangle(0, 0, 44, 20), GraphicsUnit.Pixel);
+            //g.DrawImage(img, new Rectangle(0, 0, b.Width-(4*b.Width/24), b.Height), new Rectangle(b.Width - (4 * b.Width / 24), b.Height, b.Width - (4 * b.Width / 24), b.Height), GraphicsUnit.Pixel);
+            g.Dispose();
+            CreateIfMissing(@"D:\hnada20\students\");
+            chunkedImages.Save(@"D:\hnada20\students\" + String.Format("{0}.bmp", "blackjjjj"));
+            return chunkedImages;
+        }
+        public static Bitmap getSubRect(Bitmap b)
+        {
+
+
+            Bitmap br = new Bitmap(2200, 2324);
+            Graphics gr = Graphics.FromImage(br);
+            gr.DrawImage(b, 0, 0, 2200, 2324);
+            gr.Dispose();
+            b = br;
+
+
+            System.Drawing.Image img = b;
+
+
+            Bitmap chunkedImages = new Bitmap(2162, 2287);
+
+            Graphics g = Graphics.FromImage(chunkedImages);
+            g.DrawImage(img, new Rectangle(0, 0, 2162, 2287), new Rectangle(19, 19, 2162, 2287), GraphicsUnit.Pixel);
+            //g.DrawImage(img, new Rectangle(0, 0, b.Width-(4*b.Width/24), b.Height), new Rectangle(b.Width - (4 * b.Width / 24), b.Height, b.Width - (4 * b.Width / 24), b.Height), GraphicsUnit.Pixel);
+            g.Dispose();
+            CreateIfMissing(@"D:\hnada20\students\");
+            chunkedImages.Save(@"D:\hnada20\students\" + String.Format("{0}.bmp", "blackrect"));
+            return chunkedImages;
+        }
         //*******Used in the old methode ****
         //Extract the red edge from the bitmap given (Using in Detect function)  
         public static Bitmap takepart2(Bitmap b, int t, int width, int heigth, int x, int y)
@@ -238,7 +289,40 @@ namespace WindowsFormsApplication1
             return whiteColor;
 
         }
-        
+        public static String whoMore(Bitmap b)
+        {
+            int whiteColor = 0;
+            int blackColor = 0;
+            for (int x = 0; x < b.Width; x++)
+            {
+                for (int y = 0; y < b.Height; y++)
+                {
+                    Color color = b.GetPixel(x, y);
+
+                    if (color.ToArgb() == Color.White.ToArgb())
+                    {
+                        whiteColor++;
+                    }
+
+                    else
+                    if (color.ToArgb() == Color.Black.ToArgb())
+                    {
+                        blackColor++;
+                    }
+                }
+
+            }
+            if (blackColor > whiteColor)
+            {
+                return "black";
+            }else
+            {
+                return "white";
+            }
+           
+
+        }
+
         //le filtre qui transforme la foto on noire et blanc 
         public static Bitmap filltre(String path)
         {
@@ -744,8 +828,7 @@ namespace WindowsFormsApplication1
         //Detecter le principal rectangle a traiter
         public static Bitmap BlobDetectiontest(Bitmap _bitmapSourceImage)
         {
-
-
+            first = true;
             Bitmap bg = _bitmapSourceImage;
             //MessageBox.Show("debut filtre");
             _bitmapSourceImage = Class2.addblack(_bitmapSourceImage);
@@ -769,7 +852,8 @@ namespace WindowsFormsApplication1
 
             _blobCounter.ProcessImage(_bitmapBinaryImage);
             Blob[] _blobPoints = _blobCounter.GetObjectsInformation();
-            Blob reserve = null;
+            Blob Bnew = null;
+            Blob Bnew1 = null;
             Graphics _g = Graphics.FromImage(_bitmapSourceImage);
             //
             SimpleShapeChecker _shapeChecker = new SimpleShapeChecker();
@@ -795,77 +879,66 @@ namespace WindowsFormsApplication1
                         if (first)
                         {
                             _cornersnew = _corners;
+                            Bnew = _blobPoints[i];
                             first = false;
                         }else
                         {
                             first = true;
                             _cornersnew1 = _corners;
+                            Bnew1 = _blobPoints[i];
                         }
-                        
+                    }
+                }
+            }
+            //tester si il ya deux ou 1 seul rectangle detecter 
+            if ( _cornersnew1 != null )
+            { // 2 rectangle
+                if ( _cornersnew[0].Y > _cornersnew1[0].Y)
+                {
+
+                    QuadrilateralTransformation filter = new QuadrilateralTransformation(new List<IntPoint>() { _cornersnew1[1], _cornersnew1[2], _cornersnew1[3], _cornersnew1[0] }, Bnew1.Rectangle.Width, Bnew1.Rectangle.Height);
+                    b = filter.Apply(bg);
+
+                }
+                else
+                {
+                    QuadrilateralTransformation filter = new QuadrilateralTransformation(new List<IntPoint>() { _cornersnew[1], _cornersnew[2], _cornersnew[3], _cornersnew[0] }, Bnew.Rectangle.Width, Bnew.Rectangle.Height);
+                    b = filter.Apply(bg);
+
+                }
 
 
-
-
-
-
-
-                        /*
-                        if (_cornersnew.Count != 0 && _cornersnew[0].Y < _corners[0].Y)
-                        {
-
-                            QuadrilateralTransformation filter = new QuadrilateralTransformation(new List<IntPoint>() { _cornersnew[1], _cornersnew[2], _cornersnew[3], _cornersnew[0] }, _blobPoints[i].Rectangle.Width, _blobPoints[i].Rectangle.Height);
-                            b = filter.Apply(bg); 
-
-
-                        }
-                        else if (_cornersnew.Count != 0 && _cornersnew[0].Y > _corners[0].Y)
-                        {
-
-                            QuadrilateralTransformation filter = new QuadrilateralTransformation(new List<IntPoint>() { _corners[1], _corners[2], _corners[3], _corners[0] }, _blobPoints[i].Rectangle.Width, _blobPoints[i].Rectangle.Height);
-                            b = filter.Apply(bg);
-
-                        }
-                        else
-                        {
-                            reserve = _blobPoints[i];
-                            _cornersnew = _corners;
-
-                        }
-                        */
-
-                        //int _x = _coordinates[0].X;
-                        //int _y = _coordinates[0].Y;
-                        //Pen _pen = new Pen(Color.Brown);
-                        //string _shapeString = "" + _shapeChecker.CheckShapeType(_edgePoint);
-                        ////_g.DrawString(_shapeString, _font, _brush, _x, _y);
-                        ////_g.DrawPolygon(_pen, ToPointsArray(_corners));
-
-
-
-
-                        //i2.Save(@"D:\hnada20\students\ljadiid.png");
-
-
-
-
-
-                        //b = Class2.takepart2(bg, 100, _blobPoints[i].Rectangle.Width, _blobPoints[i].Rectangle.Height, _blobPoints[i].Rectangle.X, _blobPoints[i].Rectangle.Y);
-
-                        //b.Save(@"D:\hnada20\students\rect.png");
-
+            }
+            else
+            {
+                if (_cornersnew != null)
+                {// 1 seul rectangle
+                    QuadrilateralTransformation filter = new QuadrilateralTransformation(new List<IntPoint>() { _cornersnew[0], _cornersnew[1], _cornersnew[2], _cornersnew[3] }, Bnew.Rectangle.Width, Bnew.Rectangle.Height);
+                    b = filter.Apply(bg);
+                    //tester si exterieur or interieur
+                    if (whoMore( spliteTop(b))=="black")
+                    {
+                        MessageBox.Show("black");
+                        b = getSubRect(b);
 
                     }
+                    else
+                    {
+                        MessageBox.Show("white");
+                    }
+
+
+                    
+
+                }else
+                {//no rectangle
+
+
                 }
 
             }
-            if (_cornersnew != null)
-            {
-                MessageBox.Show(_cornersnew.Count + " new not null");
-            }
-            if (_cornersnew1 != null)
-            {
-                MessageBox.Show(_cornersnew1.Count +" new1 not null");
-            }
+
+            
 
             
 
