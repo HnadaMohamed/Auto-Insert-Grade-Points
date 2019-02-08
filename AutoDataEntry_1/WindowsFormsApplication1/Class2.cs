@@ -740,7 +740,7 @@ namespace WindowsFormsApplication1
             }
             return chunkedImages;
         }
-
+        static bool first=true;
         //Detecter le principal rectangle a traiter
         public static Bitmap BlobDetectiontest(Bitmap _bitmapSourceImage)
         {
@@ -774,7 +774,10 @@ namespace WindowsFormsApplication1
             //
             SimpleShapeChecker _shapeChecker = new SimpleShapeChecker();
 
-            List<IntPoint> _cornersnew = new List<IntPoint>(); ;
+            List<IntPoint> _cornersnew  = new List<IntPoint>() ;
+            List<IntPoint> _cornersnew1 = new List<IntPoint>();
+            _cornersnew = null;
+            _cornersnew1 = null;
             for (int i = 0; i < _blobPoints.Length; i++)
             {
                 List<IntPoint> _edgePoint = _blobCounter.GetBlobsEdgePoints(_blobPoints[i]);
@@ -789,11 +792,29 @@ namespace WindowsFormsApplication1
                     System.Drawing.Point[] _coordinates = ToPointsArray(_corners);
                     if (_coordinates.Length == 4)
                     {
+                        if (first)
+                        {
+                            _cornersnew = _corners;
+                            first = false;
+                        }else
+                        {
+                            first = true;
+                            _cornersnew1 = _corners;
+                        }
+                        
+
+
+
+
+
+
+
+                        /*
                         if (_cornersnew.Count != 0 && _cornersnew[0].Y < _corners[0].Y)
                         {
 
                             QuadrilateralTransformation filter = new QuadrilateralTransformation(new List<IntPoint>() { _cornersnew[1], _cornersnew[2], _cornersnew[3], _cornersnew[0] }, _blobPoints[i].Rectangle.Width, _blobPoints[i].Rectangle.Height);
-                            b = filter.Apply(bg);
+                            b = filter.Apply(bg); 
 
 
                         }
@@ -810,7 +831,7 @@ namespace WindowsFormsApplication1
                             _cornersnew = _corners;
 
                         }
-
+                        */
 
                         //int _x = _coordinates[0].X;
                         //int _y = _coordinates[0].Y;
@@ -837,11 +858,25 @@ namespace WindowsFormsApplication1
                 }
 
             }
-            if (_cornersnew.Count == 1)
+            if (_cornersnew != null)
+            {
+                MessageBox.Show(_cornersnew.Count + " new not null");
+            }
+            if (_cornersnew1 != null)
+            {
+                MessageBox.Show(_cornersnew1.Count +" new1 not null");
+            }
+
+            
+
+
+            /*
+            if (_cornersnew.Count == 4 || _cornersnew.Count == 1)
             {
                 QuadrilateralTransformation filter = new QuadrilateralTransformation(new List<IntPoint>() { _cornersnew[1], _cornersnew[2], _cornersnew[3], _cornersnew[0] }, reserve.Rectangle.Width, reserve.Rectangle.Height);
                 b = filter.Apply(bg);
             }
+            */
             //MessageBox.Show(_cornersnew.Count + "");
             return b;
             

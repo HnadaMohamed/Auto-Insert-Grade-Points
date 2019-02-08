@@ -362,9 +362,15 @@ namespace WindowsFormsApplication1
 
                 Bitmap p1 = null;
                 p1 = Class2.BlobDetectiontest(p);          //Detection du rectangle principal 
+                if (p1!=null){
+                    //save rectangle principal 
+                    p1.Save(@"D:\hnada20\students\rectangle_principale.png");
 
-                //save rectangle principal 
-                p1.Save(@"D:\hnada20\students\rectangle_principale.png");
+                }else
+                {
+                    MessageBox.Show("hhh");
+                    continue;
+                }
 
                 ///resize rectangle principale
                 Bitmap br = new Bitmap(2200, 2324);
