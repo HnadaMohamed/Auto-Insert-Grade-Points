@@ -918,13 +918,13 @@ namespace WindowsFormsApplication1
                     //tester si exterieur or interieur
                     if (whoMore( spliteTop(b))=="black")
                     {
-                        MessageBox.Show("black");
+                       // MessageBox.Show("black");
                         b = getSubRect(b);
 
                     }
                     else
                     {
-                        MessageBox.Show("white");
+                       // MessageBox.Show("white");
                     }
 
 
@@ -985,7 +985,7 @@ namespace WindowsFormsApplication1
             }
             catch (Exception e)
             {
-               MessageBox.Show("Directory Empty!!!!"+ e.Message);
+              // MessageBox.Show("Directory Empty!!!!"+ e.Message);
             }
 
             return paths;
@@ -1153,7 +1153,7 @@ namespace WindowsFormsApplication1
                 }
                 catch (Exception e8)
                 {
-                    MessageBox.Show(" form 1 try catch"+e8.Message);
+                   // MessageBox.Show(" form 1 try catch"+e8.Message);
                     String day = DateTime.Now.ToString("yyyyMMddTHHmmss");
                     im.Save(ErrorForlder + "\\IMG" + day + ".png");
                 }
@@ -1239,11 +1239,11 @@ namespace WindowsFormsApplication1
 
                     if (_corners[0].Y < _bitmapSourceImage.Height / 3)
                     {
-                        MessageBox.Show("true");
+                       // MessageBox.Show("true");
                     }
                     else
                     {
-                        MessageBox.Show("false");
+                      //  MessageBox.Show("false");
                     }
                 }
 
