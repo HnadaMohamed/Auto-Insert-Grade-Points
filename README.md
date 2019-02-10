@@ -12,7 +12,10 @@
     - AForge.NET:<br>
       C# framework designed for developers and researchers in the fields of Computer Vision and Artificial Intelligence
       image processing, neural networks, genetic algorithms, machine learning, robotics, etc. 
-      http://www.aforgenet.com/ 
+      http://www.aforgenet.com/ <br><br><br>
+      - Tesseract OCR:<br>
+      A commercial quality OCR engine originally developed at HP between 1985 and 1995. In 1995, this engine was among the top 3      evaluated by UNLV. It was open-sourced by HP and UNLV in 2005. (NOTE: We're migrating to code.google.com. Please see the forums.). 
+      https://sourceforge.net/projects/tesseract-ocr/
 </h5>
     
     
