@@ -92,17 +92,17 @@ namespace WindowsFormsApplication1
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Ubuntu", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.label1.Location = new System.Drawing.Point(36, 127);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 33);
+            this.label1.Size = new System.Drawing.Size(136, 33);
             this.label1.TabIndex = 5;
             this.label1.Text = "E-MANAR";
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
             this.label2.Location = new System.Drawing.Point(41, 170);
             this.label2.Name = "label2";
@@ -158,7 +158,7 @@ namespace WindowsFormsApplication1
             this.loginform.Controls.Add(this.textLogin);
             this.loginform.Controls.Add(this.label3);
             this.loginform.Controls.Add(this.textpassword);
-            this.loginform.Location = new System.Drawing.Point(23, 124);
+            this.loginform.Location = new System.Drawing.Point(23, 127);
             this.loginform.Name = "loginform";
             this.loginform.Size = new System.Drawing.Size(301, 188);
             this.loginform.TabIndex = 9;
