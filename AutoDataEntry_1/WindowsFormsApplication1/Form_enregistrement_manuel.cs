@@ -106,7 +106,7 @@ namespace WindowsFormsApplication1
             }
             catch (Exception e)
             {
-                MessageBox.Show("Dossiern'existe pas  !" + e.Message);
+                MessageBox.Show("Dossier Des erreurs n'existe pas !" ,"Erreur",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
 
 
@@ -115,53 +115,61 @@ namespace WindowsFormsApplication1
   
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-             if (checkBox_Message.Checked)
-                 if (MessageBox.Show("voulez-vous vraiment Insérer ?", "insertion", MessageBoxButtons.YesNo) == DialogResult.No)
-                     return;
+            try
+            {
+                if (checkBox_Message.Checked)
+                    if (MessageBox.Show("voulez-vous vraiment Insérer ?", "insertion", MessageBoxButtons.YesNo) == DialogResult.No)
+                        return;
 
 
-             if (((textBox_NumEtud.Text == "" || textBox_Note_Etud.Text == "") && radioButton_Present.Checked) || (textBox_NumEtud.Text == "" && radioButton_Absent.Checked))
-             {
-                 MessageBox.Show("Merci de saisir les champs");
-                 return;
-             }
+                if (((textBox_NumEtud.Text == "" || textBox_Note_Etud.Text == "") && radioButton_Present.Checked) || (textBox_NumEtud.Text == "" && radioButton_Absent.Checked))
+                {
+                    MessageBox.Show("Merci de saisir les champs");
+                    return;
+                }
 
-            string verifier_note = insert_note();
+                string verifier_note = insert_note();
 
-            if (paths.Count != 0 && verifier_note =="1")
+                if (paths.Count != 0 && verifier_note == "1")
+                {
+
+                    //MessageBox.Show(paths[0] + "s/1");
+
+                    paths.RemoveAt(0);
+
+                    FileInfo fi = new FileInfo(paths_delete[0]);
+                    fi.Delete();
+                    paths_delete.RemoveAt(0);
+
+                    label_nb_feuille.Text = "Nombre des feuilles : " + paths.Count;
+
+                    if (paths.Count != 0)
+                    {
+                        //MessageBox.Show(paths[0] + "s/2");
+                        pictureBox1.Image = Image.FromFile(paths[0]);
+
+                        //remplir textBox_NumEtud par inscription_id
+                        Bitmap b = Class2.takebarcode((new Bitmap(paths[0])));
+                        textBox_NumEtud.Text = inscription_id = Class2.GetText(b);
+                        //MessageBox.Show(textBox_NumEtud.Text);
+                    }
+                    else
+                    {
+                        string filePath = Path.Combine(Path.GetFullPath(@"..\..\"), "Resources");
+                        pictureBox1.Image = Image.FromFile(filePath + @"\vide.png");
+                        panel2.Visible = false;
+                    }
+
+
+                    initialise();
+
+                }
+            }
+            catch
             {
 
-                //MessageBox.Show(paths[0] + "s/1");
-
-                paths.RemoveAt(0);
-
-                FileInfo fi = new FileInfo(paths_delete[0]);
-                fi.Delete();
-                paths_delete.RemoveAt(0);
-
-                label_nb_feuille.Text = "Nombre des feuilles : " + paths.Count;
-
-                if (paths.Count != 0)
-                {
-                    //MessageBox.Show(paths[0] + "s/2");
-                    pictureBox1.Image = Image.FromFile(paths[0]);
-
-                    //remplir textBox_NumEtud par inscription_id
-                    Bitmap b = Class2.takebarcode((new Bitmap(paths[0])));
-                    textBox_NumEtud.Text = inscription_id = Class2.GetText(b);
-                    //MessageBox.Show(textBox_NumEtud.Text);
-                }
-                else
-                {
-                    string filePath = Path.Combine(Path.GetFullPath(@"..\..\"), "Resources");
-                    pictureBox1.Image = Image.FromFile(filePath+@"\vide.png");
-                    panel2.Visible = false;
-                }
-
-
-                initialise();
-
             }
+             
 
 
         }

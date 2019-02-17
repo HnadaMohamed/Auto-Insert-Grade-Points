@@ -150,7 +150,7 @@ namespace WindowsFormsApplication1
             }
             catch (Exception e1)
             {
-                MessageBox.Show(e1.ToString());
+                MessageBox.Show("Erreur sur la base donnée !","Erreur",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
 
             return sql_;
@@ -183,7 +183,7 @@ namespace WindowsFormsApplication1
             }
             catch (Exception e1)
             {
-                MessageBox.Show(e1.ToString());
+                MessageBox.Show("Erreur de l'insertion de la note de (Num etud : "+ inscription_id + " ) dans la base donnée !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
             }
@@ -230,7 +230,7 @@ namespace WindowsFormsApplication1
             }
             catch (Exception e1)
             {
-                MessageBox.Show(e1.ToString());
+                MessageBox.Show("Erreur de créer l'exam dans la base donnée !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return examen_id.ToString();
@@ -262,25 +262,35 @@ namespace WindowsFormsApplication1
             }
             catch (Exception e1)
             {
-                MessageBox.Show(e1.ToString());
+                MessageBox.Show("Erreur de créer l'exam dans la base donnée !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //examen_id = "rien";
             }
         }
         public static string get_password(string login)
         {
-            string password="";
+            string password = "";
 
-            sql = "SELECT PASSWORD FROM `utilisateurs` where (username='" + login + "' or email='" + login+"') and typeUser in ('tuteur','eleve','Prospect','personnel') and  enabled = 1 ";
-            mysqlComm = new MySqlCommand(sql, DatabaseManager.cnx);
-            dr = mysqlComm.ExecuteReader();
-
-            if (dr.Read())
+            try
             {
-                password = dr["PASSWORD"].ToString();
+
+                sql = "SELECT PASSWORD FROM `utilisateurs` where (username='" + login + "' or email='" + login + "') and typeUser in ('tuteur','eleve','Prospect','personnel') and  enabled = 1 ";
+                mysqlComm = new MySqlCommand(sql, DatabaseManager.cnx);
+                dr = mysqlComm.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    password = dr["PASSWORD"].ToString();
+                }
+                dr.Close();
+                dr = null;
             }
-            dr.Close();
-            dr = null;
+            catch
+            {
+                MessageBox.Show("Erreur de trouve le compte dans la base donnée !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             return password;
+
         }
     }
 }
