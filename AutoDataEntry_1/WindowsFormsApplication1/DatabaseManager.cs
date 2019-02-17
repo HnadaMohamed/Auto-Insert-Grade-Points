@@ -156,7 +156,7 @@ namespace WindowsFormsApplication1
             return sql_;
         }
 
-        public static void insert_note(string inscription_id , string moyenne ,string examen_id)
+        public static string insert_note(string inscription_id , string moyenne ,string examen_id)
         {
             try
             {
@@ -174,10 +174,12 @@ namespace WindowsFormsApplication1
                     mysqlComm.ExecuteNonQuery();
 
                     mysqlComm = null;
+                    return "1";
                 }
                 else
                 {
-                    MessageBox.Show("la requette est vide !");
+                    // MessageBox.Show("la requette est vide !");
+                    return "0";
                 }
                
             }
@@ -185,6 +187,7 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show("Erreur de l'insertion de la note de (Num etud : "+ inscription_id + " ) dans la base donnée !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                return "0";
 
             }
 

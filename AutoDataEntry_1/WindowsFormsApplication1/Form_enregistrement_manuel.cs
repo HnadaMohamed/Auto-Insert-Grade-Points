@@ -266,9 +266,13 @@ namespace WindowsFormsApplication1
                     return"0";
                 }
 
-                DatabaseManager.insert_note(inscription_id, moyenne, examen_id);
+                string r = DatabaseManager.insert_note(inscription_id, moyenne, examen_id);
 
-                
+                if(r == "0")
+                {
+                    return "0";
+                }
+
                 inscription_id = "";
                 moyenne = "";
                 examen_id = "";
