@@ -28,7 +28,7 @@ namespace WindowsFormsApplication1
 
         MySqlCommand mysqlComm;
         MySqlDataReader dr;
-        string sql, inscription_id = "", moyenne = "", examen_id = "";
+        string  inscription_id = "", moyenne = "", examen_id = "";
         int cp_pictures = 0;
         string[] id_champs;
         List<String> paths = new List<String>();
@@ -210,7 +210,7 @@ namespace WindowsFormsApplication1
             FileInfo fi = new FileInfo(paths[0]);
             string name_image = fi.Name;
 
-            MessageBox.Show("name file : " + name_image);
+            //MessageBox.Show("name file : " + name_image);
 
             //string name_image = "119;195;555;528;526;12/02/2018";
 
@@ -223,7 +223,7 @@ namespace WindowsFormsApplication1
             }
             catch (Exception e1)
             {
-                MessageBox.Show(e1.ToString());
+                MessageBox.Show("Erreur de créer l'exam dans la base donnée !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
@@ -268,7 +268,7 @@ namespace WindowsFormsApplication1
 
                 DatabaseManager.insert_note(inscription_id, moyenne, examen_id);
 
-                sql = "";
+                
                 inscription_id = "";
                 moyenne = "";
                 examen_id = "";
@@ -276,8 +276,8 @@ namespace WindowsFormsApplication1
             }
             catch (Exception e1)
             {
-                MessageBox.Show(e1.ToString());
-
+                MessageBox.Show("Erreur de l'insertion de la note de (Num etud : "+ inscription_id + " ) dans la base donnée !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "0";
             }
 
 
