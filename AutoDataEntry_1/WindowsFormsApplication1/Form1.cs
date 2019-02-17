@@ -92,6 +92,9 @@ namespace WindowsFormsApplication1
             
             if (p==0 )
             {
+                Progressbarerreur.animated = false;
+                Progressbarencours.animated = false;
+                Progressbartraiter.animated = false;
                 if (!thread_traitment.IsAlive )                                 
                 {
                     Startbutton.Enabled = true;
@@ -107,7 +110,16 @@ namespace WindowsFormsApplication1
                    
                     
                 }
-                
+
+            }else
+            {
+                Progressbarerreur.animated = true;
+                Progressbarencours.animated = true;
+                Progressbartraiter.animated = true;
+
+                Progressbarerreur.animationSpeed = 100;
+                Progressbarencours.animationSpeed = 100;
+                Progressbartraiter.animationSpeed = 100;
             }
 
 
@@ -124,6 +136,8 @@ namespace WindowsFormsApplication1
                     d++;
                 }
                 Progressbarerreur.Value = d;
+                Progressbarerreur.animated = false;
+                label_erreur.Text = d.ToString();
 
                 DirectoryInfo done = new DirectoryInfo(ParametreClass.DoneForlder);
                 int er = 0;
@@ -132,6 +146,8 @@ namespace WindowsFormsApplication1
                     er++;
                 }
                 Progressbartraiter.Value = er;
+                Progressbartraiter.animated = false;
+                label_traiter.Text = er.ToString();
                 //Progressbarerreur.animationSpeed = 0;
 
                 DirectoryInfo pross = new DirectoryInfo(ParametreClass.ProcessForlder);
@@ -141,6 +157,8 @@ namespace WindowsFormsApplication1
                     dn++;
                 }
               Progressbarencours.Value = dn;
+                Progressbarencours.animated = false;
+                label_en_cour.Text = dn.ToString();
 
 
             }
@@ -252,27 +270,30 @@ namespace WindowsFormsApplication1
                     d++;
                 }
                 Progressbarerreur.Value = d;
-                
+            Progressbarerreur.animated = false;
+                label_erreur.Text = d.ToString();
 
-                DirectoryInfo done = new DirectoryInfo(ParametreClass.DoneForlder);
+
+            DirectoryInfo done = new DirectoryInfo(ParametreClass.DoneForlder);
                 int er = 0;
                 foreach (FileInfo fi in done.GetFiles())
                 {
                     er++;
                 }
                 Progressbartraiter.Value = er;
-               
+                label_traiter.Text = er.ToString();
 
-                DirectoryInfo pross = new DirectoryInfo(ParametreClass.ProcessForlder);
+            DirectoryInfo pross = new DirectoryInfo(ParametreClass.ProcessForlder);
                 int dn = 0;
                 foreach (FileInfo fi in pross.GetFiles())
                 {
                     dn++;
                 }
                 Progressbarencours.Value = dn;
-               
+                label_en_cour.Text = dn.ToString();
 
-            
+
+
 
 
         }

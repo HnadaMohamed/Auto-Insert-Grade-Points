@@ -41,6 +41,7 @@ namespace WindowsFormsApplication1
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.loginform = new System.Windows.Forms.Panel();
+            this.btn_login = new MetroFramework.Controls.MetroButton();
             this.textLogin = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label3 = new System.Windows.Forms.Label();
             this.textpassword = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -59,7 +60,6 @@ namespace WindowsFormsApplication1
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label_nb_feuille = new System.Windows.Forms.Label();
-            this.btn_login = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
@@ -94,22 +94,21 @@ namespace WindowsFormsApplication1
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
-            this.label1.Location = new System.Drawing.Point(34, 147);
+            this.label1.Location = new System.Drawing.Point(36, 127);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 33);
+            this.label1.Size = new System.Drawing.Size(123, 33);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Best Solution";
+            this.label1.Text = "E-MANAR";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(202)))), ((int)(((byte)(253)))));
-            this.label2.Location = new System.Drawing.Point(41, 189);
+            this.label2.Location = new System.Drawing.Point(41, 170);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(270, 15);
+            this.label2.Size = new System.Drawing.Size(270, 41);
             this.label2.TabIndex = 6;
-            this.label2.Text = "For Quick  and Automatique Data Entry Services ";
+            this.label2.Text = "Une Application d’Insertion automatique des Notes d ’Examen.";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // bunifuImageButton1
@@ -159,11 +158,24 @@ namespace WindowsFormsApplication1
             this.loginform.Controls.Add(this.textLogin);
             this.loginform.Controls.Add(this.label3);
             this.loginform.Controls.Add(this.textpassword);
-            this.loginform.Location = new System.Drawing.Point(10, 127);
+            this.loginform.Location = new System.Drawing.Point(23, 124);
             this.loginform.Name = "loginform";
             this.loginform.Size = new System.Drawing.Size(301, 188);
             this.loginform.TabIndex = 9;
             this.loginform.Visible = false;
+            // 
+            // btn_login
+            // 
+            this.btn_login.BackColor = System.Drawing.Color.Black;
+            this.btn_login.Location = new System.Drawing.Point(13, 145);
+            this.btn_login.Name = "btn_login";
+            this.btn_login.Size = new System.Drawing.Size(99, 25);
+            this.btn_login.TabIndex = 25;
+            this.btn_login.Text = "Login";
+            this.btn_login.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btn_login.UseSelectable = true;
+            this.btn_login.UseStyleColors = true;
+            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
             // textLogin
             // 
@@ -254,6 +266,7 @@ namespace WindowsFormsApplication1
             // bunifuElipse2
             // 
             this.bunifuElipse2.ElipseRadius = 5;
+            this.bunifuElipse2.TargetControl = this;
             // 
             // bunifuImageButton4
             // 
@@ -398,19 +411,6 @@ namespace WindowsFormsApplication1
             this.label_nb_feuille.Size = new System.Drawing.Size(175, 37);
             this.label_nb_feuille.TabIndex = 25;
             this.label_nb_feuille.Text = "Paramettre";
-            // 
-            // btn_login
-            // 
-            this.btn_login.BackColor = System.Drawing.Color.Black;
-            this.btn_login.Location = new System.Drawing.Point(13, 145);
-            this.btn_login.Name = "btn_login";
-            this.btn_login.Size = new System.Drawing.Size(99, 25);
-            this.btn_login.TabIndex = 25;
-            this.btn_login.Text = "Login";
-            this.btn_login.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.btn_login.UseSelectable = true;
-            this.btn_login.UseStyleColors = true;
-            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
             // Form3
             // 

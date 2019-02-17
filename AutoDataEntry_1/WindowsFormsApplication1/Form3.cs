@@ -32,8 +32,7 @@ namespace WindowsFormsApplication1
 
             loginform.Visible = false;
 
-            //open connection
-            DatabaseManager.OpenConnection();
+           
             //copy process folder in scanner folder 
             DirectoryInfo process = new DirectoryInfo(ParametreClass.ProcessForlder);
 
@@ -68,7 +67,8 @@ namespace WindowsFormsApplication1
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
         {
-
+            //open connection
+            DatabaseManager.OpenConnection();
             loginform.Visible = true;
 
         }

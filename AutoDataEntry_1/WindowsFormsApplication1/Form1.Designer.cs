@@ -38,15 +38,15 @@
             this.Startbutton = new Bunifu.Framework.UI.BunifuImageButton();
             this.label_button_traitement = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.Progressbarerreur = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.insertion = new MetroFramework.Controls.MetroButton();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.Progressbarerreur = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.Progressbartraiter = new Bunifu.Framework.UI.BunifuCircleProgressbar();
+            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.Progressbarencours = new Bunifu.Framework.UI.BunifuCircleProgressbar();
+            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -68,6 +68,9 @@
             this.bunifuElipse15 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.label_en_cour = new System.Windows.Forms.Label();
+            this.label_traiter = new System.Windows.Forms.Label();
+            this.label_erreur = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -116,7 +119,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.panel2.Controls.Add(this.Startbutton);
             this.panel2.Controls.Add(this.label_button_traitement);
-            this.panel2.Location = new System.Drawing.Point(14, 212);
+            this.panel2.Location = new System.Drawing.Point(14, 223);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(624, 130);
             this.panel2.TabIndex = 19;
@@ -151,18 +154,41 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.panel8.Controls.Add(this.label_erreur);
             this.panel8.Controls.Add(this.Progressbarerreur);
             this.panel8.Controls.Add(this.insertion);
             this.panel8.Controls.Add(this.bunifuCustomLabel4);
             this.panel8.Location = new System.Drawing.Point(434, 88);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(204, 118);
+            this.panel8.Size = new System.Drawing.Size(204, 129);
             this.panel8.TabIndex = 17;
+            // 
+            // Progressbarerreur
+            // 
+            this.Progressbarerreur.animated = true;
+            this.Progressbarerreur.animationIterval = 5;
+            this.Progressbarerreur.animationSpeed = 300;
+            this.Progressbarerreur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Progressbarerreur.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Progressbarerreur.BackgroundImage")));
+            this.Progressbarerreur.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Progressbarerreur.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Progressbarerreur.LabelVisible = false;
+            this.Progressbarerreur.LineProgressThickness = 5;
+            this.Progressbarerreur.LineThickness = 0;
+            this.Progressbarerreur.Location = new System.Drawing.Point(96, 24);
+            this.Progressbarerreur.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.Progressbarerreur.MaxValue = 100;
+            this.Progressbarerreur.Name = "Progressbarerreur";
+            this.Progressbarerreur.ProgressBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Progressbarerreur.ProgressColor = System.Drawing.Color.White;
+            this.Progressbarerreur.Size = new System.Drawing.Size(98, 98);
+            this.Progressbarerreur.TabIndex = 12;
+            this.Progressbarerreur.Value = 0;
             // 
             // insertion
             // 
             this.insertion.BackColor = System.Drawing.Color.Black;
-            this.insertion.Location = new System.Drawing.Point(9, 90);
+            this.insertion.Location = new System.Drawing.Point(9, 102);
             this.insertion.Name = "insertion";
             this.insertion.Size = new System.Drawing.Size(76, 20);
             this.insertion.TabIndex = 24;
@@ -184,37 +210,38 @@
             this.bunifuCustomLabel4.TabIndex = 16;
             this.bunifuCustomLabel4.Text = "Nombre Des Erreur";
             // 
-            // Progressbarerreur
-            // 
-            this.Progressbarerreur.animated = true;
-            this.Progressbarerreur.animationIterval = 5;
-            this.Progressbarerreur.animationSpeed = 300;
-            this.Progressbarerreur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.Progressbarerreur.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Progressbarerreur.BackgroundImage")));
-            this.Progressbarerreur.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Progressbarerreur.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Progressbarerreur.LabelVisible = true;
-            this.Progressbarerreur.LineProgressThickness = 5;
-            this.Progressbarerreur.LineThickness = 0;
-            this.Progressbarerreur.Location = new System.Drawing.Point(105, 24);
-            this.Progressbarerreur.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.Progressbarerreur.MaxValue = 100;
-            this.Progressbarerreur.Name = "Progressbarerreur";
-            this.Progressbarerreur.ProgressBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Progressbarerreur.ProgressColor = System.Drawing.Color.White;
-            this.Progressbarerreur.Size = new System.Drawing.Size(86, 86);
-            this.Progressbarerreur.TabIndex = 12;
-            this.Progressbarerreur.Value = 0;
-            // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.panel7.Controls.Add(this.label_traiter);
             this.panel7.Controls.Add(this.Progressbartraiter);
             this.panel7.Controls.Add(this.bunifuCustomLabel3);
             this.panel7.Location = new System.Drawing.Point(224, 88);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(204, 118);
+            this.panel7.Size = new System.Drawing.Size(204, 129);
             this.panel7.TabIndex = 16;
+            // 
+            // Progressbartraiter
+            // 
+            this.Progressbartraiter.animated = false;
+            this.Progressbartraiter.animationIterval = 5;
+            this.Progressbartraiter.animationSpeed = 300;
+            this.Progressbartraiter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Progressbartraiter.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Progressbartraiter.BackgroundImage")));
+            this.Progressbartraiter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Progressbartraiter.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Progressbartraiter.LabelVisible = false;
+            this.Progressbartraiter.LineProgressThickness = 5;
+            this.Progressbartraiter.LineThickness = 0;
+            this.Progressbartraiter.Location = new System.Drawing.Point(102, 24);
+            this.Progressbartraiter.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.Progressbartraiter.MaxValue = 100;
+            this.Progressbartraiter.Name = "Progressbartraiter";
+            this.Progressbartraiter.ProgressBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Progressbartraiter.ProgressColor = System.Drawing.Color.White;
+            this.Progressbartraiter.Size = new System.Drawing.Size(98, 98);
+            this.Progressbartraiter.TabIndex = 11;
+            this.Progressbartraiter.Value = 0;
             // 
             // bunifuCustomLabel3
             // 
@@ -228,37 +255,38 @@
             this.bunifuCustomLabel3.TabIndex = 16;
             this.bunifuCustomLabel3.Text = "Nombre de Fichier traiter";
             // 
-            // Progressbartraiter
-            // 
-            this.Progressbartraiter.animated = true;
-            this.Progressbartraiter.animationIterval = 5;
-            this.Progressbartraiter.animationSpeed = 300;
-            this.Progressbartraiter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.Progressbartraiter.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Progressbartraiter.BackgroundImage")));
-            this.Progressbartraiter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Progressbartraiter.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Progressbartraiter.LabelVisible = true;
-            this.Progressbartraiter.LineProgressThickness = 5;
-            this.Progressbartraiter.LineThickness = 0;
-            this.Progressbartraiter.Location = new System.Drawing.Point(106, 24);
-            this.Progressbartraiter.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.Progressbartraiter.MaxValue = 100;
-            this.Progressbartraiter.Name = "Progressbartraiter";
-            this.Progressbartraiter.ProgressBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Progressbartraiter.ProgressColor = System.Drawing.Color.White;
-            this.Progressbartraiter.Size = new System.Drawing.Size(86, 86);
-            this.Progressbartraiter.TabIndex = 11;
-            this.Progressbartraiter.Value = 0;
-            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.panel6.Controls.Add(this.label_en_cour);
             this.panel6.Controls.Add(this.Progressbarencours);
             this.panel6.Controls.Add(this.bunifuCustomLabel2);
             this.panel6.Location = new System.Drawing.Point(14, 88);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(204, 118);
+            this.panel6.Size = new System.Drawing.Size(204, 129);
             this.panel6.TabIndex = 15;
+            // 
+            // Progressbarencours
+            // 
+            this.Progressbarencours.animated = true;
+            this.Progressbarencours.animationIterval = 5;
+            this.Progressbarencours.animationSpeed = 300;
+            this.Progressbarencours.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Progressbarencours.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Progressbarencours.BackgroundImage")));
+            this.Progressbarencours.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Progressbarencours.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Progressbarencours.LabelVisible = false;
+            this.Progressbarencours.LineProgressThickness = 5;
+            this.Progressbarencours.LineThickness = 0;
+            this.Progressbarencours.Location = new System.Drawing.Point(101, 24);
+            this.Progressbarencours.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.Progressbarencours.MaxValue = 100;
+            this.Progressbarencours.Name = "Progressbarencours";
+            this.Progressbarencours.ProgressBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Progressbarencours.ProgressColor = System.Drawing.Color.White;
+            this.Progressbarencours.Size = new System.Drawing.Size(98, 98);
+            this.Progressbarencours.TabIndex = 3;
+            this.Progressbarencours.Value = 0;
             // 
             // bunifuCustomLabel2
             // 
@@ -270,28 +298,6 @@
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(198, 44);
             this.bunifuCustomLabel2.TabIndex = 16;
             this.bunifuCustomLabel2.Text = "Fichier  en cours de  Traitement";
-            // 
-            // Progressbarencours
-            // 
-            this.Progressbarencours.animated = true;
-            this.Progressbarencours.animationIterval = 5;
-            this.Progressbarencours.animationSpeed = 300;
-            this.Progressbarencours.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.Progressbarencours.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Progressbarencours.BackgroundImage")));
-            this.Progressbarencours.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Progressbarencours.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Progressbarencours.LabelVisible = true;
-            this.Progressbarencours.LineProgressThickness = 5;
-            this.Progressbarencours.LineThickness = 0;
-            this.Progressbarencours.Location = new System.Drawing.Point(105, 24);
-            this.Progressbarencours.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.Progressbarencours.MaxValue = 100;
-            this.Progressbarencours.Name = "Progressbarencours";
-            this.Progressbarencours.ProgressBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Progressbarencours.ProgressColor = System.Drawing.Color.White;
-            this.Progressbarencours.Size = new System.Drawing.Size(86, 86);
-            this.Progressbarencours.TabIndex = 3;
-            this.Progressbarencours.Value = 0;
             // 
             // panel3
             // 
@@ -420,6 +426,39 @@
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // label_en_cour
+            // 
+            this.label_en_cour.Font = new System.Drawing.Font("Ubuntu", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_en_cour.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_en_cour.Location = new System.Drawing.Point(122, 55);
+            this.label_en_cour.Name = "label_en_cour";
+            this.label_en_cour.Size = new System.Drawing.Size(56, 38);
+            this.label_en_cour.TabIndex = 27;
+            this.label_en_cour.Text = "10";
+            this.label_en_cour.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_traiter
+            // 
+            this.label_traiter.Font = new System.Drawing.Font("Ubuntu", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_traiter.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_traiter.Location = new System.Drawing.Point(122, 55);
+            this.label_traiter.Name = "label_traiter";
+            this.label_traiter.Size = new System.Drawing.Size(58, 38);
+            this.label_traiter.TabIndex = 28;
+            this.label_traiter.Text = "8";
+            this.label_traiter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_erreur
+            // 
+            this.label_erreur.Font = new System.Drawing.Font("Ubuntu", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_erreur.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_erreur.Location = new System.Drawing.Point(117, 55);
+            this.label_erreur.Name = "label_erreur";
+            this.label_erreur.Size = new System.Drawing.Size(57, 38);
+            this.label_erreur.TabIndex = 29;
+            this.label_erreur.Text = "5";
+            this.label_erreur.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -486,5 +525,8 @@
         private Bunifu.Framework.UI.BunifuImageButton Startbutton;
         private MetroFramework.Controls.MetroButton insertion;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label_erreur;
+        private System.Windows.Forms.Label label_traiter;
+        private System.Windows.Forms.Label label_en_cour;
     }
 }
