@@ -46,5 +46,3 @@
 ![bandicam 2019-02-03 14-12-12-003](https://user-images.githubusercontent.com/46169333/52177225-bcb43000-27b5-11e9-8595-6a4258c52bf8.png)
 
 
-
-<iframe src='https://view.officeapps.live.com/op/embed.aspx?src=[https://www.your_website/file_name.pptx]' width='100%' height='600px' frameborder='0'>
