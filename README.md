@@ -1,4 +1,4 @@
-# Winform Application To manage and Auto-Correct and Insert Students Notes in the Database .
+# Application To manage , Auto-Correct and Insert Students Grade Points in a Database .
 
 <h2>Design Part : </h2>
 <h5>  - Bunifu Ui Element : https://bunifuframework.com/free-download <br>
@@ -19,7 +19,7 @@
 </h5>
     
     
-<h2>WelcomScreen </h2>
+<h2>welcome screen</h2>
 
 ![bandicam 2019-02-03 14-10-47-898](https://user-images.githubusercontent.com/46169333/52177205-8aa2ce00-27b5-11e9-9fee-eb69c560ce38.png)
 
